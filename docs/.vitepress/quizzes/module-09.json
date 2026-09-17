@@ -1,0 +1,136 @@
+{
+  "module": "09 · Classes and Objects",
+  "title": "Checkpoint: Classes and Objects",
+  "intro": "Check that you can define classes, work with instance and class attributes, use properties, and write special methods.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "class Temperature:\n    def __init__(self, celsius):\n        self.celsius = celsius\n\n    @classmethod\n    def from_fahrenheit(cls, f):\n        return cls((f - 32) * 5 / 9)\n\nt = Temperature.from_fahrenheit(212)\nprint(t.celsius)",
+      "options": [
+        "100.0",
+        "212",
+        "TypeError",
+        "100"
+      ],
+      "answer": 0,
+      "explanation": "A classmethod receives the class as cls, so cls(...) builds a new Temperature. (212 - 32) * 5 / 9 is 100.0, a float because of /.",
+      "lesson": "class-attributes-and-methods"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "class Book:\n    def __init__(self, title):\n        title = title\n\nbook = Book(\"Python Basics\")\nprint(book.title)",
+      "options": [
+        "It prints Python Basics",
+        "It prints None",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 3,
+      "explanation": "Without self., title is only a local variable inside __init__, so the object never gets a title attribute.",
+      "lesson": "classes-and-objects"
+    },
+    {
+      "question": "What happens on the last line?",
+      "code": "class Todo:\n    def __init__(self):\n        self.tasks = []\n\n    def add(self, task):\n        self.tasks.append(task)\n\ntodo = Todo().add(\"buy bread\")\nprint(todo.tasks)",
+      "options": [
+        "It prints ['buy bread']",
+        "AttributeError",
+        "TypeError",
+        "It prints None"
+      ],
+      "answer": 1,
+      "explanation": "add() returns None, so todo is None. Create the object first, then call add() on its own line.",
+      "lesson": "methods-and-attributes"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "class Wallet:\n    def __init__(self):\n        self.cash = 1000\n    def spend(self, amount):\n        self.cash -= amount\n        if self.cash < 0:\n            raise ValueError(\"Not enough cash\")\nw = Wallet()\ntry:\n    w.spend(5000)\nexcept ValueError:\n    print(w.cash)",
+      "options": [
+        "1000",
+        "-4000",
+        "ValueError",
+        "0"
+      ],
+      "answer": 1,
+      "explanation": "The state changes before it is validated: self.cash is reduced first, and the exception is raised afterwards (and then caught), so the wallet ends up at -4000. Validate first, then change state.",
+      "lesson": "methods-and-attributes"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "class Student:\n    count = 0\n\n    def __init__(self, name):\n        self.name = name\n        self.count += 1\n\na = Student(\"Aziza\")\nb = Student(\"Bekzod\")\nprint(Student.count, a.count)",
+      "options": [
+        "2 1",
+        "2 2",
+        "0 1",
+        "AttributeError"
+      ],
+      "answer": 2,
+      "explanation": "self.count += 1 creates an instance attribute on each object and leaves Student.count at 0. Use Student.count += 1.",
+      "lesson": "class-attributes-and-methods"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n\n    @property\n    def area(self):\n        return self.width * self.height\n\nprint(Rectangle(4, 5).area())",
+      "options": [
+        "It prints 20",
+        "It prints the method object",
+        "AttributeError",
+        "TypeError"
+      ],
+      "answer": 3,
+      "explanation": "A property is read without parentheses: Rectangle(4, 5).area is already the number 20, and a number cannot be called.",
+      "lesson": "properties-and-encapsulation"
+    },
+    {
+      "question": "A Product class has a property named price. Inside the class, where should the value itself be stored?",
+      "options": [
+        "self.price",
+        "self._price",
+        "Product.price",
+        "A global variable"
+      ],
+      "answer": 1,
+      "explanation": "Assigning to self.price inside the property calls the setter again and again, causing RecursionError. Store the data under another name like self._price.",
+      "lesson": "properties-and-encapsulation"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "class Product:\n    def __init__(self, name):\n        self.name = name\n\n    def __repr__(self):\n        return f\"Product({self.name!r})\"\n\n    def __str__(self):\n        return self.name\n\nitems = [Product(\"Tea\")]\nprint(items[0], items)",
+      "options": [
+        "Tea [Product('Tea')]",
+        "Tea [Tea]",
+        "Product('Tea') [Product('Tea')]",
+        "Tea ['Tea']"
+      ],
+      "answer": 0,
+      "explanation": "print() uses __str__ for the object itself, but a list shows its items with __repr__.",
+      "lesson": "special-methods"
+    },
+    {
+      "question": "What does this code do?",
+      "code": "class Product:\n    def __init__(self, name, price):\n        self.name = name\n        self.price = price\n\n    def __eq__(self, other):\n        return self.name == other.name\n\nprint(Product(\"Tea\", 15000) == Product(\"Tea\", 12000))\nprint({Product(\"Tea\", 15000)})",
+      "options": [
+        "Prints True, then a set with one product",
+        "Prints False, then raises TypeError",
+        "Prints True, then raises TypeError",
+        "Prints True, then a set with two products"
+      ],
+      "answer": 2,
+      "explanation": "The names match, so == is True. Defining __eq__ sets __hash__ to None, so the object cannot go in a set.",
+      "lesson": "special-methods"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "class Cart:\n    def __init__(self, items):\n        self.items = items\n\n    def __len__(self):\n        return len(self.items)\n\ncart = Cart([\"tea\", \"non\"])\nprint(len(cart), bool(Cart([])))",
+      "options": [
+        "2 False",
+        "2 True",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 0,
+      "explanation": "len(cart) calls __len__. With no __bool__, truth testing falls back to __len__, so an empty cart is False.",
+      "lesson": "operators-and-containers"
+    }
+  ]
+}

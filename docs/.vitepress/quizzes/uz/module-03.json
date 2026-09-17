@@ -1,0 +1,136 @@
+{
+  "module": "03 · Şart operatorlari",
+  "title": "Nazorat: Şart operatorlari",
+  "intro": "Qiymatlarni taqqoslaş, şartlarni birlaştiriş va if hamda match yordamida tarmoqlar orasidan tanlaş qançalik yaxşi çiqişini tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "answer = \"7\"\nprint(answer == 7)",
+      "options": [
+        "False",
+        "True",
+        "7",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "\"7\" satr, 7 esa son, şuning uçun ular heç qaçon teng bölmaydi. Taqqoslaşdan oldin int(answer) bilan özgartiring.",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(bool(\"\"), bool(\"0\"))",
+      "options": [
+        "False False",
+        "True True",
+        "False True",
+        "True False"
+      ],
+      "answer": 2,
+      "explanation": "Böş satr yolğon hisoblanadi, lekin har qanday böş bölmagan satr, hatto \"0\" ham, rost hisoblanadi.",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(1 < 5 < 3)",
+      "options": [
+        "True",
+        "False",
+        "SyntaxError",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": "Zanjirli taqqoslaş 1 < 5 and 5 < 3 degani. Ikkinçi qism False, şuning uçun butun ifoda False.",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "temp = 30\nif temp > 10:\n    print(\"Warm\")\nelif temp > 20:\n    print(\"Hot\")\nelse:\n    print(\"Cold\")",
+      "options": [
+        "Hot",
+        "Hot and Warm",
+        "Cold",
+        "Warm"
+      ],
+      "answer": 3,
+      "explanation": "Python şartlarni yuqoridan pastga tekşiradi va faqat birinçi rost tarmoqni bajaradi. 30 > 10 rost, şuning uçun Hot tekşiruviga heç qaçon yetib kelmaydi.",
+      "lesson": "if-elif-else"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "answer = \"no\"\nif answer == \"yes\" or \"y\":\n    print(\"OK\")\nelse:\n    print(\"Cancelled\")",
+      "options": [
+        "SyntaxError",
+        "Cancelled",
+        "OK",
+        "Heç narsa"
+      ],
+      "answer": 2,
+      "explanation": "Bu (answer == \"yes\") or \"y\" deb öqiladi, böş bölmagan \"y\" satri esa doim rost. Uning örniga answer in (\"yes\", \"y\") deb yozing.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(True or False and False)",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "and or dan oldin hisoblanadi, şuning uçun bu True or (False and False), yaʼni True.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "Qaysi şart nolga bölişdan xavfsiz saqlaydi?",
+      "options": [
+        "total / count > 10 and count != 0",
+        "not count and total / count > 10",
+        "count != 0 or total / count > 10",
+        "count != 0 and total / count > 10"
+      ],
+      "answer": 3,
+      "explanation": "and çap tomon False bölişi bilanoq töxtaydi, şuning uçun bölişni ötkazib yuboriş uçun himoya tekşiruvi birinçi kelişi kerak.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "command = \"halt\"\nmatch command:\n    case \"go\" | \"start\":\n        print(\"Moving\")\n    case \"stop\" | \"halt\":\n        print(\"Stopping\")\n    case _:\n        print(\"Unknown command\")",
+      "options": [
+        "Moving",
+        "Stopping",
+        "Unknown command",
+        "Heç narsa"
+      ],
+      "answer": 1,
+      "explanation": "| bitta case ga bir neça qiymatga mos keliş imkonini beradi. \"halt\" ikkinçi case ga mos keladi.",
+      "lesson": "match-statement"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "color = \"green\"\nmatch color:\n    case \"red\":\n        print(\"Töxta\")\n    case other:\n        print(\"Nomaʼlum:\", other)",
+      "options": [
+        "Nomaʼlum: green",
+        "Hiç narsa",
+        "NameError",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "case dagi yalanğoç nom - tutib oluvçi (capture) andoza: u istalgan qiymatga mos keladi va uni boğlaydi, şuning uçun oldingi case lar mos kelmasa oxirgisi doim işlaydi. Şuning uçun u eng oxirida turişi kerak.",
+      "lesson": "match-statement"
+    },
+    {
+      "question": "Bu kodda nima notöğri?",
+      "code": "age = 18\nif age = 18:\n    print(\"Just turned 18\")",
+      "options": [
+        "Heç narsa, u Just turned 18 ni çop etadi",
+        "== örniga = işlatilgan, şuning uçun Python SyntaxError çaqiradi",
+        "if şarti qavs içida bölişi kerak",
+        "print çekiniş bilan yozilmasligi kerak"
+      ],
+      "answer": 1,
+      "explanation": "Bitta = qiymat beradi; taqqoslaş uçun == kerak. Python SyntaxError bilan töxtaydi va hatto tuzatişni ham taklif qiladi.",
+      "lesson": "if-elif-else"
+    }
+  ]
+}

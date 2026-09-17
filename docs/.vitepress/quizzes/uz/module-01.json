@@ -1,0 +1,134 @@
+{
+  "module": "01 · Kiriş",
+  "title": "Nazorat: Kiriş",
+  "intro": "Pythonni işga tuşira olişingiz, matn çop etişingiz va dastlab uçraydigan xato xabarlarini öqiy olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(\"Hello\", \"Aziza\", sep=\"-\")",
+      "options": [
+        "Hello-Aziza",
+        "Hello Aziza",
+        "Hello-Aziza-",
+        "HelloAziza"
+      ],
+      "answer": 0,
+      "explanation": "sep qiymatlar orasiga nima qöyilişini belgilaydi, şuning uçun print odatdagi böşliq örniga çiziqça qöyadi.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "Bu qatorni işga tuşirganda nima böladi?",
+      "code": "Print(\"Salom\")",
+      "options": [
+        "Salom ni çop etadi",
+        "SyntaxError",
+        "NameError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "Python harflarning katta-kiçikligini farqlaydi. Faqat print mavjud, şuning uçun Print notaniş nom va NameError çaqiradi.",
+      "lesson": "what-is-python"
+    },
+    {
+      "question": "Oynangizda >>> körinib turibdi, siz python hello.py deb yozasiz va SyntaxError olasiz. Nima notöğri?",
+      "options": [
+        "hello.py fayli böş, şuning uçun işga tuşadigan narsa yöq",
+        "Siz Python REPL içidasiz: exit() deb yozing, keyin buyruqni terminalda bering",
+        "Faylni işga tuşiriş uçun print(python hello.py) deb yoziş kerak",
+        "Python örnatilmagan, şuning uçun buyruq tanilmaydi"
+      ],
+      "answer": 1,
+      "explanation": ">>> taklif belgisi siz allaqaçon Python içida ekaningizni bildiradi, u yerda faqat Python kodi işlaydi. Terminal buyruqlari $ yoki PS taklif belgisida yoziladi.",
+      "lesson": "install-and-setup"
+    },
+    {
+      "question": "Skript faylida faqat quyidagi qator bor. Uni python3 sum.py bilan işga tuşirasiz. Nimani körasiz?",
+      "code": "2 + 3",
+      "options": [
+        "5",
+        "2 + 3",
+        "Xato xabarini",
+        "Heç narsani"
+      ],
+      "answer": 3,
+      "explanation": "Skriptlar REPL kabi qiymatlarni avtomatik körsatmaydi. Qiymatni köriş uçun ifodani print() içiga oling.",
+      "lesson": "running-python"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(\"Tashkent\", end=\"!\")\nprint(\"Samarkand\")",
+      "options": [
+        "Tashkent! Samarkand",
+        "TashkentSamarkand!",
+        "Tashkent!Samarkand",
+        "SyntaxError"
+      ],
+      "answer": 2,
+      "explanation": "end=\"!\" odatdagi yangi qatorni ! bilan almaştiradi, şuning uçun keyingi print öşa qatorda davom etadi.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(\"7 * 3 =\", 7 * 3)",
+      "options": [
+        "7 * 3 = 21",
+        "21 = 21",
+        "7 * 3 = 7 * 3",
+        "7 * 3 =21"
+      ],
+      "answer": 0,
+      "explanation": "Qöştirnoq içidagi qism matn bölib, qanday bölsa şunday çop etiladi; qöştirnoqsiz qism hisoblanadi. print ular orasiga böşliq qöyadi.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "Qaysi izoh eng foydali?",
+      "options": [
+        "count = count + 1  # count ga 1 qöşamiz",
+        "print(total)  # jami qiymatni çop etamiz",
+        "x = 5  # x ni beşga tenglaymiz",
+        "tax_rate = 0.12  # QQS stavkasi; har yili tekşiring"
+      ],
+      "answer": 3,
+      "explanation": "Yaxşi izohlar nega ekanini tuşuntiradi yoki kod körsata olmaydigan kontekstni beradi. Qolganlari kod allaqaçon aytgan narsani takrorlaydi.",
+      "lesson": "comments-and-style"
+    },
+    {
+      "question": "Bu dastur nega xato beradi?",
+      "code": "print(\"start\")\n    print(\"next\")",
+      "options": [
+        "print oxirida ikki nuqta bölişi kerak",
+        "Ikkinçi qator sababsiz çekiniş bilan yozilgan",
+        "Satrlarda böşliq bölişi mumkin emas",
+        "print ni ikki marta çaqirib bölmaydi"
+      ],
+      "answer": 1,
+      "explanation": "Faqat blok içidagi kod (masalan, if tanasi) çekiniş bilan yozilişi kerak. Ortiqça böşliqlar IndentationError: unexpected indent xatosini keltirib çiqaradi.",
+      "lesson": "comments-and-style"
+    },
+    {
+      "question": "macOS yoki Linux terminalida interaktiv Python qobiğini (REPL) qaysi buyruq oçadi?",
+      "options": [
+        "python3",
+        "python3 hello.py",
+        "py --version",
+        "pip3 python"
+      ],
+      "answer": 0,
+      "explanation": "Fayl nomisiz python3 REPL ni işga tuşiradi, unda >>> belgisini körasiz. python3 hello.py esa faylni işga tuşiradi.",
+      "lesson": "running-python"
+    },
+    {
+      "question": "REPL da quyidagi qatorni yozib Enter bosdingiz. Hiç narsa çiqmadi. Nega?",
+      "code": "total = 120 + 80",
+      "options": [
+        "Qiymat berişning körsatadigan qiymati yöq; REPL faqat ifodalarni aks ettiradi",
+        "Python hali ikkinçi kiritiş qatorini kutmoqda",
+        "total nomi band, şuning uçun u eʼtiborsiz qoldirildi",
+        "REPL print() çaqirilmagunça hiç narsa körsatmaydi"
+      ],
+      "answer": 0,
+      "explanation": "REPL total yoki 2 + 3 kabi ifodaning qiymatini körsatadi, qiymat beriş esa qiymat bermaydi, şuning uçun hiç narsa çiqmaydi.",
+      "lesson": "running-python"
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+[
+  {
+    "slug": "what-is-python",
+    "title": "Python nima?",
+    "group": "01 · Kiriş"
+  },
+  {
+    "slug": "install-and-setup",
+    "title": "Pythonni örnatiş",
+    "group": "01 · Kiriş"
+  },
+  {
+    "slug": "running-python",
+    "title": "Python kodini işga tuşiriş",
+    "group": "01 · Kiriş"
+  },
+  {
+    "slug": "hello-world",
+    "title": "Salom, dunyo!",
+    "group": "01 · Kiriş"
+  },
+  {
+    "slug": "comments-and-style",
+    "title": "Izohlar va kod uslubi",
+    "group": "01 · Kiriş"
+  },
+  {
+    "slug": "variables",
+    "title": "Özgaruvçilar",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "numbers-and-math",
+    "title": "Sonlar va matematika",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "strings-basics",
+    "title": "Satrlar",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "string-methods-and-slicing",
+    "title": "Satr metodlari va kesimlar",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "f-strings",
+    "title": "F-satrlar",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "type-conversion-and-input",
+    "title": "Kiritiş va turlarni özgartiriş",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "reading-errors-and-debugging",
+    "title": "Xato xabarlarini öqiş va tuzatiş",
+    "group": "02 · Özgaruvçilar va maʼlumot turlari"
+  },
+  {
+    "slug": "booleans-and-comparisons",
+    "title": "Mantiqiy qiymatlar va taqqoslaş",
+    "group": "03 · Şart operatorlari"
+  },
+  {
+    "slug": "if-elif-else",
+    "title": "if, elif va else",
+    "group": "03 · Şart operatorlari"
+  },
+  {
+    "slug": "logical-operators",
+    "title": "Mantiqiy operatorlar",
+    "group": "03 · Şart operatorlari"
+  },
+  {
+    "slug": "match-statement",
+    "title": "match operatori",
+    "group": "03 · Şart operatorlari"
+  },
+  {
+    "slug": "while-loops",
+    "title": "while sikli",
+    "group": "04 · Sikllar"
+  },
+  {
+    "slug": "for-loops-and-range",
+    "title": "for sikli va range()",
+    "group": "04 · Sikllar"
+  },
+  {
+    "slug": "break-continue-else",
+    "title": "break, continue va else",
+    "group": "04 · Sikllar"
+  },
+  {
+    "slug": "loop-patterns",
+    "title": "Sikllarda köp işlatiladigan usullar",
+    "group": "04 · Sikllar"
+  },
+  {
+    "slug": "number-guessing-game",
+    "title": "Loyiha: Sonni topiş öyini",
+    "group": "04 · Sikllar"
+  },
+  {
+    "slug": "lists",
+    "title": "Röyxatlar",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "list-operations-and-sorting",
+    "title": "Röyxatlar bilan işlaş va saralaş",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "tuples-and-unpacking",
+    "title": "Kortejlar va qiymatlarni ajratiş",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "dictionaries",
+    "title": "Luğatlar",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "sets",
+    "title": "Töplamlar",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "nested-data",
+    "title": "Içma-iç maʼlumotlar",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "comprehensions",
+    "title": "Comprehension ifodalari",
+    "group": "05 · Kolleksiyalar"
+  },
+  {
+    "slug": "defining-functions",
+    "title": "Funksiya yaratiş",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "parameters-and-arguments",
+    "title": "Parametrlar va argumentlar",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "return-values",
+    "title": "Qaytariladigan qiymatlar",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "scope",
+    "title": "Özgaruvçilarning köriniş sohasi",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "recursion",
+    "title": "Rekursiya",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "designing-functions",
+    "title": "Funksiyalarni töğri loyihalaş",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "lambda-and-higher-order-functions",
+    "title": "Lambda va yuqori tartibli funksiyalar",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "quiz-game",
+    "title": "Loyiha: Viktorina öyini",
+    "group": "06 · Funksiyalar"
+  },
+  {
+    "slug": "modules-and-imports",
+    "title": "Modullar va import",
+    "group": "07 · Modullar va standart kutubxona"
+  },
+  {
+    "slug": "math-random-statistics",
+    "title": "math, random va statistics",
+    "group": "07 · Modullar va standart kutubxona"
+  },
+  {
+    "slug": "dates-and-times",
+    "title": "Sana va vaqt",
+    "group": "07 · Modullar va standart kutubxona"
+  },
+  {
+    "slug": "collections-and-itertools",
+    "title": "collections va itertools",
+    "group": "07 · Modullar va standart kutubxona"
+  },
+  {
+    "slug": "exceptions",
+    "title": "Istisnolarni qayta işlaş",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "raising-and-custom-exceptions",
+    "title": "Istisno çaqiriş va maxsus istisnolar",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "input-validation",
+    "title": "Kiritilgan maʼlumotni tekşiriş",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "files-and-pathlib",
+    "title": "Fayllar va pathlib",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "csv",
+    "title": "CSV bilan işlaş",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "json",
+    "title": "JSON bilan işlaş",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "context-managers-basics",
+    "title": "with operatori",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "expense-tracker",
+    "title": "Loyiha: Xarajatlar daftari",
+    "group": "08 · Xatolar va fayllar"
+  },
+  {
+    "slug": "why-oop",
+    "title": "Obyektga yönaltirilgan dasturlaş nima uçun kerak?",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "classes-and-objects",
+    "title": "Klasslar va obyektlar",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "methods-and-attributes",
+    "title": "Metodlar va obyekt holati",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "class-attributes-and-methods",
+    "title": "Klass atributlari, klass metodlari va statik metodlar",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "properties-and-encapsulation",
+    "title": "Xossalar va inkapsulyatsiya",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "special-methods",
+    "title": "Obyektlarni ifodalaş va taqqoslaş",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "operators-and-containers",
+    "title": "Operatorlar va konteynerlar",
+    "group": "09 · Klasslar va obyektlar"
+  },
+  {
+    "slug": "inheritance",
+    "title": "Vorislik va super()",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "polymorphism-and-abcs",
+    "title": "Polimorfizm, duck typing va abstrakt klasslar",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "composition",
+    "title": "Kompozitsiya yoki vorislik?",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "dataclasses",
+    "title": "Dataclasslar",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "enums",
+    "title": "Enum turlari",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "type-hints",
+    "title": "Type hintlar",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "oop-project",
+    "title": "Loyiha: Kutubxona boşqaruv tizimi",
+    "group": "10 · Obyektga yönaltirilgan loyihalaş"
+  },
+  {
+    "slug": "testing-with-assert",
+    "title": "assert bilan testlaş",
+    "group": "11 · Testlaş va xatolarni tuzatiş"
+  },
+  {
+    "slug": "choosing-test-cases",
+    "title": "Test holatlarini tanlaş",
+    "group": "11 · Testlaş va xatolarni tuzatiş"
+  },
+  {
+    "slug": "pytest-basics",
+    "title": "pytest bilan testlaş",
+    "group": "11 · Testlaş va xatolarni tuzatiş"
+  },
+  {
+    "slug": "debugging-and-logging",
+    "title": "Xatolarni tuzatiş va logging",
+    "group": "11 · Testlaş va xatolarni tuzatiş"
+  },
+  {
+    "slug": "iterators-and-generators",
+    "title": "Iteratorlar va generatorlar",
+    "group": "12 · Keyingi qadamlar"
+  },
+  {
+    "slug": "regular-expressions",
+    "title": "Regulyar ifodalar",
+    "group": "12 · Keyingi qadamlar"
+  },
+  {
+    "slug": "text-processing-project",
+    "title": "Loyiha: Matn tahlilçisi",
+    "group": "12 · Keyingi qadamlar"
+  },
+  {
+    "slug": "reading-data",
+    "title": "Maʼlumot fayllarini öqiş",
+    "group": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)"
+  },
+  {
+    "slug": "pandas-basics",
+    "title": "pandas asoslari",
+    "group": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)"
+  },
+  {
+    "slug": "charts-with-matplotlib",
+    "title": "matplotlib bilan grafiklar",
+    "group": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)"
+  },
+  {
+    "slug": "data-report-project",
+    "title": "Loyiha: Savdo hisoboti",
+    "group": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)"
+  },
+  {
+    "slug": "closures-and-decorators",
+    "title": "Closure va dekoratorlar",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "python-data-model",
+    "title": "Python maʼlumot modeli",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "context-managers-in-depth",
+    "title": "Kontekst menejerlarini çuqurroq örganiş",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "async-await",
+    "title": "Async va await",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "memory-and-performance",
+    "title": "Xotira va samaradorlik",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "design-patterns",
+    "title": "Pythonça dizayn patternlar",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "threads-and-processes",
+    "title": "Oqimlar va jarayonlar",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "testing-in-depth",
+    "title": "Testlaşni çuqurroq örganiş",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  },
+  {
+    "slug": "advanced-project",
+    "title": "Loyiha: Log konveyeri",
+    "group": "14 · Advanced Python (ixtiyoriy)"
+  }
+]

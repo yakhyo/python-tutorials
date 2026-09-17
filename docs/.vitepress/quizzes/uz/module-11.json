@@ -1,0 +1,132 @@
+{
+  "module": "11 · Testlaş va xatolarni tuzatiş",
+  "title": "Nazorat: Testlaş va xatolarni tuzatiş",
+  "intro": "Foydali testlar yoza olişingiz, yaxşi test holatlarini tanlay olişingiz, pytest dan foydalana olişingiz hamda print, traceback va logging bilan xatolarni tuzata olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "price = 15000\nassert(price == 20000, \"wrong price\")\nprint(\"passed?\")",
+      "options": [
+        "AssertionError: wrong price",
+        "passed? ni çop etadi (SyntaxWarning bilan)",
+        "SyntaxError",
+        "Heç narsa çop etilmaydi"
+      ],
+      "answer": 1,
+      "explanation": "Qavslar böş bölmagan kortej yaratadi, u esa doim rost, şuning uçun assert heç qaçon xato bermaydi. assert price == 20000, \"wrong price\" deb yozing.",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "0.1 + 0.2 uçun qaysi assert ötadi?",
+      "options": [
+        "assert 0.1 + 0.2 == pytest.approx(0.3)",
+        "assert 0.1 + 0.2 == 0.3",
+        "assert round(0.1 + 0.2) == 0.3",
+        "assert 0.1 + 0.2 is 0.3"
+      ],
+      "answer": 0,
+      "explanation": "0.1 + 0.2 bu 0.30000000000000004, şuning uçun == 0.3 ötmaydi. pytest.approx (yoki math.isclose) ruxsat etilgan farq bilan taqqoslaydi.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "Bu False ni çop etadi. Örtaça qiymatni test qilişning eng yaxşi usuli qaysi?",
+      "code": "average = (0.1 + 0.2 + 0.3) / 3\nprint(average == 0.2)",
+      "options": [
+        "assert math.isclose(average, 0.2)",
+        "assert average == 0.20000000000000004",
+        "assert int(average) == 0",
+        "assert str(average) == \"0.2\""
+      ],
+      "answer": 0,
+      "explanation": "Önlik sonlarda kiçik yuvarlaş xatolari bor, şuning uçun ularni math.isclose() (yoki pytest da pytest.approx) bilan taqqoslang.",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "Röyxatdan ötiş formasi manfiy yoşlarni rad etişi kerak. Qaysi biri töğri?",
+      "options": [
+        "Forma işlovçisida assert age >= 0",
+        "age 0 dan kiçik bölganda print(\"yomon\")",
+        "age 0 dan kiçik bölganda ValueError çaqiriş",
+        "assert age >= 0 ni try/except: pass ga öraş"
+      ],
+      "answer": 2,
+      "explanation": "Python -O bilan işga tuşirilganda assert buyruqlari olib taşlanadi, şuning uçun haqiqiy tekşiruvga if va raise kerak.",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "Funksiya 100000 söm va undan köp buyurtmalarga çegirma beradi. Qaysi test qiymatlari töplami eng yaxşi?",
+      "options": [
+        "50000, 60000, 70000",
+        "99999, 100000, 100001",
+        "Faqat 100000",
+        "200000, 300000"
+      ],
+      "answer": 1,
+      "explanation": "Xatolar çegaralarda yaşirinadi. Çegaradan sal pastda, aynan çegarada va sal yuqorida test qiliş >= örniga > yozilganiga öxşaş xatolarni uşlaydi.",
+      "lesson": "choosing-test-cases"
+    },
+    {
+      "question": "tax(price) = price * 12 // 100 uçun qaysi test yaxşiroq?",
+      "options": [
+        "assert tax(15000) == 15000 * 12 // 100",
+        "assert tax(15000) > 0",
+        "assert tax(15000) is not None",
+        "assert tax(15000) == 1800"
+      ],
+      "answer": 3,
+      "explanation": "Koddan nusxalangan kutilgan qiymat undagi xatolarni takrorlaydi. Qöl bilan hisoblab çiqilgan oddiy sondan foydalaning.",
+      "lesson": "choosing-test-cases"
+    },
+    {
+      "question": "Siz def check_total() bor totals.py fayli joylaşgan papkada pytest ni işga tuşirasiz. pytest \"collected 0 items\" deydi. Nega?",
+      "options": [
+        "Bu loyihada pytest örnatilmagan",
+        "Test fayllari va funksiyalari test_* deb nomlanişi kerak",
+        "Funksiya içidagi assert notögri",
+        "Testlar TestCase klassi içida bölişi kerak"
+      ],
+      "answer": 1,
+      "explanation": "pytest faqat nomi test bilan boşlanadigan fayl va funksiyalarni yiğadi. \"no tests ran\" muvaffaqiyat degani emas.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "pytest bu testni işga tuşiradi. Natija qanday?",
+      "code": "import pytest\ndef withdraw(balance, amount):\n    if amount > balance:\n        raise ValueError(\"not enough\")\n    return balance - amount\ndef test_too_much():\n    balance = 100\n    with pytest.raises(ValueError):\n        balance = withdraw(balance, 500)\n        assert balance == 999\n",
+      "options": [
+        "Test ötadi, lekin assert heç qaçon tekşirilmaydi",
+        "balance 999 bölmagani uçun test ötmaydi",
+        "Test ValueError bilan ötmaydi",
+        "pytest testda xato (error) borligini bildiradi"
+      ],
+      "answer": 0,
+      "explanation": "withdraw() with bloki içida istisno çaqiradi, şuning uçun keyingi qator heç qaçon bajarilmaydi. Tekşiruvlarni with blokidan keyin qöying.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "Bu skript işga tuşganda ekranda nima paydo böladi?",
+      "code": "import logging\nlogging.info(\"order created\")\nlogging.warning(\"stock low\")",
+      "options": [
+        "INFO:root:order created",
+        "Ikkala xabar",
+        "Heç narsa",
+        "WARNING:root:stock low"
+      ],
+      "answer": 3,
+      "explanation": "basicConfig bölmasa daraja WARNING böladi, şuning uçun info() xabarlari taşlab yuboriladi.",
+      "lesson": "debugging-and-logging"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "x = 7\nitems = [\"tea\", \"bread\"]\nprint(f\"{x=} {len(items)=}\")",
+      "options": [
+        "7 2",
+        "x=7 len(items)=2",
+        "{x=} {len(items)=}",
+        "x = 7, len(items) = 2"
+      ],
+      "answer": 1,
+      "explanation": "f-satr maydonidagi = ifoda matnini va undan keyin uning qiymatini çop etadi, bu print yordamida xatolarni tuzatişda qulay.",
+      "lesson": "debugging-and-logging"
+    }
+  ]
+}

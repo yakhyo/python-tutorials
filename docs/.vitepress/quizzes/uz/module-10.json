@@ -1,0 +1,135 @@
+{
+  "module": "10 · Obyektga yönaltirilgan loyihalaş",
+  "title": "Nazorat: Obyektga yönaltirilgan loyihalaş",
+  "intro": "Vorislik va kompozitsiya orasida tanlay olişingiz, ABC, dataclass va enum lardan foydalana olişingiz hamda type hintlarni töğri öqiy olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Oxirgi qatorda nima böladi?",
+      "code": "class Employee:\n    def __init__(self, name):\n        self.name = name\n\nclass Manager(Employee):\n    def __init__(self, name, team_size):\n        self.team_size = team_size\n\nboss = Manager(\"Dilnoza\", 5)\nprint(boss.name)",
+      "options": [
+        "Dilnoza ni çop etadi",
+        "None ni çop etadi",
+        "AttributeError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "Voris klassda __init__ ni aniqlaş ota klassnikini almaştiradi, şuning uçun self.name heç qaçon belgilanmaydi. Avval super().__init__(name) ni çaqiring.",
+      "lesson": "inheritance"
+    },
+    {
+      "question": "Qaysi maslahat (hint) scores butun sonlar röyxati yoki None ekanini bildiradi?",
+      "options": [
+        "scores: list[int] | None",
+        "scores: List[int, None]",
+        "scores: list | None[int]",
+        "scores: Optional(list[int])"
+      ],
+      "answer": 0,
+      "explanation": "Zamonaviy Python da list[int] - ornatilgan umumiy tur, X | None esa 'X yoki None' degani. typing dagi Optional[X] ayni narsaning eskiroq yozilişi.",
+      "lesson": "type-hints"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "from abc import ABC, abstractmethod\nclass Shape(ABC):\n    @abstractmethod\n    def area(self): ...\nclass Square(Shape):\n    def __init__(self, side):\n        self.side = side\n    def Area(self):\n        return self.side ** 2\nprint(Square(3).Area())",
+      "options": [
+        "9 ni çop etadi",
+        "None ni çop etadi",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 2,
+      "explanation": "Katta A harfli Area - boşqa nom, şuning uçun area hamon abstrakt va ABC Square yaratişni rad etadi.",
+      "lesson": "polymorphism-and-abcs"
+    },
+    {
+      "question": "Order klassi Logger klassi yordamida log xabarlarini yozişi kerak. Qaysi yeçim eng yaxşi?",
+      "options": [
+        "class Order(Logger): undan vorislik oliş",
+        "Order ga logger atributi beriş",
+        "log metodini Order ga nusxalaş",
+        "class Logger(Order): Logger ni farzand qiliş"
+      ],
+      "answer": 1,
+      "explanation": "Buyurtma logger emas, şuning uçun u \"is-a\" (... hisoblanadi) sinovidan ötmaydi. Buyurtmada logger bor - bu kompozitsiya.",
+      "lesson": "composition"
+    },
+    {
+      "question": "Oxirgi qatorda nima bölady?",
+      "code": "from dataclasses import dataclass, field\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    tags: list = field(default_factory=list)\n\np = Point(1)\np.x = 5",
+      "options": [
+        "p.x ga 5 ni yozadi",
+        "FrozenInstanceError",
+        "TypeError",
+        "Yangi Point yaratadi"
+      ],
+      "answer": 1,
+      "explanation": "frozen=True dataklassni özgarmas qiladi: maydonga qiymat beriş dataclasses.FrozenInstanceError çaqiradi. field(default_factory=list) har bir nusxaga öz röyxatini beradi.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "from dataclasses import dataclass\n\n@dataclass\nclass Book:\n    title: str\n    pages = 100\n\nprint(Book(\"Days Gone By\"))",
+      "options": [
+        "Book(title='Days Gone By', pages=100)",
+        "TypeError",
+        "Book(title='Days Gone By')",
+        "Book('Days Gone By')"
+      ],
+      "answer": 2,
+      "explanation": "Annotatsiyasiz pages faqat klass atributi, maydon emas, şuning uçun u __init__ va repr da yöq.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "from dataclasses import dataclass, field\n\n@dataclass(order=True)\nclass Score:\n    points: int\n    name: str = field(compare=False)\n\nscores = [Score(90, \"Aziza\"), Score(75, \"Bekzod\"), Score(90, \"Anvar\")]\nprint(max(scores).name, Score(90, \"X\") == Score(90, \"Y\"))",
+      "options": [
+        "Aziza True",
+        "Anvar True",
+        "Aziza False",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "compare=False bilan faqat points taqqoslanadi. Ikki natija 90 da teng, max() esa birinçi topganini qaytaradi.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "from enum import Enum\n\nclass Status(Enum):\n    PAID = \"paid\"\n\nstatus = Status(\"paid\")\nprint(status == \"paid\", status is Status.PAID)",
+      "options": [
+        "True True",
+        "True False",
+        "False False",
+        "False True"
+      ],
+      "answer": 3,
+      "explanation": "Oddiy Enum aʼzosi heç qaçon öz xom qiymatiga teng bölmaydi. Status(\"paid\") aʼzoni qidirib topadi, şuning uçun is tekşiruvi True.",
+      "lesson": "enums"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "from enum import Enum\n\nclass Size(Enum):\n    SMALL = \"S\"\n    LARGE = \"L\"\n\nprint(Size[\"SMALL\"].value, Size(\"L\").name)",
+      "options": [
+        "SMALL L",
+        "S LARGE",
+        "S L",
+        "ValueError"
+      ],
+      "answer": 1,
+      "explanation": "Kvadrat qavslar nom böyiça, oddiy qavslar esa qiymat böyiça qidiradi. .value \"S\" ni, .name esa \"LARGE\" ni beradi.",
+      "lesson": "enums"
+    },
+    {
+      "question": "Type hint da list[int] deyilgan, lekin kortej uzatilgan. Nima böladi?",
+      "code": "def average(scores: list[int]) -> float:\n    return sum(scores) / len(scores)\n\nprint(average((80, 90)))",
+      "options": [
+        "TypeError",
+        "85 ni çop etadi",
+        "Tur tekşiruvçisi xatosi dasturni töxtatadi",
+        "85.0 ni çop etadi"
+      ],
+      "answer": 3,
+      "explanation": "Type hintlar dastur bajarilayotganda tekşirilmaydi, şuning uçun kortej muammosiz işlaydi. Faqat alohida tur tekşiruvçisi eʼtiroz bildirardi.",
+      "lesson": "type-hints"
+    }
+  ]
+}

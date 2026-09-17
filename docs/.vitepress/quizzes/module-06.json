@@ -1,0 +1,136 @@
+{
+  "module": "06 · Functions",
+  "title": "Checkpoint: Functions",
+  "intro": "Check that you can define functions, pass arguments, return values, and reason about scope.",
+  "questions": [
+    {
+      "question": "What is stored in result after this code runs?",
+      "code": "def double(n):\n    print(n * 2)\n\nresult = double(5)",
+      "options": [
+        "None",
+        "10",
+        "20",
+        "0"
+      ],
+      "answer": 0,
+      "explanation": "The function prints 10 but has no return statement, so it gives back None.",
+      "lesson": "return-values"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "def greet(name, greeting):\n    print(f\"{greeting}, {name}!\")\n\ngreet(\"Aziza\")",
+      "options": [
+        "It prints Hello, Aziza!",
+        "It prints None, Aziza!",
+        "TypeError",
+        "NameError"
+      ],
+      "answer": 2,
+      "explanation": "greet has two required parameters but only one argument was passed. Pass both, or give greeting a default value.",
+      "lesson": "defining-functions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "def power(base, exp=2):\n    return base ** exp\n\nprint(power(3), power(2, exp=3))",
+      "options": [
+        "6 8",
+        "9 8",
+        "9 9",
+        "3 6"
+      ],
+      "answer": 1,
+      "explanation": "power(3) uses the default exp=2, so 3 ** 2 is 9. The keyword argument exp=3 overrides it: 2 ** 3 is 8.",
+      "lesson": "parameters-and-arguments"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "def add_item(item, items=[]):\n    items.append(item)\n    return items\n\nadd_item(\"a\")\nprint(add_item(\"b\"))",
+      "options": [
+        "['b']",
+        "[]",
+        "['a']",
+        "['a', 'b']"
+      ],
+      "answer": 3,
+      "explanation": "A default list is created once, when the function is defined, and shared between calls. Use items=None and create the list inside.",
+      "lesson": "parameters-and-arguments"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "def total(*prices):\n    return sum(prices)\n\nprint(total(1000, 2000), total())",
+      "options": [
+        "3000 0",
+        "3000 TypeError",
+        "TypeError",
+        "(1000, 2000) ()"
+      ],
+      "answer": 0,
+      "explanation": "*prices collects any number of positional arguments into a tuple, so total() with no arguments gets an empty tuple and sum(()) is 0.",
+      "lesson": "parameters-and-arguments"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "count = 0\n\ndef increment():\n    count += 1\n\nincrement()\nprint(count)",
+      "options": [
+        "UnboundLocalError",
+        "It prints 0",
+        "It prints 1",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "Assigning to count inside the function makes it local, so count += 1 reads it before it has a value. Pass it in and return the result instead.",
+      "lesson": "scope"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "def clear(items):\n    items = []\n\ndata = [1, 2, 3]\nclear(data)\nprint(data)",
+      "options": [
+        "[]",
+        "UnboundLocalError",
+        "None",
+        "[1, 2, 3]"
+      ],
+      "answer": 3,
+      "explanation": "items = [] only points the local name at a new list; the caller's list is untouched. items.clear() would change it.",
+      "lesson": "scope"
+    },
+    {
+      "question": "Which version of this function is easiest to reuse and test?",
+      "options": [
+        "def total():\n    price = float(input(\"Price: \"))\n    print(price * 1.12)",
+        "def total(price, tax_rate):\n    return price * (1 + tax_rate)",
+        "def total(price):\n    print(price * 1.12)",
+        "def total():\n    global price\n    price = price * 1.12"
+      ],
+      "answer": 1,
+      "explanation": "It takes its inputs as parameters and returns the result, with no input(), print(), or globals tying it to one situation.",
+      "lesson": "designing-functions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "items = [(\"non\", 5000), (\"choy\", 3000), (\"osh\", 25000)]\ncheapest = sorted(items, key=lambda x: x[1])[0]\nprint(cheapest[0])",
+      "options": [
+        "non",
+        "osh",
+        "choy",
+        "3000"
+      ],
+      "answer": 2,
+      "explanation": "The lambda tells sorted to compare the prices, so the cheapest item, choy, comes first.",
+      "lesson": "lambda-and-higher-order-functions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "result = map(str.upper, [\"a\", \"b\"])\nprint(list(result), list(result))",
+      "options": [
+        "['A', 'B'] ['A', 'B']",
+        "['A', 'B'] []",
+        "<map object> []",
+        "TypeError"
+      ],
+      "answer": 1,
+      "explanation": "A map object can only be looped over once. The first list() uses it up, so the second one gets nothing.",
+      "lesson": "lambda-and-higher-order-functions"
+    }
+  ]
+}

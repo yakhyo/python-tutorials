@@ -21,7 +21,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: release-pages
+  group: pages
   cancel-in-progress: false
 
 jobs:
@@ -37,7 +37,7 @@ jobs:
         env:
           VERSION: ${{ inputs.version }}
         run: |
-          python - <<'PY'
+          python3 - <<'PY'
           import os, re, sys
           version = os.environ["VERSION"]
           pattern = r"\d+\.\d+\.\d+(?:-(?:alpha|beta|rc)\.\d+)?"
@@ -122,7 +122,7 @@ jobs:
         env:
           PYTHON: python
           MPLBACKEND: Agg
-        run: python scripts/check-examples.py
+        run: python scripts/examples.py
 
       - run: npm ci
 

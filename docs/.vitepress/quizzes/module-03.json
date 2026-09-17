@@ -1,0 +1,136 @@
+{
+  "module": "03 · Making Decisions",
+  "title": "Checkpoint: Making Decisions",
+  "intro": "Check how well you can compare values, combine conditions, and choose between branches with if and match.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "answer = \"7\"\nprint(answer == 7)",
+      "options": [
+        "False",
+        "True",
+        "7",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "\"7\" is a string and 7 is a number, so they are never equal. Convert with int(answer) before comparing.",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(bool(\"\"), bool(\"0\"))",
+      "options": [
+        "False False",
+        "True True",
+        "False True",
+        "True False"
+      ],
+      "answer": 2,
+      "explanation": "An empty string is falsy, but any non-empty string is truthy, even \"0\".",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(1 < 5 < 3)",
+      "options": [
+        "True",
+        "False",
+        "SyntaxError",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": "A chained comparison means 1 < 5 and 5 < 3. The second part is False, so the whole thing is False.",
+      "lesson": "booleans-and-comparisons"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "temp = 30\nif temp > 10:\n    print(\"Warm\")\nelif temp > 20:\n    print(\"Hot\")\nelse:\n    print(\"Cold\")",
+      "options": [
+        "Hot",
+        "Hot and Warm",
+        "Cold",
+        "Warm"
+      ],
+      "answer": 3,
+      "explanation": "Python checks conditions from top to bottom and runs only the first true branch. 30 > 10 is true, so it never reaches the Hot check.",
+      "lesson": "if-elif-else"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "answer = \"no\"\nif answer == \"yes\" or \"y\":\n    print(\"OK\")\nelse:\n    print(\"Cancelled\")",
+      "options": [
+        "SyntaxError",
+        "Cancelled",
+        "OK",
+        "Nothing"
+      ],
+      "answer": 2,
+      "explanation": "This reads as (answer == \"yes\") or \"y\", and the non-empty string \"y\" is always truthy. Write answer in (\"yes\", \"y\") instead.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(True or False and False)",
+      "options": [
+        "True",
+        "False",
+        "None",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "and is evaluated before or, so this is True or (False and False), which is True.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "Which condition safely avoids dividing by zero?",
+      "options": [
+        "total / count > 10 and count != 0",
+        "not count and total / count > 10",
+        "count != 0 or total / count > 10",
+        "count != 0 and total / count > 10"
+      ],
+      "answer": 3,
+      "explanation": "and stops as soon as the left side is False, so the guard must come first to skip the division.",
+      "lesson": "logical-operators"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "command = \"halt\"\nmatch command:\n    case \"go\" | \"start\":\n        print(\"Moving\")\n    case \"stop\" | \"halt\":\n        print(\"Stopping\")\n    case _:\n        print(\"Unknown command\")",
+      "options": [
+        "Moving",
+        "Stopping",
+        "Unknown command",
+        "Nothing"
+      ],
+      "answer": 1,
+      "explanation": "| lets one case match several values. \"halt\" matches the second case.",
+      "lesson": "match-statement"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "color = \"green\"\nmatch color:\n    case \"red\":\n        print(\"Stop\")\n    case other:\n        print(\"Unknown:\", other)",
+      "options": [
+        "Unknown: green",
+        "Nothing at all",
+        "NameError",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "A bare name in a case pattern is a capture pattern: it matches any value and binds it, so the last case always runs when nothing before it matched. That is why it must come last.",
+      "lesson": "match-statement"
+    },
+    {
+      "question": "What is wrong with this code?",
+      "code": "age = 18\nif age = 18:\n    print(\"Just turned 18\")",
+      "options": [
+        "Nothing, it prints Just turned 18",
+        "It uses = instead of ==, so Python raises SyntaxError",
+        "The if needs parentheses around the condition",
+        "print must not be indented"
+      ],
+      "answer": 1,
+      "explanation": "A single = assigns a value; comparing needs ==. Python stops with a SyntaxError and even suggests the fix.",
+      "lesson": "if-elif-else"
+    }
+  ]
+}

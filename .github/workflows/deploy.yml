@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
-# main only holds the repo files (LICENSE, .gitignore, workflows); the site lives on dev.
-# Run manually from Actions -> Deploy to GitHub Pages -> Run workflow, and pick the dev branch.
+# Publishing is manual: Actions -> Deploy to GitHub Pages -> Run workflow, then pick the
+# branch to publish (main after a merge, or dev to preview work in progress).
 on:
   workflow_dispatch:
 
@@ -45,7 +45,7 @@ jobs:
         env:
           PYTHON: python
           MPLBACKEND: Agg
-        run: python scripts/check-examples.py
+        run: python scripts/examples.py
 
       - run: npm ci
 

@@ -1,0 +1,137 @@
+{
+  "module": "05 · Kolleksiyalar",
+  "title": "Nazorat: Kolleksiyalar",
+  "intro": "Röyxatlar, kortejlar, luğatlar, töplamlar, içma-iç maʼlumotlar va comprehension ifodalari böyiça bilimingizni sinab köring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "words = [\"kiwi\", \"fig\", \"apple\"]\nprint(sorted(words, key=len))",
+      "options": [
+        "['fig', 'kiwi', 'apple']",
+        "['apple', 'fig', 'kiwi']",
+        "['kiwi', 'fig', 'apple']",
+        "[3, 4, 5]"
+      ],
+      "answer": 0,
+      "explanation": "key=len har bir sözni uzunligi böyiça saralaydi (3, 4, 5). Kalit faqat tartibni belgilaydi; qaytariladigan narsa - sözlarning özi.",
+      "lesson": "list-operations-and-sorting"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)",
+      "options": [
+        "[1, 2, 3]",
+        "[4]",
+        "[1, 2, 3, 4]",
+        "None"
+      ],
+      "answer": 2,
+      "explanation": "b = a nusxa yaratmaydi; ikkala nom ham bitta röyxatga işora qiladi. Alohida röyxat oliş uçun a.copy() dan foydalaning.",
+      "lesson": "lists"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "scores = [3, 1, 2]\nranked = sorted(scores)\nprint(scores, ranked)",
+      "options": [
+        "[1, 2, 3] [1, 2, 3]",
+        "[3, 1, 2] [1, 2, 3]",
+        "[3, 1, 2] None",
+        "None [1, 2, 3]"
+      ],
+      "answer": 1,
+      "explanation": "sorted() .sort() dan farqli ravişda yangi saralangan röyxat qaytaradi va aslini özgartirmaydi.",
+      "lesson": "list-operations-and-sorting"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "colors = (\"red\")\nprint(len(colors))",
+      "options": [
+        "1",
+        "0",
+        "TypeError",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "Vergulsiz (\"red\") şunçaki qavs içidagi \"red\" satri, unda 3 ta belgi bor. Bir elementli kortejga vergul kerak: (\"red\",).",
+      "lesson": "tuples-and-unpacking"
+    },
+    {
+      "question": "Bu kodni işga tuşirganda nima böladi?",
+      "code": "name, age = (\"Aziza\", 20, \"Tashkent\")\nprint(name, age)",
+      "options": [
+        "Aziza 20 ni çop etadi",
+        "TypeError",
+        "ValueError",
+        "IndexError"
+      ],
+      "answer": 2,
+      "explanation": "Qiymatlar 3 ta, özgaruvçilar esa atigi 2 ta. Sonini moslang yoki ortiqçasini *rest bilan yiğing.",
+      "lesson": "tuples-and-unpacking"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "capitals = {\"Uzbekistan\": \"Tashkent\", \"Japan\": \"Tokyo\"}\nprint(\"Tokyo\" in capitals)",
+      "options": [
+        "False",
+        "True",
+        "Tokyo",
+        "KeyError"
+      ],
+      "answer": 0,
+      "explanation": "in luğatning qiymatlarini emas, kalitlarini tekşiradi. Qiymatlar orasidan qidiriş uçun \"Tokyo\" in capitals.values() dan foydalaning.",
+      "lesson": "dictionaries"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "user = {\"name\": \"Aziza\"}\nprint(user.get(\"email\", \"unknown\"))",
+      "options": [
+        "email",
+        "None",
+        "KeyError",
+        "unknown"
+      ],
+      "answer": 3,
+      "explanation": ".get() kalit yöq bölganda KeyError çaqiriş örniga siz bergan standart qiymatni qaytaradi.",
+      "lesson": "dictionaries"
+    },
+    {
+      "question": "Bu kodni işga tuşirganda nima böladi?",
+      "code": "items = {}\nitems.add(\"x\")\nprint(items)",
+      "options": [
+        "{'x'} ni çop etadi",
+        "AttributeError",
+        "KeyError",
+        "{} ni çop etadi"
+      ],
+      "answer": 1,
+      "explanation": "{} töplam emas, böş luğat yaratadi, luğatlarda esa add metodi yöq. Böş töplam uçun set() dan foydalaning.",
+      "lesson": "sets"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "grid = [[0] * 3] * 3\ngrid[0][0] = 1\nprint(grid[1])",
+      "options": [
+        "[0, 0, 0]",
+        "[1, 1, 1]",
+        "[1, 0, 0]",
+        "IndexError"
+      ],
+      "answer": 2,
+      "explanation": "[[0] * 3] * 3 bitta içki röyxatni uç marta takrorlaydi, şuning uçun bitta qatorni özgartiriş hammasini özgartiradi. Qatorlarni comprehension bilan yarating.",
+      "lesson": "nested-data"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print([n * 2 for n in range(5) if n % 2 == 0])",
+      "options": [
+        "[0, 2, 4, 6, 8]",
+        "[0, 4, 8]",
+        "[2, 6]",
+        "[0, 1, 2, 3, 4]"
+      ],
+      "answer": 1,
+      "explanation": "if faqat 0, 2, 4 juft sonlarni qoldiradi va ularning har biri ikki barobar oşiriladi.",
+      "lesson": "comprehensions"
+    }
+  ]
+}

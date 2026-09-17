@@ -1,0 +1,108 @@
+/* Reserve the scrollbar's space so opening the search modal (which locks page scrolling)
+   doesn't shift the whole page sideways. No effect with macOS overlay scrollbars. */
+html{scrollbar-gutter:stable;background-color:var(--vp-c-bg)}
+:root{--vp-c-brand-1:#2563eb;--vp-c-brand-2:#1d4ed8;--vp-c-brand-3:#2563eb;--vp-c-brand-soft:rgba(37,99,235,.1);--vp-font-family-base:Inter,ui-sans-serif,system-ui,sans-serif;--vp-sidebar-width:280px}
+.dark{--vp-c-brand-1:#80aaff;--vp-c-brand-2:#aac6ff;--vp-c-brand-3:#2563eb}
+.VPDoc h1{letter-spacing:-.035em!important;font-size:36px!important}.vp-doc p,.vp-doc li{line-height:1.85}.VPNavBarTitle .title{font-weight:800;letter-spacing:-.03em}button:focus-visible,textarea:focus-visible{outline:3px solid var(--vp-c-brand-1);outline-offset:2px}.course-intro{border-left:4px solid var(--vp-c-brand-1);padding:12px 20px;background:var(--vp-c-brand-soft);margin:24px 0}@media(max-width:600px){.VPDoc h1{font-size:30px!important}}
+.difficulty{display:inline-flex;gap:1px;margin-left:.5em;font-size:.85em;line-height:1;vertical-align:.08em;font-family:system-ui,sans-serif;letter-spacing:0}.difficulty .on{color:var(--vp-c-brand-1)}.difficulty .off{color:var(--vp-c-text-3);opacity:.7}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:1.4em;height:1.4em;border-radius:999px;vertical-align:-.22em}.mark svg{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;width:.8em;height:.8em}.mark-yes{color:var(--vp-c-green-1);background:var(--vp-c-green-soft)}.mark-no{color:var(--vp-c-red-1);background:var(--vp-c-red-soft)}
+/* Code editor (CodeMirror) colors */
+:root{--cm-keyword:#8839ef;--cm-string:#328020;--cm-number:#b95001;--cm-comment:#6c6f81;--cm-function:#1e65f3;--cm-definition:#b8420f;--cm-builtin:#d20f39;--cm-operator:#5c5f77}
+.dark{--cm-keyword:#cba6f7;--cm-string:#a6e3a1;--cm-number:#fab387;--cm-comment:#9399b2;--cm-function:#89b4fa;--cm-definition:#f9e2af;--cm-builtin:#f38ba8;--cm-operator:#bac2de}
+/* Checkpoint quizzes */
+.VPSidebarItem .checkpoint-link{font-weight:600}
+.quiz-intro{font-size:16px}.quiz-best{color:var(--vp-c-text-2);font-size:14px}
+.vp-doc .quiz-questions{list-style:none;padding:0!important;counter-reset:q}
+.quiz-question{counter-increment:q;margin:24px 0!important;padding:18px 20px;border:1px solid var(--vp-c-divider);border-radius:12px;background:var(--vp-c-bg-soft)}
+.quiz-text{margin:0 0 10px!important;font-weight:600}.quiz-text::before{content:counter(q) ". "}
+.quiz-code{margin:8px 0 12px!important;padding:12px 16px!important;border-radius:8px;background:var(--vp-code-block-bg)!important;overflow-x:auto}
+.quiz-code code{font:14px/1.6 var(--vp-font-family-mono);white-space:pre;color:var(--vp-c-text-1)}
+.quiz-options{display:grid;gap:8px}
+.quiz-option{position:relative;display:flex;gap:10px;align-items:flex-start;text-align:left;padding:10px 12px;border:1px solid var(--vp-c-divider);border-radius:8px;background:var(--vp-c-bg);font-size:15px;white-space:pre-wrap;cursor:pointer}
+.quiz-option input{position:absolute;width:1px;height:1px;opacity:0;margin:0}
+.quiz-option:has(input:focus-visible){outline:3px solid var(--vp-c-brand-1);outline-offset:2px}
+.quiz-option input:focus-visible ~ .quiz-letter{outline:3px solid var(--vp-c-brand-1);outline-offset:2px}
+.quiz-option:has(input:disabled){cursor:default}
+.quiz-option:has(input:not(:disabled)):hover{border-color:var(--vp-c-brand-1)}
+.quiz-option.selected{border-color:var(--vp-c-brand-1);background:var(--vp-c-brand-soft)}
+.quiz-option.correct{border-color:var(--vp-c-green-1);background:var(--vp-c-green-soft)}
+.quiz-option.wrong{border-color:var(--vp-c-red-1);background:var(--vp-c-red-soft)}
+.quiz-letter{flex:none;width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid var(--vp-c-divider);font-size:12px;font-weight:700}
+.quiz-option-text{font-family:var(--vp-font-family-mono);font-size:14px}
+.quiz-feedback{margin-top:10px;font-size:14px;line-height:1.7}.quiz-feedback a{margin-left:6px}
+.quiz-actions{margin:24px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.quiz-submit{padding:10px 18px;border-radius:8px;font-weight:600;background:var(--vp-c-brand-1);color:#fff}
+.quiz-submit:disabled{opacity:.55;cursor:not-allowed}
+.quiz-result{font-size:16px;margin:0!important}
+.lab-footer{margin:32px 0 0!important;padding-top:16px;border-top:1px solid var(--vp-c-divider);font-size:14px}
+.quiz-review{margin:16px 0 0;font-size:14px;flex-basis:100%}
+.quiz-review ul{margin:6px 0 0;padding-left:20px}
+.lab-actions{margin:24px 0}.lab-button{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--vp-c-brand-1);color:#fff!important;font-weight:600;text-decoration:none!important}.lab-button:hover{background:var(--vp-c-brand-2)}
+
+/* ---------- Python editor (playground, Run, exercises) ---------- */
+.python-editor{margin:16px 0;border:1px solid var(--vp-c-divider);border-radius:8px;overflow:hidden;background:var(--vp-code-block-bg)}
+.python-editor.is-exercise{border-color:var(--vp-c-brand-soft);box-shadow:0 0 0 1px var(--vp-c-brand-soft)}
+.editor-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:6px 8px 6px 16px;border-bottom:1px solid var(--vp-c-divider);background:var(--vp-c-bg-soft)}
+.editor-title{font:600 13px/1 var(--vp-font-family-mono);color:var(--vp-c-text-2)}
+.editor-buttons{display:flex;gap:6px;flex-wrap:wrap}
+.editor-buttons button{height:30px;padding:0 12px;border-radius:6px;font-size:13px;font-weight:600;color:var(--vp-c-text-2);border:1px solid transparent;transition:background .15s,color .15s,border-color .15s}
+.editor-buttons button:hover:not(:disabled){color:var(--vp-c-text-1);background:var(--vp-c-default-soft)}
+.editor-buttons button.is-active{color:var(--vp-c-brand-1);border-color:var(--vp-c-brand-soft)}
+.editor-buttons button.primary{color:#fff;background:var(--vp-c-brand-3)}
+.editor-buttons button.primary:hover:not(:disabled){color:#fff;background:var(--vp-c-brand-2)}
+.editor-buttons button:disabled{opacity:.6;cursor:default}
+.python-editor .code-editor .cm-editor{background:var(--vp-code-block-bg)}
+.editor-inputs{padding:10px 16px;border-top:1px solid var(--vp-c-divider);background:var(--vp-c-bg-soft);font-size:13px;color:var(--vp-c-text-2)}
+.editor-inputs textarea{display:block;width:100%;margin-top:6px;min-height:56px;padding:8px 12px;font:13px/1.6 var(--vp-font-family-mono);color:var(--vp-c-text-1);background:var(--vp-c-bg);border:1px solid var(--vp-c-divider);border-radius:6px;resize:vertical}
+.editor-verdict{margin:10px 12px 0;padding:8px 12px;border-radius:6px;font-size:14px}
+.editor-verdict.is-pass{background:var(--vp-c-green-soft);color:var(--vp-c-green-1)}
+.editor-verdict.is-fail{background:var(--vp-c-red-soft);color:var(--vp-c-red-1)}
+.editor-verdict.is-error{background:var(--vp-c-yellow-soft);color:var(--vp-c-yellow-1)}
+.editor-verdict.is-unknown{background:var(--vp-c-default-soft);color:var(--vp-c-text-2)}
+.verdict-icon{display:inline-flex;align-items:center;justify-content:center;width:1.4em;height:1.4em;border:2px solid currentColor;border-radius:999px;font:700 .75em/1 var(--vp-font-family-base);vertical-align:-.22em}
+.editor-verdict pre{margin:8px 0 4px;padding:8px 12px;background:var(--vp-c-bg);color:var(--vp-c-text-1);border-radius:6px;white-space:pre-wrap;font:13px/1.6 var(--vp-font-family-mono)}
+.editor-output{border-top:1px solid var(--vp-c-divider);background:var(--vp-c-bg)}
+.editor-output-label{padding:6px 16px 0;font:600 11px/1.6 var(--vp-font-family-base);letter-spacing:.04em;text-transform:uppercase;color:var(--vp-c-text-3)}
+.python-output{margin:0!important;padding:4px 16px 12px!important;max-height:340px;overflow:auto;white-space:pre-wrap;word-break:break-word;font:14px/1.7 var(--vp-font-family-mono);color:var(--vp-c-text-1);background:transparent!important;border-radius:0!important}
+.python-images{padding:12px;background:var(--vp-c-bg-soft);display:grid;gap:12px}
+.python-images img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px}
+.editor-hint{padding:6px 16px;border-top:1px solid var(--vp-c-divider);font-size:12px;color:var(--vp-c-text-3);background:var(--vp-c-bg-soft)}
+.editor-status{margin:0!important;padding:6px 16px 0;font-size:12px;color:var(--vp-c-text-2);background:var(--vp-c-bg-soft)}
+.editor-status:empty{display:none}
+.editor-keys{margin:0!important;padding:6px 16px;border-top:1px solid var(--vp-c-divider);font-size:11px;color:var(--vp-c-text-3);background:var(--vp-c-bg-soft)}
+/* Run bar attached under lesson code blocks */
+.vp-doc div.language-python.has-run-bar{margin-bottom:0;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.code-run-bar{display:flex;justify-content:flex-end;align-items:center;margin:0 0 16px;padding:4px 8px;background:var(--vp-code-block-bg);border-top:1px solid var(--vp-c-divider);border-radius:0 0 8px 8px}
+.vp-doc .code-run-bar[hidden],.vp-doc div.language-python[hidden]{display:none!important}
+.code-run-bar button{height:26px;padding:0 10px;border-radius:6px;font-size:12px;font-weight:600;color:var(--vp-c-brand-1)}
+.code-run-bar button:hover{background:var(--vp-c-brand-soft)}
+.vp-doc details.details .code-run-bar{display:none}
+.vp-doc details.details div.language-python.has-run-bar{margin-bottom:16px;border-radius:8px}
+.exercise-bar{margin:12px 0 4px}
+.exercise-toggle{padding:6px 14px;font-size:14px;font-weight:600;border-radius:8px;border:1px solid var(--vp-c-brand-1);color:var(--vp-c-brand-1);background:var(--vp-c-brand-soft)}
+.exercise-toggle:hover{background:var(--vp-c-brand-1);color:#fff}
+/* On narrow screens VitePress code blocks go edge to edge; match that */
+@media (max-width:639px){
+ .vp-doc .python-editor,.vp-doc .code-run-bar{margin-left:-24px;margin-right:-24px;border-radius:0;border-left:0;border-right:0}
+ .vp-doc details.details .python-editor{margin-left:0;margin-right:0;border-radius:8px;border:1px solid var(--vp-c-divider)}
+}
+.python-editor.is-standalone .cm-scroller{min-height:220px}.python-editor.is-exercise .cm-scroller{min-height:150px}
+
+/* Lesson illustrations (light artwork: soften it in dark mode) */
+.vp-doc img.lesson-cover,
+.vp-doc img.lesson-diagram { display: block; width: 100%; height: auto; margin: 8px 0 24px; border: 1px solid var(--vp-c-divider); border-radius: 12px; }
+.dark .vp-doc img.lesson-cover,
+.dark .vp-doc img.lesson-diagram { filter: brightness(0.88); }
+
+/* Nav: the Python logo is wide (device plus wordmark), so keep it close to VitePress's default height. */
+.VPNavBarTitle .logo{height:40px;width:auto}
+/* Search: VitePress leaves #local-search content-sized, so the box is short. Let it fill the
+   space the nav already reserves, capped so it does not span the whole bar on wide screens. */
+@media (min-width: 768px){
+ .VPNavBarSearch #local-search{flex:1;max-width:280px}
+ /* The button is left-aligned, so the shortcut keys sit next to the label instead of at the end. */
+ .VPNavBarSearch .DocSearch-Button-Keys{margin-left:auto}
+}
+
+@media (max-width: 767px){.VPNavBarTitle .logo{height:32px}}
+
