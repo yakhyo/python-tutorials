@@ -5,6 +5,8 @@ description: "Closurelar qiymatlarni qanday eslab qolişini örganing, functools
 
 # Closure va dekoratorlar
 
+![Rasm: Closure va dekoratorlar](/images/topics-webp-uzb/closures-and-decorators.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - **Closure** nima va içki funksiyaga qaçon `nonlocal` kerak
 - `*args`, `**kwargs` va `functools.wraps` bilan **dekoratorni** (decorator) qadamma-qadam qanday yoziş
@@ -165,6 +167,8 @@ Qölda yozilsa, bu `fetch_rate = retry(times=3)(fetch_rate)`. `times` closureda 
 ## Dekoratorlarni ustma-ust qöyiş
 
 Bitta funksiyaga bir neça dekorator qöyiş mumkin. Ular **pastdan yuqoriga qöllanadi** (`def` ga eng yaqini birinçi öraydi), şuning uçun çaqiruv paytida **eng yuqoridagisi eng taşqarida** işlaydi:
+
+![Diagramma: Ustma-ust dekoratorlar](/images/companions-webp-uzb/decorator-stack.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 from functools import wraps

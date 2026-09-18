@@ -5,6 +5,8 @@ description: "Learn how closures remember values, write your own decorators with
 
 # Closures and Decorators
 
+![Illustration: Closures and Decorators](/images/topics-webp/closures-and-decorators.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - What a **closure** is, and when an inner function needs `nonlocal`
 - How to write a **decorator** step by step, with `*args`, `**kwargs`, and `functools.wraps`
@@ -165,6 +167,8 @@ By hand, this is `fetch_rate = retry(times=3)(fetch_rate)`. `times` lives in the
 ## Stacking decorators
 
 You can put several decorators on one function. They are **applied bottom-up** (the one nearest the `def` wraps first), so at call time the **top one runs outermost**:
+
+![Diagram: Stacked Decorators](/images/companions-webp/decorator-stack.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 from functools import wraps

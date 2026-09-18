@@ -5,6 +5,8 @@ description: "Organise a test suite with conftest.py and fixture scopes, use mon
 
 # Testing in Depth
 
+![Illustration: Testing in Depth](/images/topics-webp/testing-in-depth.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - How to organise tests with a **`tests/` folder**, **`conftest.py`** and `-k`
 - **Fixture scopes** and **`yield` fixtures** for setup and teardown
@@ -43,6 +45,8 @@ shop_project/
 ## Fixture scopes and `yield` fixtures
 
 A fixture that uses **`yield`** instead of `return` gets a **teardown**: the code after `yield` runs after the test, even a failed one. `tests/conftest.py`:
+
+![Diagram: Fixture Setup and Teardown](/images/companions-webp/fixture-lifecycle.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```py
 import pytest

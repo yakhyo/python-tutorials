@@ -5,6 +5,8 @@ description: "Özini özi çaqiradigan funksiyalar yozing: bazaviy va rekursiv h
 
 # Rekursiya
 
+![Rasm: Rekursiya](/images/topics-webp-uzb/recursion.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Funksiya **özini özi çaqirişi** nimani anglatadi va nega bu çeksiz sikl emas
 - Har bir rekursiv funksiyaga kerak bölgan ikki qism: **bazaviy holat** va **rekursiv holat**

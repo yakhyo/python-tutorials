@@ -5,6 +5,8 @@ description: "Test töplamini conftest.py va fixture scopelari bilan tartiblaş,
 
 # Testlaşni çuqurroq örganiş
 
+![Rasm: Testlaşni çuqurroq örganiş](/images/topics-webp-uzb/testing-in-depth.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Testlarni **`tests/` papkasi**, **`conftest.py`** va `-k` bilan qanday tartiblaş
 - Tayyorlaş va tozalaş uçun **fixture scopelari** va **`yield` li fixturelar**
@@ -43,6 +45,8 @@ shop_project/
 ## Fixture scopelari va `yield` li fixturelar
 
 `return` örniga **`yield`** işlatadigan fixture **tozalaş** (teardown) qismiga ega böladi: `yield` dan keyingi kod testdan keyin, hatto test yiqilsa ham bajariladi. `tests/conftest.py`:
+
+![Diagramma: Fixture: tayyorlaş va tozalaş](/images/companions-webp-uzb/fixture-lifecycle.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```py
 import pytest

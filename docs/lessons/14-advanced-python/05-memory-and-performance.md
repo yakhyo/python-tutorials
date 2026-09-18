@@ -5,6 +5,8 @@ description: "Measure before you optimise: time code with timeit, inspect memory
 
 # Memory and Performance
 
+![Illustration: Memory and Performance](/images/topics-webp/memory-and-performance.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - How to **measure** speed with `timeit` and `time.perf_counter`
 - What `sys.getsizeof` reports, and how `tracemalloc` shows **where** memory goes

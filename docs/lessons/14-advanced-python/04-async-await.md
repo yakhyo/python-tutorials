@@ -5,6 +5,8 @@ description: "Write asynchronous Python with async def and await: run coroutines
 
 # Async and await
 
+![Illustration: Async and await](/images/topics-webp/async-await.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - What a **coroutine** is, and what `await` does while a program waits
 - How to run coroutines **concurrently** with `asyncio.gather`, `create_task` and `TaskGroup`
@@ -102,6 +104,8 @@ The total is the **longest** wait (0.3 s), not the sum (0.6 s), and there is sti
 ## Tasks and the event loop
 
 `asyncio.create_task(coro)` wraps a coroutine in a **task** that starts as soon as the current coroutine pauses. `await` the task later to get its result:
+
+![Diagram: Tasks and the Event Loop](/images/companions-webp/async-task-timeline.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 import asyncio

@@ -5,6 +5,8 @@ description: "Obyektlarga __add__ va __rmul__ orqali arifmetika bering, qöllab-
 
 # Operatorlar va konteynerlar
 
+![Rasm: Operatorlar va konteynerlar](/images/topics-webp-uzb/operators-and-containers.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - `__add__` va `__mul__` obyektlarga arifmetikani qanday beradi va ular nega **yangi** obyekt qaytaradi
 - Nega qöllab-quvvatlanmaydigan turlar `NotImplemented` oladi va `__rmul__` `3 * price` ni qanday işlatadi

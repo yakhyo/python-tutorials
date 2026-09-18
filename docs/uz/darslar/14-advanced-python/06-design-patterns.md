@@ -5,6 +5,8 @@ description: "Klassik dizayn patternlarni Python usulida qöllang: funksiya kör
 
 # Pythonça dizayn patternlar
 
+![Rasm: Python uslubidagi dizayn andozalari](/images/topics-webp-uzb/design-patterns.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Nega **dizayn patternlar** (design patterns) köçirib olinadigan kod emas, balki umumiy atamalar luğati
 - **Strategy** (strategiya), **Factory** (fabrika) va **Registry** (registr) patternlarini funksiyalar, classmethodlar, luğatlar va dekoratorlar bilan qanday yoziş

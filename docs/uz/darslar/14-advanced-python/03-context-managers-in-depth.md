@@ -5,6 +5,8 @@ description: "__enter__ va __exit__ bilan klass körinişidagi kontekst menejerl
 
 # Kontekst menejerlarini çuqurroq örganiş
 
+![Rasm: Kontekst menejerlari](/images/topics-webp-uzb/context-managers-in-depth.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Aniq **kontekst menejeri protokoli** (context manager protocol): `__enter__` nima qaytaradi va `__exit__(exc_type, exc, tb)` nima qabul qiladi
 - `__exit__` ning qaytaradigan qiymati istisno **yutilişi** (swallow) yoki **yuqoriga uzatilişini** (propagate) qanday hal qiladi
@@ -62,6 +64,8 @@ Obyektda saqlandi: 0.1
 `__exit__` **rost** qiymat qaytarsa, istisno **yutiladi**. `None` yoki `False` esa uni **yuqoriga uzatadi**. Aksariyat menejerlar heç narsa qaytarmaydi, şuning uçun xatolar yuqoriga uzatiladi.
 
 Bu `Transaction` hisoblarning nusxasi bilan işlaydi, muvaffaqiyatda özgarişlarni saqlaydi (commit), xatoda bekor qiladi (rollback) va faqat `ValueError` ni yutadi:
+
+![Diagramma: Kontekst menejeri hayot sikli](/images/companions-webp-uzb/context-manager-lifecycle.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 class Transaction:

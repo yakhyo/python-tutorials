@@ -5,6 +5,8 @@ description: "Build a log pipeline that combines generators, frozen dataclasses,
 
 # Project: Log Pipeline
 
+![Illustration: Project: Log Pipeline](/images/topics-webp/advanced-project.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - How to build a **lazy pipeline** of generators that parses a log line by line
 - How to register pipeline steps with a **decorator** and choose them by name
@@ -35,6 +37,8 @@ Your program reads an access log, skips broken lines, filters and groups the req
 ## Design
 
 A log line looks like `2026-09-16T10:03:21 GET /products/12 200 0.128 192.168.1.20`. The fields are time, method, path, status code, duration in seconds, and client IP. The data flows through small stages:
+
+![Diagram: Log Pipeline Architecture](/images/companions-webp/log-pipeline-architecture.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```text
 access.log
