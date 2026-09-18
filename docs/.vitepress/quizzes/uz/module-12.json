@@ -1,0 +1,136 @@
+{
+  "module": "12 · Keyingi qadamlar",
+  "title": "Nazorat: Keyingi qadamlar",
+  "intro": "Iteratorlar, generatorlar va regulyar ifodalarni hamda matnni qayta işlaydigan dasturni qanday tuziş kerakligini tuşunişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Ikkala print nimani körsatadi?",
+      "code": "evens = (n for n in range(10) if n % 2 == 0)\nprint(sum(evens))\nprint(sum(evens))",
+      "options": [
+        "20, keyin 20",
+        "20, keyin 0",
+        "20, keyin xato",
+        "0, keyin 20"
+      ],
+      "answer": 1,
+      "explanation": "Birinçi sum() generatorni tugatadi, şuning uçun ikkinçisi heç qanday qiymat körmaydi va 0 qaytaradi.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "Qaysi qatorlar qanday tartibda çop etiladi?",
+      "code": "def countdown(n):\n    print(\"start\")\n    while n > 0:\n        yield n\n        n -= 1\n\ngen = countdown(3)\nprint(\"created\")\nprint(next(gen), next(gen))",
+      "options": [
+        "start, created, 3 2",
+        "created, 3 2",
+        "created, start, 3 2",
+        "start, 3 2, created"
+      ],
+      "answer": 2,
+      "explanation": "Generator funksiyasini çaqiriş faqat generator yaratadi. Tana birinçi next() da işlay boşlaydi.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "cities = [\"Tashkent\", \"Bukhara\"]\nprint(next(cities))",
+      "options": [
+        "Tashkent ni çop etadi",
+        "StopIteration",
+        "['Tashkent', 'Bukhara'] ni çop etadi",
+        "TypeError"
+      ],
+      "answer": 3,
+      "explanation": "Röyxat iteratsiya qilinadigan (iterable), lekin iterator emas. next(iter(cities)) dan foydalaning.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "def chunks():\n    yield from [1, 2]\n    yield 3\n\nprint(list(chunks()), sum(chunks()))",
+      "options": [
+        "[1, 2, 3] 6",
+        "[[1, 2], 3] 6",
+        "[1, 2, 3] 0",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "yield from röyxatning har bir elementini birma-bir beradi. chunks() ning har bir çaqiriluvi yangi generator yaratadi, şuning uçun sum() barça qiymatlarni köradi.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import re\ntext = \"Total: 45000 som\"\nprint(re.match(r\"\\d+\", text))",
+      "options": [
+        "45000",
+        "None",
+        "<re.Match object; span=(7, 12), match='45000'>",
+        "[]"
+      ],
+      "answer": 1,
+      "explanation": "re.match faqat satr boşini tekşiradi, u yerda esa raqam yöq. Istalgan joydan qidiriş uçun re.search dan foydalaning.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import re\nhtml = \"<b>Plov</b> and <b>Somsa</b>\"\nprint(re.findall(r\"<b>(.*)</b>\", html))",
+      "options": [
+        "['Plov', 'Somsa']",
+        "['<b>Plov</b>', '<b>Somsa</b>']",
+        "['Plov</b> and <b>Somsa']",
+        "[]"
+      ],
+      "answer": 2,
+      "explanation": "Greedy .* oxirgi </b> gaça imkon qadar köp narsani oladi. Birinçisida töxtaş uçun .*? yoki [^<]* dan foydalaning.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import re\nprint(bool(re.match(r\"\\d+\", \"123abc\")), bool(re.fullmatch(r\"\\d+\", \"123abc\")))",
+      "options": [
+        "True False",
+        "True True",
+        "False False",
+        "False True"
+      ],
+      "answer": 0,
+      "explanation": "match muvaffaqiyatli, çunki satr raqamlar bilan boşlanadi, lekin fullmatch butun satr mos kelişini talab qiladi. Tekşiruv uçun fullmatch dan foydalaning.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import re\nm = re.search(r\"(?P<day>\\d{2})\\.(?P<month>\\d{2})\", \"Date: 15.09.2026\")\nprint(m.group(\"month\"), m.group(0))",
+      "options": [
+        "15 09",
+        "09 15",
+        "09 15.09",
+        "15.09 09"
+      ],
+      "answer": 2,
+      "explanation": "Nomlangan guruhlar nomi böyiça öqiladi, group(0) esa butun moslik.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "from collections import Counter\ntext = \"Plov, plov and more plov!\"\nprint(Counter(text.lower().split())[\"plov\"])",
+      "options": [
+        "3",
+        "0",
+        "KeyError",
+        "1"
+      ],
+      "answer": 3,
+      "explanation": "split() tiniş belgilarini sözga yopişgan holda qoldiradi, şuning uçun \"plov,\" va \"plov!\" har xil söz sifatida sanaladi. Sözlarni [a-z]+ kabi regex bilan ajratib oling.",
+      "lesson": "text-processing-project"
+    },
+    {
+      "question": "Matn tahlilçisida count_sentences(text) kabi funksiyalar maʼlumotni qayerdan olişi va çop etiş qayerda bölişi kerak?",
+      "options": [
+        "Matnni argument sifatida oliş va qiymat qaytariş",
+        "Har bir funksiya içida faylni öqib çop etiş",
+        "Matn va natijalarni global özgaruvçilarda saqlaş",
+        "Hammasini bitta main() funksiyasiga joylaş"
+      ],
+      "answer": 0,
+      "explanation": "Argument olib, qiymat qaytaradigan sof funksiyalarni test qiliş va qayta işlatiş oson. Faylni öqiş va çop etişni çetlarda saqlang.",
+      "lesson": "text-processing-project"
+    }
+  ]
+}

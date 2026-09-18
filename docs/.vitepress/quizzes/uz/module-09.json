@@ -1,0 +1,136 @@
+{
+  "module": "09 · Klasslar va obyektlar",
+  "title": "Nazorat: Klasslar va obyektlar",
+  "intro": "Klasslar yarata olişingiz, nusxa va klass atributlari bilan işlay olişingiz, xossalardan foydalana olişingiz va maxsus metodlar yoza olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Temperature:\n    def __init__(self, celsius):\n        self.celsius = celsius\n\n    @classmethod\n    def from_fahrenheit(cls, f):\n        return cls((f - 32) * 5 / 9)\n\nt = Temperature.from_fahrenheit(212)\nprint(t.celsius)",
+      "options": [
+        "100.0",
+        "212",
+        "TypeError",
+        "100"
+      ],
+      "answer": 0,
+      "explanation": "classmethod klassni cls sifatida oladi, şuning uçun cls(...) yangi Temperature yaratadi. (212 - 32) * 5 / 9 bu 100.0 - / tufayli float.",
+      "lesson": "class-attributes-and-methods"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "class Book:\n    def __init__(self, title):\n        title = title\n\nbook = Book(\"Python Basics\")\nprint(book.title)",
+      "options": [
+        "Python Basics ni çop etadi",
+        "None ni çop etadi",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 3,
+      "explanation": "self. siz title faqat __init__ içidagi lokal özgaruvçi, şuning uçun obyekt heç qaçon title atributiga ega bölmaydi.",
+      "lesson": "classes-and-objects"
+    },
+    {
+      "question": "Oxirgi qatorda nima böladi?",
+      "code": "class Todo:\n    def __init__(self):\n        self.tasks = []\n\n    def add(self, task):\n        self.tasks.append(task)\n\ntodo = Todo().add(\"buy bread\")\nprint(todo.tasks)",
+      "options": [
+        "['buy bread'] ni çop etadi",
+        "AttributeError",
+        "TypeError",
+        "None ni çop etadi"
+      ],
+      "answer": 1,
+      "explanation": "add() None qaytaradi, şuning uçun todo None ga teng. Avval obyektni yarating, keyin add() ni alohida qatorda çaqiring.",
+      "lesson": "methods-and-attributes"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Wallet:\n    def __init__(self):\n        self.cash = 1000\n    def spend(self, amount):\n        self.cash -= amount\n        if self.cash < 0:\n            raise ValueError(\"Not enough cash\")\nw = Wallet()\ntry:\n    w.spend(5000)\nexcept ValueError:\n    print(w.cash)",
+      "options": [
+        "1000",
+        "-4000",
+        "ValueError",
+        "0"
+      ],
+      "answer": 1,
+      "explanation": "Holat tekşirişdan oldin özgaradi: avval self.cash kamayadi, istisno keyin çaqiriladi (va tutiladi), şuning uçun hamyon -4000 da qoladi. Avval tekşiring, keyin holatni özgartiring.",
+      "lesson": "methods-and-attributes"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Student:\n    count = 0\n\n    def __init__(self, name):\n        self.name = name\n        self.count += 1\n\na = Student(\"Aziza\")\nb = Student(\"Bekzod\")\nprint(Student.count, a.count)",
+      "options": [
+        "2 1",
+        "2 2",
+        "0 1",
+        "AttributeError"
+      ],
+      "answer": 2,
+      "explanation": "self.count += 1 har bir obyektda nusxa atributini yaratadi va Student.count ni 0 da qoldiradi. Student.count += 1 dan foydalaning.",
+      "lesson": "class-attributes-and-methods"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n\n    @property\n    def area(self):\n        return self.width * self.height\n\nprint(Rectangle(4, 5).area())",
+      "options": [
+        "20 ni çop etadi",
+        "Metod obyektini çop etadi",
+        "AttributeError",
+        "TypeError"
+      ],
+      "answer": 3,
+      "explanation": "Xossa qavssiz öqiladi: Rectangle(4, 5).area allaqaçon 20 soni, sonni esa çaqirib bölmaydi.",
+      "lesson": "properties-and-encapsulation"
+    },
+    {
+      "question": "Product klassida price nomli property bor. Klass içida qiymatning özi qayerda saqlanişi kerak?",
+      "options": [
+        "self.price",
+        "self._price",
+        "Product.price",
+        "Global özgaruvçida"
+      ],
+      "answer": 1,
+      "explanation": "Xossa içida self.price ga qiymat beriş setterni qayta-qayta çaqiradi va RecursionError ga olib keladi. Maʼlumotni self._price kabi boşqa nom ostida saqlang.",
+      "lesson": "properties-and-encapsulation"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Product:\n    def __init__(self, name):\n        self.name = name\n\n    def __repr__(self):\n        return f\"Product({self.name!r})\"\n\n    def __str__(self):\n        return self.name\n\nitems = [Product(\"Tea\")]\nprint(items[0], items)",
+      "options": [
+        "Tea [Product('Tea')]",
+        "Tea [Tea]",
+        "Product('Tea') [Product('Tea')]",
+        "Tea ['Tea']"
+      ],
+      "answer": 0,
+      "explanation": "print() obyektning özi uçun __str__ dan foydalanadi, röyxat esa öz elementlarini __repr__ bilan körsatadi.",
+      "lesson": "special-methods"
+    },
+    {
+      "question": "Bu kod nima qiladi?",
+      "code": "class Product:\n    def __init__(self, name, price):\n        self.name = name\n        self.price = price\n\n    def __eq__(self, other):\n        return self.name == other.name\n\nprint(Product(\"Tea\", 15000) == Product(\"Tea\", 12000))\nprint({Product(\"Tea\", 15000)})",
+      "options": [
+        "True ni çop etadi, keyin bitta mahsulotli töplamni",
+        "False ni çop etadi, keyin TypeError çaqiradi",
+        "True ni çop etadi, keyin TypeError çaqiradi",
+        "True ni çop etadi, keyin ikkita mahsulotli töplamni"
+      ],
+      "answer": 2,
+      "explanation": "Nomlar mos keladi, şuning uçun == True. __eq__ ni aniqlaş __hash__ ni None qiladi, şuning uçun obyektni töplamga qöşib bölmaydi.",
+      "lesson": "special-methods"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Cart:\n    def __init__(self, items):\n        self.items = items\n\n    def __len__(self):\n        return len(self.items)\n\ncart = Cart([\"tea\", \"non\"])\nprint(len(cart), bool(Cart([])))",
+      "options": [
+        "2 False",
+        "2 True",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 0,
+      "explanation": "len(cart) __len__ ni çaqiradi. __bool__ bölmasa rostlik tekşiruvi __len__ ga tayanadi, şuning uçun böş savat False.",
+      "lesson": "operators-and-containers"
+    }
+  ]
+}

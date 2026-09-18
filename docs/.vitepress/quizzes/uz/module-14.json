@@ -1,0 +1,158 @@
+{
+  "module": "14 · Advanced Python (ixtiyoriy)",
+  "title": "Nazorat: Advanced Python",
+  "intro": "Dekoratorlar, maʼlumot modeli, kontekst menejerlari va asinxron kodni hamda Python xotira, dizayn patternlar, parallel bajariş va testlaşni qanday boşqarişini tuşunişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "city(\"Buxoro\") nimani qaytaradi?",
+      "code": "def bold(func):\n    return lambda text: \"<b>\" + func(text) + \"</b>\"\ndef italic(func):\n    return lambda text: \"<i>\" + func(text) + \"</i>\"\n@italic\n@bold\ndef city(name): return name",
+      "options": [
+        "\"<b><i>Buxoro</i></b>\"",
+        "\"<i>Buxoro</i>\"",
+        "\"<i><b>Buxoro</b></i>\"",
+        "\"<b>Buxoro</b>\""
+      ],
+      "answer": 2,
+      "explanation": "Ketma-ket yozilgan dekoratorlar pastdan yuqoriga qöllanadi, yaʼni city = italic(bold(city)). Eng yuqoridagi italic dekoratori eng taşqi örovçi funksiya böladi.",
+      "lesson": "closures-and-decorators"
+    },
+    {
+      "question": "def fetch_rate() ustidagi @retry(times=3) qaysi qatorni anglatadi?",
+      "options": [
+        "fetch_rate = retry(fetch_rate, times=3)",
+        "fetch_rate = retry(times=3)(fetch_rate)",
+        "fetch_rate = retry(times=3)",
+        "fetch_rate = retry(fetch_rate)(times=3)"
+      ],
+      "answer": 1,
+      "explanation": "Avval retry(times=3) bajariladi va u dekorator qaytarişi kerak, keyin şu dekorator funksiya bilan çaqiriladi. Şuning uçun argumentli dekoratorga yana bir daraja iç-iç funksiya kerak.",
+      "lesson": "closures-and-decorators"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class Settings:\n    language = \"uz\"\n    def __getattr__(self, name):\n        return f\"<{name}>\"\ns = Settings()\nprint(s.language, s.theme)",
+      "options": [
+        "uz <theme>",
+        "<language> <theme>",
+        "uz, keyin AttributeError",
+        "<language>, keyin AttributeError"
+      ],
+      "answer": 0,
+      "explanation": "__getattr__ faqat zaxira yöl: language oddiy qidiruv orqali klassda topiladi, faqat mavjud bölmagan theme __getattr__ ga boradi.",
+      "lesson": "python-data-model"
+    },
+    {
+      "question": "Ota klassning __init_subclass__ metodi qaçon işlaydi?",
+      "options": [
+        "Voris klassning har bir obyekti yaratilganda",
+        "Faqat voris klass super().__init__() ni çaqirganda",
+        "Voris klassning biror metodi birinçi marta çaqirilganda",
+        "Voris klassning özi aniqlanganda"
+      ],
+      "answer": 3,
+      "explanation": "__init_subclass__ class operatori voris klass yaratişi bilanoq, yangi klassni cls sifatida olib işlaydi. Şuning uçun u plaginlar registri uçun qulay.",
+      "lesson": "python-data-model"
+    },
+    {
+      "question": "Qaysi qatorlar qanday tartibda çop etiladi?",
+      "code": "from contextlib import ExitStack\nwith ExitStack() as stack:\n    stack.callback(print, \"birinçi\")\n    stack.callback(print, \"ikkinçi\")\n    print(\"tana\")",
+      "options": [
+        "birinçi, ikkinçi, tana",
+        "tana, ikkinçi, birinçi",
+        "tana, birinçi, ikkinçi",
+        "ikkinçi, birinçi, tana"
+      ],
+      "answer": 1,
+      "explanation": "Callbacklar röyxatdan ötkazilganda emas, with bloki tugaganda işlaydi, ExitStack esa ularni teskari tartibda bajaradi.",
+      "lesson": "context-managers-in-depth"
+    },
+    {
+      "question": "Klass körinişidagi kontekst menejeri haqidagi qaysi fikr töğri?",
+      "options": [
+        "__enter__ istisno çaqirsa ham __exit__ baribir çaqiriladi",
+        "__exit__ None qaytarsa, blokdagi istisno yutiladi",
+        "__exit__ rost qiymat qaytarsa, blokdagi istisno yutiladi",
+        "Blok istisno çaqirganda __exit__ uçta None oladi"
+      ],
+      "answer": 2,
+      "explanation": "__exit__ rost qiymat qaytarsa, istisno yutiladi; None yoki False esa uni yuqoriga uzatadi. Uçta None blok normal tugaganini bildiradi.",
+      "lesson": "context-managers-in-depth"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "async def fetch(city):\n    return f\"{city}: 12,650 söm\"\nasync def main():\n    result = fetch(\"Toşkent\")\n    print(type(result).__name__)\nawait main()",
+      "options": [
+        "coroutine",
+        "Toşkent: 12,650 söm",
+        "str",
+        "NoneType"
+      ],
+      "answer": 0,
+      "explanation": "async def funksiyasini çaqiriş faqat korutina obyektini yaratadi; uning tanasi await qilinganda işlaydi. Python korutina heç qaçon await qilinmagani haqida ogohlantiriş ham beradi.",
+      "lesson": "async-await"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import asyncio\nasync def fetch(city, delay):\n    await asyncio.sleep(delay)\n    return city\nasync def main():\n    print(await asyncio.gather(fetch(\"Buxoro\", 0.3), fetch(\"Toşkent\", 0.1)))\nawait main()",
+      "options": [
+        "['Toşkent', 'Buxoro']",
+        "Toşkent",
+        "Qaysi sörov birinçi tugaşiga boğliq",
+        "['Buxoro', 'Toşkent']"
+      ],
+      "answer": 3,
+      "explanation": "Toşkent birinçi tugaydi, lekin gather natijalarni ular tugagan tartibda emas, korutinalarni uzatgan tartibingizda qaytaradi.",
+      "lesson": "async-await"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import sys\nshort = [letter for letter in \"abc\"]\nlong = [letter * 10_000 for letter in \"abc\"]\nprint(sys.getsizeof(short) == sys.getsizeof(long))",
+      "options": [
+        "False",
+        "True",
+        "TypeError",
+        "30000"
+      ],
+      "answer": 1,
+      "explanation": "sys.getsizeof faqat röyxat obyektining özini ölçaydi. Röyxat elementlariga havolalarni saqlaydi, şuning uçun satrlarning ölçami hisobga kirmaydi.",
+      "lesson": "memory-and-performance"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class EventEmitter:\n    listeners = []\n    def subscribe(self, callback):\n        self.listeners.append(callback)\nshop, bank = EventEmitter(), EventEmitter()\nshop.subscribe(print)\nprint(len(bank.listeners))",
+      "options": [
+        "0",
+        "AttributeError",
+        "1",
+        "2"
+      ],
+      "answer": 2,
+      "explanation": "listeners klass atributi, şuning uçun shop ham, bank ham bitta röyxatga qöşadi. Har bir emitterga alohida röyxat beriş uçun uni __init__ içida self.listeners = [] bilan yarating.",
+      "lesson": "design-patterns"
+    },
+    {
+      "question": "Sof Python funksiyasi tub sonlarni sanaydi va siz uni oddiy CPython da ikkita katta kiriş maʼlumoti uçun bir vaqtda işga tuşirmoqçisiz. Qaysi vosita haqiqatan ikkita protsessor yadrosini işlatadi?",
+      "options": [
+        "ProcessPoolExecutor",
+        "ThreadPoolExecutor",
+        "asyncio.gather",
+        "Lock bilan ikkita threading.Thread obyekti"
+      ],
+      "answer": 0,
+      "explanation": "GIL tufayli bir vaqtda faqat bitta oqim Python kodini bajaradi, asyncio esa bitta oqimda işlaydi. Har bir jarayonning özining interpretatori va GIL i bor.",
+      "lesson": "threads-and-processes"
+    },
+    {
+      "question": "prices.py from rates import fetch_rate ni bajaradi, keyin fetch_rate() ni çaqiradi. prices.price_in_som testida qaysi patch kurs olişni almaştiradi?",
+      "options": [
+        "patch(\"rates.fetch_rate\")",
+        "patch(\"fetch_rate\")",
+        "patch(\"rates.prices.fetch_rate\")",
+        "patch(\"prices.fetch_rate\")"
+      ],
+      "answer": 3,
+      "explanation": "Import prices içida ikkinçi nom - fetch_rate ni yaratadi. Nomni u aniqlangan joyda emas, kod uni qidiradigan joyda patch qiling.",
+      "lesson": "testing-in-depth"
+    }
+  ]
+}

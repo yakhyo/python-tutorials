@@ -1,0 +1,136 @@
+{
+  "module": "08 · Errors and Files",
+  "title": "Checkpoint: Errors and Files",
+  "intro": "Check that you can handle exceptions, validate input, and read and write text, CSV, and JSON files safely.",
+  "questions": [
+    {
+      "question": "Which lines does this code print, in order?",
+      "code": "def check(text):\n    try:\n        n = int(text)\n    except ValueError:\n        print(\"rejected\")\n    else:\n        print(\"accepted\")\n    finally:\n        print(\"done\")\n\ncheck(\"12\")",
+      "options": [
+        "accepted, then done",
+        "accepted",
+        "rejected, then done",
+        "done, then accepted"
+      ],
+      "answer": 0,
+      "explanation": "The try block succeeds, so else runs; finally always runs afterwards.",
+      "lesson": "exceptions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "try:\n    result = 10 / 0\nexcept Exception:\n    print(\"Something went wrong\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")",
+      "options": [
+        "Cannot divide by zero",
+        "Something went wrong",
+        "Both messages",
+        "Nothing, the program crashes"
+      ],
+      "answer": 1,
+      "explanation": "ZeroDivisionError is a child of Exception, so the first matching except wins. Put specific exceptions first.",
+      "lesson": "exceptions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "class OutOfStockError(Exception):\n    pass\n\ndef buy(stock):\n    if stock == 0:\n        raise OutOfStockError(\"no tea left\")\n    return stock - 1\n\ntry:\n    buy(0)\nexcept OutOfStockError as e:\n    print(f\"Error: {e}\")",
+      "options": [
+        "Error: OutOfStockError",
+        "Nothing, the program crashes",
+        "Error: no tea left",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "The custom class inherits from Exception, so it can carry a message, and str(e) gives that message.",
+      "lesson": "raising-and-custom-exceptions"
+    },
+    {
+      "question": "Which call turns the text below (a string) into a Python dictionary?",
+      "code": "text = '{\"city\": \"Nukus\", \"temp\": 28}'",
+      "options": [
+        "json.loads(text)",
+        "json.load(text)",
+        "json.dumps(text)",
+        "json.dump(text)"
+      ],
+      "answer": 0,
+      "explanation": "loads reads from a string (the s is for string); load reads from an open file. dumps and dump go the other way, from Python to JSON.",
+      "lesson": "json"
+    },
+    {
+      "question": "The user typed \" Yes\" (with a leading space). What does this code print?",
+      "code": "answer = \" Yes\"\nif answer == \"yes\":\n    print(\"Confirmed\")\nelse:\n    print(\"Not confirmed\")",
+      "options": [
+        "Confirmed",
+        "Not confirmed",
+        "ValueError",
+        "Nothing at all"
+      ],
+      "answer": 1,
+      "explanation": "\" Yes\" is not equal to \"yes\": the space and the capital letter both matter. Normalize first with answer.strip().lower() and then compare.",
+      "lesson": "input-validation"
+    },
+    {
+      "question": "Why is \"-3\".isdigit() a poor way to check that a temperature is a valid number?",
+      "options": [
+        "It raises ValueError for negative numbers",
+        "It returns True for every non-empty string",
+        "It returns False, so valid negatives are rejected",
+        "It only works for float strings such as 3.5"
+      ],
+      "answer": 2,
+      "explanation": "The minus sign is not a digit, so isdigit() returns False. Convert with int() or float() inside try instead.",
+      "lesson": "input-validation"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "with open(\"log.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"first\\n\")\nwith open(\"log.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"second\\n\")\nwith open(\"log.txt\", encoding=\"utf-8\") as f:\n    print(f.read(), end=\"\")",
+      "options": [
+        "first and second (two lines)",
+        "first",
+        "Nothing",
+        "second"
+      ],
+      "answer": 3,
+      "explanation": "Mode \"w\" erases the file each time it is opened. Use \"a\" to append.",
+      "lesson": "files-and-pathlib"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "import csv, io\nrows = csv.DictReader(io.StringIO(\"name,score\\nAziza,92\\nBekzod,78\\n\"))\ntotal = sum(row[\"score\"] for row in rows)\nprint(total)",
+      "options": [
+        "It prints 170",
+        "TypeError",
+        "ValueError",
+        "It prints 9278"
+      ],
+      "answer": 1,
+      "explanation": "Every CSV value is a string, so sum() tries to add an int and a str. Convert with int(row[\"score\"]).",
+      "lesson": "csv"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import json\nmedals = {1: \"gold\", 2: \"silver\"}\ndata = json.loads(json.dumps(medals))\nprint(data)",
+      "options": [
+        "{'1': 'gold', '2': 'silver'}",
+        "{1: 'gold', 2: 'silver'}",
+        "[1, 2]",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "JSON object keys are always strings, so number keys come back as strings after a round trip.",
+      "lesson": "json"
+    },
+    {
+      "question": "What happens on the last line?",
+      "code": "with open(\"notes.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"first line\\n\")\nfile.write(\"second line\\n\")",
+      "options": [
+        "The text is appended to notes.txt",
+        "The file is reopened automatically",
+        "ValueError",
+        "NameError"
+      ],
+      "answer": 2,
+      "explanation": "The with block closes the file when it ends, and writing to a closed file raises ValueError: I/O operation on closed file.",
+      "lesson": "context-managers-basics"
+    }
+  ]
+}

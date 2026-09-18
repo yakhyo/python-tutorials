@@ -1,0 +1,134 @@
+{
+  "module": "01 · Getting Started",
+  "title": "Checkpoint: Getting Started",
+  "intro": "Check that you can run Python, print text, and read the first error messages you will meet.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "print(\"Hello\", \"Aziza\", sep=\"-\")",
+      "options": [
+        "Hello-Aziza",
+        "Hello Aziza",
+        "Hello-Aziza-",
+        "HelloAziza"
+      ],
+      "answer": 0,
+      "explanation": "sep sets what goes between the values, so print puts a dash instead of the usual space.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "What happens when you run this line?",
+      "code": "Print(\"Salom\")",
+      "options": [
+        "It prints Salom",
+        "SyntaxError",
+        "NameError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "Python is case-sensitive. Only print exists, so Print is an unknown name and raises NameError.",
+      "lesson": "what-is-python"
+    },
+    {
+      "question": "You see >>> in your window, type python hello.py and get a SyntaxError. What is wrong?",
+      "options": [
+        "The file hello.py is empty, so there is nothing to run",
+        "You are in the Python REPL: type exit(), then run it in the terminal",
+        "You must write print(python hello.py) to run a file",
+        "Python is not installed, so the command is not known"
+      ],
+      "answer": 1,
+      "explanation": "The >>> prompt means you are already inside Python, where only Python code works. Terminal commands belong at the $ or PS prompt.",
+      "lesson": "install-and-setup"
+    },
+    {
+      "question": "A script file contains only the line below. You run it with python3 sum.py. What do you see?",
+      "code": "2 + 3",
+      "options": [
+        "5",
+        "2 + 3",
+        "An error message",
+        "Nothing at all"
+      ],
+      "answer": 3,
+      "explanation": "Scripts do not show values automatically like the REPL does. Wrap the expression in print() to see it.",
+      "lesson": "running-python"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(\"Tashkent\", end=\"!\")\nprint(\"Samarkand\")",
+      "options": [
+        "Tashkent! Samarkand",
+        "TashkentSamarkand!",
+        "Tashkent!Samarkand",
+        "SyntaxError"
+      ],
+      "answer": 2,
+      "explanation": "end=\"!\" replaces the usual newline with !, so the next print continues on the same line.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(\"7 * 3 =\", 7 * 3)",
+      "options": [
+        "7 * 3 = 21",
+        "21 = 21",
+        "7 * 3 = 7 * 3",
+        "7 * 3 =21"
+      ],
+      "answer": 0,
+      "explanation": "The part in quotes is text and is printed as-is; the part without quotes is calculated. print adds a space between them.",
+      "lesson": "hello-world"
+    },
+    {
+      "question": "Which comment is the most useful?",
+      "options": [
+        "count = count + 1  # add 1 to count",
+        "print(total)  # print the total value",
+        "x = 5  # set x to five",
+        "tax_rate = 0.12  # VAT rate; check yearly"
+      ],
+      "answer": 3,
+      "explanation": "Good comments explain why or give context the code cannot show. The others just repeat what the code already says.",
+      "lesson": "comments-and-style"
+    },
+    {
+      "question": "Why does this program fail?",
+      "code": "print(\"start\")\n    print(\"next\")",
+      "options": [
+        "print needs a colon at the end",
+        "The second line is indented for no reason",
+        "Strings cannot contain spaces",
+        "You cannot call print twice"
+      ],
+      "answer": 1,
+      "explanation": "Only code inside a block (like the body of an if) should be indented. The extra spaces cause IndentationError: unexpected indent.",
+      "lesson": "comments-and-style"
+    },
+    {
+      "question": "Which command opens the interactive Python shell (the REPL) in a terminal on macOS or Linux?",
+      "options": [
+        "python3",
+        "python3 hello.py",
+        "py --version",
+        "pip3 python"
+      ],
+      "answer": 0,
+      "explanation": "python3 with no file name starts the REPL, where you see the >>> prompt. python3 hello.py runs a file instead.",
+      "lesson": "running-python"
+    },
+    {
+      "question": "In the REPL you type the line below and press Enter. Nothing appears. Why?",
+      "code": "total = 120 + 80",
+      "options": [
+        "An assignment has no value to show; the REPL only echoes expressions",
+        "Python is still waiting for a second line of input",
+        "The variable name total is reserved and was ignored",
+        "The REPL never shows anything until you call print()"
+      ],
+      "answer": 0,
+      "explanation": "The REPL shows the value of an expression such as total or 2 + 3, but an assignment produces no value, so nothing is shown.",
+      "lesson": "running-python"
+    }
+  ]
+}

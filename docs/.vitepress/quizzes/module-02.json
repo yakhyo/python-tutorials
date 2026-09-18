@@ -1,0 +1,136 @@
+{
+  "module": "02 · Values and Variables",
+  "title": "Checkpoint: Values and Variables",
+  "intro": "Test your understanding of variables, numbers, strings, f-strings, input, and reading errors.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "x = 5\ny = x\nx = 10\nprint(y)",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "NameError"
+      ],
+      "answer": 0,
+      "explanation": "y = x makes y point to the value 5. Giving x a new value later does not change y.",
+      "lesson": "variables"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(7 // 2, 7 % 2)",
+      "options": [
+        "3.5 1",
+        "4 1",
+        "3 1",
+        "3 0.5"
+      ],
+      "answer": 2,
+      "explanation": "// gives the whole part of the division (3) and % gives the remainder (1).",
+      "lesson": "numbers-and-math"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print(10 / 2, 10 // 2)",
+      "options": [
+        "5 5",
+        "5.0 5",
+        "5.0 5.0",
+        "5 5.0"
+      ],
+      "answer": 1,
+      "explanation": "/ always gives a float, even when the division is exact. // gives an int when both sides are ints.",
+      "lesson": "numbers-and-math"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "word = \"Tashkent\"\nprint(word[-1], word[0:4])",
+      "options": [
+        "n Tashk",
+        "t Tashk",
+        "T Tash",
+        "t Tash"
+      ],
+      "answer": 3,
+      "explanation": "Index -1 is the last character, and a slice stops before the stop index, so [0:4] gives the first 4 characters.",
+      "lesson": "string-methods-and-slicing"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "city = \"tashkent\"\ncity.capitalize()\nprint(city)",
+      "options": [
+        "Tashkent",
+        "TASHKENT",
+        "tashkent",
+        "None"
+      ],
+      "answer": 2,
+      "explanation": "String methods return a new string; they never change the original. Save the result: city = city.capitalize().",
+      "lesson": "string-methods-and-slicing"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "price = 12500.5\nprint(f\"{price:,.2f} som\")",
+      "options": [
+        "12,500.50 som",
+        "12,500.5 som",
+        "12500.50 som",
+        "12,501 som"
+      ],
+      "answer": 0,
+      "explanation": ", adds a thousands separator and .2f shows exactly two decimal places.",
+      "lesson": "f-strings"
+    },
+    {
+      "question": "The user types 20. What does this code print?",
+      "code": "age = input(\"Age: \")\nprint(age * 2)",
+      "options": [
+        "40",
+        "TypeError",
+        "20 20",
+        "2020"
+      ],
+      "answer": 3,
+      "explanation": "input() always returns a string, and a string times 2 repeats it. Convert first with int(input(...)).",
+      "lesson": "type-conversion-and-input"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "total = 100\nprint(\"Total: \" + total)",
+      "options": [
+        "It prints Total: 100",
+        "TypeError",
+        "ValueError",
+        "NameError"
+      ],
+      "answer": 1,
+      "explanation": "Python will not join a string and an int automatically. Use str(total) or an f-string.",
+      "lesson": "strings-basics"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "price = int(\"12.5\")\nprint(price)",
+      "options": [
+        "12",
+        "12.5",
+        "ValueError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "int() cannot read text that contains a decimal point. Use float() when the value can have decimals.",
+      "lesson": "type-conversion-and-input"
+    },
+    {
+      "question": "A long traceback appears on your screen. Where should you look first?",
+      "options": [
+        "The first line, Traceback (most recent call last):",
+        "The last line, which names the error and describes it",
+        "The middle lines only",
+        "Nowhere; just change code until it works"
+      ],
+      "answer": 1,
+      "explanation": "The useful information is at the bottom: the error type and message. The lines above show where it happened.",
+      "lesson": "reading-errors-and-debugging"
+    }
+  ]
+}

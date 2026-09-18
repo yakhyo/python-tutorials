@@ -1,8 +1,12 @@
 name: CI
 
+# dev is the working branch: every push to it is checked.
+# A pull request into main is the gate before publishing.
 on:
-  pull_request:
+  push:
     branches: [dev]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -30,7 +34,10 @@ jobs:
         env:
           PYTHON: python
           MPLBACKEND: Agg
-        run: python scripts/check-examples.py
+        run: python scripts/examples.py --twice
+
+      - name: Check lessons against the template
+        run: python scripts/lint.py
 
       - run: npm ci
 

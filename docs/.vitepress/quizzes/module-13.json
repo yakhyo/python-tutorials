@@ -1,0 +1,136 @@
+{
+  "module": "13 · Working with Data (Optional)",
+  "title": "Checkpoint: Working with Data",
+  "intro": "Check that you can load and filter tables with pandas, summarize them, and draw clear charts with matplotlib.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Samarkand\"],\n                   \"temp\": [31.5, 28.1, 33.0]})\nprint(df.iloc[1][\"city\"], df.loc[2, \"temp\"])",
+      "options": [
+        "Tashkent 33.0",
+        "Bukhara 28.1",
+        "Bukhara 33.0",
+        "KeyError"
+      ],
+      "answer": 2,
+      "explanation": ".iloc selects by position (row 1 is Bukhara), and .loc selects by label (index 2 is Samarkand's row).",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"temp\": [31.5, 28.1]})\nprint(df[\"city\", \"temp\"])",
+      "options": [
+        "KeyError",
+        "It prints both columns",
+        "It prints only the city column",
+        "ValueError"
+      ],
+      "answer": 0,
+      "explanation": "Single brackets look for one column named by the tuple (\"city\", \"temp\"). Pass a list: df[[\"city\", \"temp\"]].",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import pandas as pd\n\norders = pd.DataFrame({\"product\": [\"Tea\", \"Halva\"], \"qty\": [2, 1]})\nprices = pd.DataFrame({\"product\": [\"Tea\"], \"price\": [15000]})\nprint(len(orders.merge(prices, on=\"product\")), len(orders.merge(prices, on=\"product\", how=\"left\")))",
+      "options": [
+        "1 2",
+        "2 2",
+        "2 1",
+        "KeyError"
+      ],
+      "answer": 0,
+      "explanation": "An inner merge keeps only products found in both tables (Tea). A left merge keeps every order and fills the missing price with NaN.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"temp\": [31.5, 28.1], \"humidity\": [22, 30]})\nprint(df[df[\"temp\"] > 30 and df[\"humidity\"] < 25])",
+      "options": [
+        "It prints the Tashkent row",
+        "ValueError",
+        "It prints an empty DataFrame",
+        "KeyError"
+      ],
+      "answer": 1,
+      "explanation": "and needs a single True or False, but each comparison gives a whole Series. Use & with parentheses around each condition.",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Tashkent\"],\n                      \"quantity\": [4, 12, 6]})\nprint(sales.groupby(\"city\")[\"quantity\"].sum()[\"Tashkent\"])",
+      "options": [
+        "2",
+        "4",
+        "10",
+        "22"
+      ],
+      "answer": 2,
+      "explanation": "groupby collects the rows for each city, and sum() adds Tashkent's quantities: 4 + 6.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"product\": [\"tea\", \"plov\", \"tea\", \"tea\"]})\ncounts = sales[\"product\"].value_counts()\nprint(counts.index[0], counts.iloc[0])",
+      "options": [
+        "tea 3",
+        "plov 1",
+        "tea 1",
+        "product 4"
+      ],
+      "answer": 0,
+      "explanation": "value_counts() counts each value and sorts from most to least common, so tea with 3 comes first.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"name\": [\" aziza\", \"BEKZOD \"]})\nprint(df[\"name\"].str.strip().str.title().tolist())",
+      "options": [
+        "[' aziza', 'BEKZOD ']",
+        "AttributeError",
+        "['aziza', 'bekzod']",
+        "['Aziza', 'Bekzod']"
+      ],
+      "answer": 3,
+      "explanation": "The .str accessor applies string methods to every value in the column, and they can be chained.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "What does the print show?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"price\": [15000, 8000]})\nsales[sales[\"city\"] == \"Bukhara\"][\"price\"] = 9000\nprint(sales.loc[1, \"price\"])",
+      "options": [
+        "9000",
+        "8000",
+        "KeyError",
+        "None"
+      ],
+      "answer": 1,
+      "explanation": "Chained indexing assigns into a temporary copy, so the original is unchanged. Use sales.loc[sales[\"city\"] == \"Bukhara\", \"price\"] = 9000.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "What happens on the last line?",
+      "code": "import matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nax.title(\"Sales\")",
+      "options": [
+        "The title is set to Sales",
+        "AttributeError",
+        "TypeError",
+        "Nothing until plt.show()"
+      ],
+      "answer": 2,
+      "explanation": "ax.title is a Text object, not a method. On an Axes use ax.set_title(\"Sales\").",
+      "lesson": "charts-with-matplotlib"
+    },
+    {
+      "question": "You want to see how daily temperatures are distributed across a year. Which chart fits best?",
+      "options": [
+        "A pie chart",
+        "A histogram",
+        "A line chart of the months' names",
+        "A scatter plot with one point"
+      ],
+      "answer": 1,
+      "explanation": "A histogram groups values into bins and shows how often each range occurs, which is exactly a distribution.",
+      "lesson": "charts-with-matplotlib"
+    }
+  ]
+}

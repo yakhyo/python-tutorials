@@ -1,0 +1,136 @@
+{
+  "module": "08 · Xatolar va fayllar",
+  "title": "Nazorat: Xatolar va fayllar",
+  "intro": "Istisnolarni uşlay olişingiz, kiritilgan maʼlumotni tekşira olişingiz hamda matn, CSV va JSON fayllarni xavfsiz öqib-yoza olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod qaysi qatorlarni qanday tartibda çop etadi?",
+      "code": "def check(text):\n    try:\n        n = int(text)\n    except ValueError:\n        print(\"rejected\")\n    else:\n        print(\"accepted\")\n    finally:\n        print(\"done\")\n\ncheck(\"12\")",
+      "options": [
+        "accepted, keyin done",
+        "accepted",
+        "rejected, keyin done",
+        "done, keyin accepted"
+      ],
+      "answer": 0,
+      "explanation": "try bloki muvaffaqiyatli bajariladi, şuning uçun else işlaydi; finally esa undan keyin doim bajariladi.",
+      "lesson": "exceptions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "try:\n    result = 10 / 0\nexcept Exception:\n    print(\"Something went wrong\")\nexcept ZeroDivisionError:\n    print(\"Cannot divide by zero\")",
+      "options": [
+        "Cannot divide by zero",
+        "Something went wrong",
+        "Ikkala xabarni",
+        "Heç narsa, dastur xato bilan töxtaydi"
+      ],
+      "answer": 1,
+      "explanation": "ZeroDivisionError Exception ning vorisi, şuning uçun birinçi mos kelgan except ğolib böladi. Aniqroq istisnolarni birinçi qöying.",
+      "lesson": "exceptions"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "class OutOfStockError(Exception):\n    pass\n\ndef buy(stock):\n    if stock == 0:\n        raise OutOfStockError(\"no tea left\")\n    return stock - 1\n\ntry:\n    buy(0)\nexcept OutOfStockError as e:\n    print(f\"Error: {e}\")",
+      "options": [
+        "Error: OutOfStockError",
+        "Heç narsa, dastur xato bilan töxtaydi",
+        "Error: no tea left",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "Maxsus klass Exception dan meros oladi, şuning uçun u xabar saqlay oladi, str(e) esa şu xabarni beradi.",
+      "lesson": "raising-and-custom-exceptions"
+    },
+    {
+      "question": "Quyidagi matnni (satrni) qaysi çaqiruv Python luğatiga aylantiradi?",
+      "code": "text = '{\"city\": \"Nukus\", \"temp\": 28}'",
+      "options": [
+        "json.loads(text)",
+        "json.load(text)",
+        "json.dumps(text)",
+        "json.dump(text)"
+      ],
+      "answer": 0,
+      "explanation": "loads satrdan öqiydi (s - string); load oçiq fayldan öqiydi. dumps va dump teskari yönalişda, Python dan JSON ga işlaydi.",
+      "lesson": "json"
+    },
+    {
+      "question": "Foydalanuvçi \" Yes\" (boşida böşliq bilan) deb yozdi. Bu kod nimani çop etadi?",
+      "code": "answer = \" Yes\"\nif answer == \"yes\":\n    print(\"Confirmed\")\nelse:\n    print(\"Not confirmed\")",
+      "options": [
+        "Tasdiqlandi",
+        "Tasdiqlanmadi",
+        "ValueError",
+        "Hiç narsa"
+      ],
+      "answer": 1,
+      "explanation": "\" Yes\" \"yes\" ga teng emas: böşliq ham, bosh harf ham ahamiyatli. Avval answer.strip().lower() bilan normallaştiring, keyin taqqoslang.",
+      "lesson": "input-validation"
+    },
+    {
+      "question": "Nega \"-3\".isdigit() harorat yaroqli son ekanini tekşirişning yomon usuli?",
+      "options": [
+        "Manfiy sonlar uçun ValueError çaqiradi",
+        "Har qanday böş bölmagan satr uçun True qaytaradi",
+        "False qaytaradi, şuning uçun tögri manfiy sonlar rad etiladi",
+        "Faqat 3.5 kabi float satrlar uçun işlaydi"
+      ],
+      "answer": 2,
+      "explanation": "Minus belgisi raqam emas, şuning uçun isdigit() False qaytaradi. Uning örniga try içida int() yoki float() bilan özgartiring.",
+      "lesson": "input-validation"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "with open(\"log.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"first\\n\")\nwith open(\"log.txt\", \"w\", encoding=\"utf-8\") as f:\n    f.write(\"second\\n\")\nwith open(\"log.txt\", encoding=\"utf-8\") as f:\n    print(f.read(), end=\"\")",
+      "options": [
+        "first va second (ikki qator)",
+        "first",
+        "Heç narsa",
+        "second"
+      ],
+      "answer": 3,
+      "explanation": "\"w\" rejimi fayl har safar oçilganda uni tozalab yuboradi. Oxiriga qöşiş uçun \"a\" dan foydalaning.",
+      "lesson": "files-and-pathlib"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "import csv, io\nrows = csv.DictReader(io.StringIO(\"name,score\\nAziza,92\\nBekzod,78\\n\"))\ntotal = sum(row[\"score\"] for row in rows)\nprint(total)",
+      "options": [
+        "170 ni çop etadi",
+        "TypeError",
+        "ValueError",
+        "9278 ni çop etadi"
+      ],
+      "answer": 1,
+      "explanation": "CSV dagi har bir qiymat satr, şuning uçun sum() int va str ni qöşişga urinadi. int(row[\"score\"]) bilan özgartiring.",
+      "lesson": "csv"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import json\nmedals = {1: \"gold\", 2: \"silver\"}\ndata = json.loads(json.dumps(medals))\nprint(data)",
+      "options": [
+        "{'1': 'gold', '2': 'silver'}",
+        "{1: 'gold', 2: 'silver'}",
+        "[1, 2]",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "JSON obyekt kalitlari doim satr böladi, şuning uçun son kalitlar JSON ga aylantirib qaytarilgandan keyin satr bölib qaytadi.",
+      "lesson": "json"
+    },
+    {
+      "question": "Oxirgi qatorda nima böladi?",
+      "code": "with open(\"notes.txt\", \"w\", encoding=\"utf-8\") as file:\n    file.write(\"first line\\n\")\nfile.write(\"second line\\n\")",
+      "options": [
+        "Matn notes.txt oxiriga qöşiladi",
+        "Fayl avtomatik qayta oçiladi",
+        "ValueError",
+        "NameError"
+      ],
+      "answer": 2,
+      "explanation": "with bloki tugaganda faylni yopadi, yopiq faylga yoziş esa ValueError: I/O operation on closed file xatosini çaqiradi.",
+      "lesson": "context-managers-basics"
+    }
+  ]
+}

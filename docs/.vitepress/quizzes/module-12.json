@@ -1,0 +1,136 @@
+{
+  "module": "12 · Going Further",
+  "title": "Checkpoint: Going Further",
+  "intro": "Check that you understand iterators, generators, and regular expressions, and how to structure a text-processing program.",
+  "questions": [
+    {
+      "question": "What do the two print calls show?",
+      "code": "evens = (n for n in range(10) if n % 2 == 0)\nprint(sum(evens))\nprint(sum(evens))",
+      "options": [
+        "20, then 20",
+        "20, then 0",
+        "20, then an error",
+        "0, then 20"
+      ],
+      "answer": 1,
+      "explanation": "The first sum() exhausts the generator, so the second one sees no values and returns 0.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "What lines are printed, in order?",
+      "code": "def countdown(n):\n    print(\"start\")\n    while n > 0:\n        yield n\n        n -= 1\n\ngen = countdown(3)\nprint(\"created\")\nprint(next(gen), next(gen))",
+      "options": [
+        "start, created, 3 2",
+        "created, 3 2",
+        "created, start, 3 2",
+        "start, 3 2, created"
+      ],
+      "answer": 2,
+      "explanation": "Calling a generator function only creates the generator. The body starts running at the first next().",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "cities = [\"Tashkent\", \"Bukhara\"]\nprint(next(cities))",
+      "options": [
+        "It prints Tashkent",
+        "StopIteration",
+        "It prints ['Tashkent', 'Bukhara']",
+        "TypeError"
+      ],
+      "answer": 3,
+      "explanation": "A list is iterable but not an iterator. Use next(iter(cities)).",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "def chunks():\n    yield from [1, 2]\n    yield 3\n\nprint(list(chunks()), sum(chunks()))",
+      "options": [
+        "[1, 2, 3] 6",
+        "[[1, 2], 3] 6",
+        "[1, 2, 3] 0",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "yield from produces each item of the list one by one. Each call to chunks() makes a fresh generator, so sum() sees all values.",
+      "lesson": "iterators-and-generators"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import re\ntext = \"Total: 45000 som\"\nprint(re.match(r\"\\d+\", text))",
+      "options": [
+        "45000",
+        "None",
+        "<re.Match object; span=(7, 12), match='45000'>",
+        "[]"
+      ],
+      "answer": 1,
+      "explanation": "re.match only checks the start of the string, which is not a digit. Use re.search to look anywhere.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import re\nhtml = \"<b>Plov</b> and <b>Somsa</b>\"\nprint(re.findall(r\"<b>(.*)</b>\", html))",
+      "options": [
+        "['Plov', 'Somsa']",
+        "['<b>Plov</b>', '<b>Somsa</b>']",
+        "['Plov</b> and <b>Somsa']",
+        "[]"
+      ],
+      "answer": 2,
+      "explanation": "Greedy .* grabs as much as possible, up to the last </b>. Use .*? or [^<]* to stop at the first one.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import re\nprint(bool(re.match(r\"\\d+\", \"123abc\")), bool(re.fullmatch(r\"\\d+\", \"123abc\")))",
+      "options": [
+        "True False",
+        "True True",
+        "False False",
+        "False True"
+      ],
+      "answer": 0,
+      "explanation": "match succeeds because the string starts with digits, but fullmatch requires the whole string to match. Use fullmatch for validation.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import re\nm = re.search(r\"(?P<day>\\d{2})\\.(?P<month>\\d{2})\", \"Date: 15.09.2026\")\nprint(m.group(\"month\"), m.group(0))",
+      "options": [
+        "15 09",
+        "09 15",
+        "09 15.09",
+        "15.09 09"
+      ],
+      "answer": 2,
+      "explanation": "Named groups are read by name, and group(0) is the whole match.",
+      "lesson": "regular-expressions"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from collections import Counter\ntext = \"Plov, plov and more plov!\"\nprint(Counter(text.lower().split())[\"plov\"])",
+      "options": [
+        "3",
+        "0",
+        "KeyError",
+        "1"
+      ],
+      "answer": 3,
+      "explanation": "split() leaves punctuation attached, so \"plov,\" and \"plov!\" count as different words. Extract words with a regex like [a-z]+.",
+      "lesson": "text-processing-project"
+    },
+    {
+      "question": "In the text analyzer, where should functions like count_sentences(text) get their data, and where should printing happen?",
+      "options": [
+        "Take text as an argument and return values",
+        "Read the file and print inside each function",
+        "Store text and results in global variables",
+        "Put everything in one main() function"
+      ],
+      "answer": 0,
+      "explanation": "Pure functions that take arguments and return values are easy to test and reuse. Keep file reading and printing at the edges.",
+      "lesson": "text-processing-project"
+    }
+  ]
+}

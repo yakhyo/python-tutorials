@@ -1,0 +1,135 @@
+{
+  "module": "04 · Sikllar",
+  "title": "Nazorat: Sikllar",
+  "intro": "while va for sikllarini kuzata olişingiz, ularni break va continue bilan boşqara olişingiz va sikllarda köp işlatiladigan usullarni qöllay olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "for i in range(1, 10, 3):\n    print(i, end=\" \")",
+      "options": [
+        "1 3 5 7 9",
+        "1 4 7",
+        "0 3 6 9",
+        "1 4 7 10"
+      ],
+      "answer": 1,
+      "explanation": "range(1, 10, 3) 1 dan boşlanadi, 3 qadam bilan boradi va 10 dan oldin töxtaydi.",
+      "lesson": "for-loops-and-range"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "count = 1\nwhile count <= 3:\n    count += 1\n    print(count, end=\" \")",
+      "options": [
+        "2 3 4",
+        "1 2 3",
+        "1 2 3 4",
+        "2 3"
+      ],
+      "answer": 0,
+      "explanation": "Yangilaş print dan oldin bajariladi, şuning uçun har bir çop etilgan qiymat allaqaçon bittaga katta. Odatda yangilaş oxirida kelişi kerak.",
+      "lesson": "while-loops"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "for n in range(1, 4):\n    total = 0\n    total += n\nprint(total)",
+      "options": [
+        "3",
+        "0",
+        "10",
+        "6"
+      ],
+      "answer": 0,
+      "explanation": "total har bir takrorlanişda 0 ga qaytariladi, şuning uçun faqat oxirgi son qoladi. total = 0 ni sikldan oldin yarating.",
+      "lesson": "for-loops-and-range"
+    },
+    {
+      "question": "Bu kodni işga tuşirganda nima böladi?",
+      "code": "for i in 5:\n    print(i)",
+      "options": [
+        "SyntaxError",
+        "1 dan 5 gaça çop etadi",
+        "TypeError",
+        "0 dan 4 gaça çop etadi"
+      ],
+      "answer": 2,
+      "explanation": "Son - aylanib çiqiş mumkin bölgan ketma-ketlik emas. Beş marta aylaniş uçun range(5) dan foydalaning.",
+      "lesson": "for-loops-and-range"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "for n in range(1, 6):\n    if n == 3:\n        continue\n    if n == 5:\n        break\n    print(n, end=\" \")",
+      "options": [
+        "1 2",
+        "1 2 3 4",
+        "1 2 4 5",
+        "1 2 4"
+      ],
+      "answer": 3,
+      "explanation": "continue 3 ni ötkazib yuborib davom etadi; break esa n 5 ga teng bölganda, u çop etilişidan oldin siklni töxtatadi.",
+      "lesson": "break-continue-else"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "for name in [\"Aziza\", \"Bekzod\"]:\n    if name == \"Dilnoza\":\n        print(\"Found\")\n        break\nelse:\n    print(\"Not found\")",
+      "options": [
+        "Found",
+        "Heç narsa",
+        "Not found",
+        "Found va Not found"
+      ],
+      "answer": 2,
+      "explanation": "Siklning else bloki sikl break siz tugaganda bajariladi. Dilnoza topilmaydi, şuning uçun break heç qaçon sodir bölmaydi.",
+      "lesson": "break-continue-else"
+    },
+    {
+      "question": "Bir for sikli içida boşqa for sikli bor. Içki sikldagi break nima qiladi?",
+      "options": [
+        "Içki va taşqi siklning ikkalasini töxtatadi",
+        "Içki siklning bitta takrorini ötkazib yuboradi",
+        "Butun dasturni birdaniga töxtatadi",
+        "Faqat içki siklni töxtatadi"
+      ],
+      "answer": 3,
+      "explanation": "break faqat eng içki sikldan çiqadi. Ikkalasini töxtatiş uçun bayroq yoki return li funksiyadan foydalaning.",
+      "lesson": "break-continue-else"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "temps = [-5, -2, -9]\nhighest = 0\nfor t in temps:\n    if t > highest:\n        highest = t\nprint(highest)",
+      "options": [
+        "-2",
+        "0",
+        "-9",
+        "-5"
+      ],
+      "answer": 1,
+      "explanation": "highest ni 0 dan boşlaş xato: heç bir manfiy son undan katta emas, şuning uçun röyxatda bölmasa ham 0 çop etiladi. Birinçi elementdan boşlang.",
+      "lesson": "loop-patterns"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "n = 3\nwhile n > 0:\n    n -= 1\nelse:\n    print(\"tayyor\", n)",
+      "options": [
+        "tayyor 0",
+        "tayyor 3",
+        "Hiç narsa",
+        "SyntaxError"
+      ],
+      "answer": 0,
+      "explanation": "while siklining else bloki şart yolğon bölganda (break bölmasa) işlaydi. Şu paytga kelib n 0 ga yetgan.",
+      "lesson": "break-continue-else"
+    },
+    {
+      "question": "Har bir ismni örni (1, 2, 3...) bilan çop etişingiz kerak. Eng tuşunarli usul qaysi?",
+      "options": [
+        "for i in range(len(names)):\n    print(i + 1, names[i])",
+        "for i, name in enumerate(names, start=1):\n    print(i, name)",
+        "for name in names:\n    print(names.index(name) + 1, name)",
+        "i = 0\nwhile True:\n    print(i, names[i])"
+      ],
+      "answer": 1,
+      "explanation": "enumerate() ham örinni, ham elementni beradi, start=1 esa sanaşni 1 dan boşlaydi.",
+      "lesson": "loop-patterns"
+    }
+  ]
+}

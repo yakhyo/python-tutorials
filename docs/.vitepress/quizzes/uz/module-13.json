@@ -1,0 +1,136 @@
+{
+  "module": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)",
+  "title": "Nazorat: Maʼlumotlar bilan işlaş (ixtiyoriy)",
+  "intro": "pandas bilan jadvallarni yuklay va filtrlay olişingiz, ularni umumlaştira olişingiz va matplotlib bilan tuşunarli grafiklar çiza olişingizni tekşiring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Samarkand\"],\n                   \"temp\": [31.5, 28.1, 33.0]})\nprint(df.iloc[1][\"city\"], df.loc[2, \"temp\"])",
+      "options": [
+        "Tashkent 33.0",
+        "Bukhara 28.1",
+        "Bukhara 33.0",
+        "KeyError"
+      ],
+      "answer": 2,
+      "explanation": ".iloc örin böyiça tanlaydi (1-qator - Bukhara), .loc esa yorliq böyiça tanlaydi (2-indeks - Samarkand qatori).",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"temp\": [31.5, 28.1]})\nprint(df[\"city\", \"temp\"])",
+      "options": [
+        "KeyError",
+        "Ikkala ustunni çop etadi",
+        "Faqat city ustunini çop etadi",
+        "ValueError"
+      ],
+      "answer": 0,
+      "explanation": "Bitta kvadrat qavs (\"city\", \"temp\") korteji bilan nomlangan bitta ustunni qidiradi. Röyxat uzating: df[[\"city\", \"temp\"]].",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import pandas as pd\n\norders = pd.DataFrame({\"product\": [\"Tea\", \"Halva\"], \"qty\": [2, 1]})\nprices = pd.DataFrame({\"product\": [\"Tea\"], \"price\": [15000]})\nprint(len(orders.merge(prices, on=\"product\")), len(orders.merge(prices, on=\"product\", how=\"left\")))",
+      "options": [
+        "1 2",
+        "2 2",
+        "2 1",
+        "KeyError"
+      ],
+      "answer": 0,
+      "explanation": "Içki (inner) merge faqat ikkala jadvalda bor mahsulotlarni (Tea) saqlaydi. Çap (left) merge har bir buyurtmani saqlaydi va yetişmagan narxni NaN bilan töldiradi.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "Bu kod işga tuşganda nima böladi?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"temp\": [31.5, 28.1], \"humidity\": [22, 30]})\nprint(df[df[\"temp\"] > 30 and df[\"humidity\"] < 25])",
+      "options": [
+        "Tashkent qatorini çop etadi",
+        "ValueError",
+        "Böş DataFrame ni çop etadi",
+        "KeyError"
+      ],
+      "answer": 1,
+      "explanation": "and ga bitta True yoki False kerak, lekin har bir taqqoslaş butun Series beradi. Har bir şartni qavsga olib, & dan foydalaning.",
+      "lesson": "reading-data"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Tashkent\"],\n                      \"quantity\": [4, 12, 6]})\nprint(sales.groupby(\"city\")[\"quantity\"].sum()[\"Tashkent\"])",
+      "options": [
+        "2",
+        "4",
+        "10",
+        "22"
+      ],
+      "answer": 2,
+      "explanation": "groupby har bir şahar qatorlarini yiğadi, sum() esa Tashkent miqdorlarini qöşadi: 4 + 6.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"product\": [\"tea\", \"plov\", \"tea\", \"tea\"]})\ncounts = sales[\"product\"].value_counts()\nprint(counts.index[0], counts.iloc[0])",
+      "options": [
+        "tea 3",
+        "plov 1",
+        "tea 1",
+        "product 4"
+      ],
+      "answer": 0,
+      "explanation": "value_counts() har bir qiymatni sanaydi va eng köp uçraydigandan eng kamiga qarab saralaydi, şuning uçun 3 ta bölgan tea birinçi keladi.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"name\": [\" aziza\", \"BEKZOD \"]})\nprint(df[\"name\"].str.strip().str.title().tolist())",
+      "options": [
+        "[' aziza', 'BEKZOD ']",
+        "AttributeError",
+        "['aziza', 'bekzod']",
+        "['Aziza', 'Bekzod']"
+      ],
+      "answer": 3,
+      "explanation": ".str vositasi satr metodlarini ustundagi har bir qiymatga qöllaydi va ularni zanjir qiliş mumkin.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "print nimani körsatadi?",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"price\": [15000, 8000]})\nsales[sales[\"city\"] == \"Bukhara\"][\"price\"] = 9000\nprint(sales.loc[1, \"price\"])",
+      "options": [
+        "9000",
+        "8000",
+        "KeyError",
+        "None"
+      ],
+      "answer": 1,
+      "explanation": "Zanjirli indekslaş vaqtinçalik nusxaga qiymat yozadi, şuning uçun asl jadval özgarmaydi. sales.loc[sales[\"city\"] == \"Bukhara\", \"price\"] = 9000 dan foydalaning.",
+      "lesson": "pandas-basics"
+    },
+    {
+      "question": "Oxirgi qatorda nima böladi?",
+      "code": "import matplotlib\nmatplotlib.use(\"Agg\")\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nax.title(\"Sales\")",
+      "options": [
+        "Sarlavha Sales ga özgaradi",
+        "AttributeError",
+        "TypeError",
+        "plt.show() gaça heç narsa"
+      ],
+      "answer": 2,
+      "explanation": "ax.title metod emas, Text obyekti. Axes da ax.set_title(\"Sales\") dan foydalaning.",
+      "lesson": "charts-with-matplotlib"
+    },
+    {
+      "question": "Bir yil davomida kunlik harorat qanday taqsimlanganini körmoqçisiz. Qaysi grafik eng mos?",
+      "options": [
+        "Doiraviy diagramma",
+        "Gistogramma",
+        "Oy nomlarining çiziqli grafigi",
+        "Bitta nuqtali tarqoq nuqtalar grafigi (scatter)"
+      ],
+      "answer": 1,
+      "explanation": "Gistogramma qiymatlarni oraliqlarga (bin) guruhlaydi va har bir oraliq qança tez-tez uçrayotganini körsatadi - bu aynan taqsimot.",
+      "lesson": "charts-with-matplotlib"
+    }
+  ]
+}

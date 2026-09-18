@@ -1,0 +1,136 @@
+{
+  "module": "02 · Özgaruvçilar va maʼlumot turlari",
+  "title": "Nazorat: Özgaruvçilar va maʼlumot turlari",
+  "intro": "Özgaruvçilar, sonlar, satrlar, f-satrlar, kiritiş va xatolarni öqiş böyiça bilimingizni sinab köring.",
+  "questions": [
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "x = 5\ny = x\nx = 10\nprint(y)",
+      "options": [
+        "5",
+        "10",
+        "15",
+        "NameError"
+      ],
+      "answer": 0,
+      "explanation": "y = x y ni 5 qiymatiga işora qildiradi. Keyinroq x ga yangi qiymat beriş y ni özgartirmaydi.",
+      "lesson": "variables"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(7 // 2, 7 % 2)",
+      "options": [
+        "3.5 1",
+        "4 1",
+        "3 1",
+        "3 0.5"
+      ],
+      "answer": 2,
+      "explanation": "// bölişning butun qismini (3), % esa qoldiqni (1) beradi.",
+      "lesson": "numbers-and-math"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "print(10 / 2, 10 // 2)",
+      "options": [
+        "5 5",
+        "5.0 5",
+        "5.0 5.0",
+        "5 5.0"
+      ],
+      "answer": 1,
+      "explanation": "/ har doim float beradi, hatto bölinma butun bölsa ham. // ikkala tomon int bölganda int beradi.",
+      "lesson": "numbers-and-math"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "word = \"Tashkent\"\nprint(word[-1], word[0:4])",
+      "options": [
+        "n Tashk",
+        "t Tashk",
+        "T Tash",
+        "t Tash"
+      ],
+      "answer": 3,
+      "explanation": "-1 indeksi oxirgi belgi, kesim esa stop indeksidan oldin töxtaydi, şuning uçun [0:4] birinçi 4 ta belgini beradi.",
+      "lesson": "string-methods-and-slicing"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "city = \"tashkent\"\ncity.capitalize()\nprint(city)",
+      "options": [
+        "Tashkent",
+        "TASHKENT",
+        "tashkent",
+        "None"
+      ],
+      "answer": 2,
+      "explanation": "Satr metodlari yangi satr qaytaradi; ular heç qaçon aslini özgartirmaydi. Natijani saqlang: city = city.capitalize().",
+      "lesson": "string-methods-and-slicing"
+    },
+    {
+      "question": "Bu kod nimani çop etadi?",
+      "code": "price = 12500.5\nprint(f\"{price:,.2f} som\")",
+      "options": [
+        "12,500.50 som",
+        "12,500.5 som",
+        "12500.50 som",
+        "12,501 som"
+      ],
+      "answer": 0,
+      "explanation": ", minglik ajratuvçisini qöşadi, .2f esa aynan ikki önlik xonani körsatadi.",
+      "lesson": "f-strings"
+    },
+    {
+      "question": "Foydalanuvçi 20 ni kiritadi. Bu kod nimani çop etadi?",
+      "code": "age = input(\"Age: \")\nprint(age * 2)",
+      "options": [
+        "40",
+        "TypeError",
+        "20 20",
+        "2020"
+      ],
+      "answer": 3,
+      "explanation": "input() doim satr qaytaradi, satrni 2 ga köpaytiriş esa uni takrorlaydi. Avval int(input(...)) bilan özgartiring.",
+      "lesson": "type-conversion-and-input"
+    },
+    {
+      "question": "Bu kodni işga tuşirganda nima böladi?",
+      "code": "total = 100\nprint(\"Total: \" + total)",
+      "options": [
+        "Total: 100 ni çop etadi",
+        "TypeError",
+        "ValueError",
+        "NameError"
+      ],
+      "answer": 1,
+      "explanation": "Python satr va int ni avtomatik birlaştirmaydi. str(total) yoki f-satrdan foydalaning.",
+      "lesson": "strings-basics"
+    },
+    {
+      "question": "Bu kodni işga tuşirganda nima böladi?",
+      "code": "price = int(\"12.5\")\nprint(price)",
+      "options": [
+        "12",
+        "12.5",
+        "ValueError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "int() önlik nuqtali matnni öqiy olmaydi. Qiymat önlik bölişi mumkin bölsa, float() dan foydalaning.",
+      "lesson": "type-conversion-and-input"
+    },
+    {
+      "question": "Ekraningizda uzun traceback paydo böldi. Birinçi navbatda qayerga qaraş kerak?",
+      "options": [
+        "Birinçi qator, Traceback (most recent call last):",
+        "Xatoni nomlaydigan va tasvirlaydigan oxirgi qator",
+        "Faqat örtadagi qatorlar",
+        "Heç qayerga; kod işlagunça uni özgartiraveriş"
+      ],
+      "answer": 1,
+      "explanation": "Foydali maʼlumot pastda: xato turi va xabari. Yuqoridagi qatorlar xato qayerda sodir bölganini körsatadi.",
+      "lesson": "reading-errors-and-debugging"
+    }
+  ]
+}
