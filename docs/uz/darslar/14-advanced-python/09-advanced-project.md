@@ -5,6 +5,8 @@ description: "Generatorlar, muzlatilgan dataclasslar, dekorator bilan töldirila
 
 # Loyiha: Log konveyeri
 
+![Rasm: Loyiha: Log konveyeri](/images/topics-webp-uzb/advanced-project.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Logni qatorma-qator tahlil qiladigan generatorlardan **dangasa konveyer** (lazy pipeline) qanday quriş
 - Konveyer bosqiçlarini **dekorator** bilan qanday röyxatdan ötkaziş va ularni nomi böyiça tanlaş
@@ -35,6 +37,8 @@ Dasturingiz kirişlar jurnalini öqiydi, buzilgan qatorlarni ötkazib yuboradi, 
 ## Loyihalaş
 
 Log qatori mana bunday körinadi: `2026-09-16T10:03:21 GET /products/12 200 0.128 192.168.1.20`. Maydonlar: vaqt, metod, yöl, holat kodi, soniyalardagi davomiylik va mijoz IP manzili. Maʼlumotlar kiçik bosqiçlar orqali oqib ötadi:
+
+![Diagramma: Log konveyeri tuzilmasi](/images/companions-webp-uzb/log-pipeline-architecture.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```text
 access.log

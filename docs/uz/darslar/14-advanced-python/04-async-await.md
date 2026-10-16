@@ -5,6 +5,8 @@ description: "async def va await bilan asinxron Python yoziş: gather, vazifalar
 
 # Async va await
 
+![Rasm: Async va await](/images/topics-webp-uzb/async-await.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - **Korutina** (coroutine) nima va dastur kutayotganda `await` nima qiladi
 - `asyncio.gather`, `create_task` va `TaskGroup` bilan korutinalarni qanday qilib **bir vaqtda** (concurrently) işga tuşiriş
@@ -102,6 +104,8 @@ Umumiy vaqt yiğindi (0.6 s) emas, balki **eng uzun** kutiş (0.3 s) va baribir 
 ## Vazifalar va event loop
 
 `asyncio.create_task(coro)` korutinani **vazifaga** (task) öraydi; vazifa joriy korutina pauza qilişi bilanoq boşlanadi. Natijani oliş uçun vazifani keyinroq `await` qiling:
+
+![Diagramma: Vazifalar va hodisalar sikli](/images/companions-webp-uzb/async-task-timeline.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 import asyncio

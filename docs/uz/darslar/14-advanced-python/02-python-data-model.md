@@ -5,6 +5,8 @@ description: "Python obyektlarining içki tuzilişini köring: turlar va __dict_
 
 # Python maʼlumot modeli
 
+![Rasm: Python maʼlumotlar modeli](/images/topics-webp-uzb/python-data-model.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - Nega **hamma narsa obyekt**: `type()`, `__class__` va `__dict__`
 - `__getattr__`, `__getattribute__`, `__setattr__` va `__delattr__` atributga murojaatga qanday ulanadi

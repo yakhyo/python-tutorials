@@ -5,6 +5,8 @@ description: "Look under the hood of Python objects: types and __dict__, attribu
 
 # The Python Data Model
 
+![Illustration: The Python Data Model](/images/topics-webp/python-data-model.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - Why **everything is an object**: `type()`, `__class__`, and `__dict__`
 - How `__getattr__`, `__getattribute__`, `__setattr__`, and `__delattr__` hook into attribute access

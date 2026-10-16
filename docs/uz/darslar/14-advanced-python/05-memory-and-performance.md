@@ -5,6 +5,8 @@ description: "Optimallaştirişdan oldin ölçang: kodni timeit bilan vaqtlang, 
 
 # Xotira va samaradorlik
 
+![Rasm: Xotira va samaradorlik](/images/topics-webp-uzb/memory-and-performance.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - `timeit` va `time.perf_counter` bilan tezlikni qanday **ölçaş**
 - `sys.getsizeof` nimani körsatadi va `tracemalloc` xotira **qayerga** ketayotganini qanday körsatadi

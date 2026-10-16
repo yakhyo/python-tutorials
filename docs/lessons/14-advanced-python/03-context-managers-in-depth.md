@@ -5,6 +5,8 @@ description: "Write class-based context managers with __enter__ and __exit__, co
 
 # Context Managers in Depth
 
+![Illustration: Context Managers in Depth](/images/topics-webp/context-managers-in-depth.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - The exact **context manager protocol**: what `__enter__` returns and what `__exit__(exc_type, exc, tb)` receives
 - How the return value of `__exit__` decides whether an exception is **swallowed** or **propagated**
@@ -62,6 +64,8 @@ Returning `self` is the usual choice, but `__enter__` can return anything: `open
 If `__exit__` returns a **true** value, the exception is **swallowed**. `None` or `False` lets it **propagate**. Most managers return nothing, so errors continue upwards.
 
 This `Transaction` works on a copy of the accounts, commits on success, rolls back on error, and swallows only `ValueError`:
+
+![Diagram: Context Manager Lifecycle](/images/companions-webp/context-manager-lifecycle.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ```python
 class Transaction:

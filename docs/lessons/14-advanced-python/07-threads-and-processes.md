@@ -5,6 +5,8 @@ description: "Run work concurrently with threads and processes: I/O-bound versus
 
 # Threads and Processes
 
+![Illustration: Threads and Processes](/images/topics-webp/threads-and-processes.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - **I/O-bound** versus **CPU-bound** work, and what the **GIL** means for each
 - How to start and `join` a **thread**, and why shared data needs a **`Lock`**
@@ -31,6 +33,8 @@ CPython has a **Global Interpreter Lock (GIL)**: only one thread runs Python cod
 - For CPU-bound work, threads give no speed-up. Use **processes**: each has its own interpreter and GIL, so they use several CPU cores.
 
 Python 3.14 also offers an optional **free-threaded build** (`python3.14t`) without a GIL. The normal `python3.14` still has the GIL, and this lesson assumes it.
+
+![Diagram: Shared or Separate Memory?](/images/companions-webp/thread-process-memory.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ## Starting threads
 

@@ -5,6 +5,8 @@ description: "Işni oqimlar va jarayonlar yordamida parallel bajariş: I/O-bound
 
 # Oqimlar va jarayonlar
 
+![Rasm: Oqimlar va jarayonlar](/images/topics-webp-uzb/threads-and-processes.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip Nimalarni örganasiz
 - **I/O-bound** va **CPU-bound** iş farqi hamda **GIL** ularning har biri uçun nimani anglatişi
 - **Oqimni** (thread) qanday işga tuşiriş va `join` qiliş, nega umumiy maʼlumotlarga **`Lock`** kerak
@@ -31,6 +33,8 @@ CPython da **Global Interpreter Lock (GIL)** bor: bir vaqtda faqat bitta oqim Py
 - CPU-bound iş uçun oqimlar tezlaşiş bermaydi. **Jarayonlardan** (process) foydalaning: har birida alohida interpretator va alohida GIL bor, şuning uçun ular bir neçta protsessor yadrosini işlatadi.
 
 Python 3.14 da GIL siz ixtiyoriy **free-threaded build** (`python3.14t`) ham bor. Oddiy `python3.14` da GIL hamon bor va bu dars şuni nazarda tutadi.
+
+![Diagramma: Umumiy yoki alohida xotira?](/images/companions-webp-uzb/thread-process-memory.webp){.lesson-diagram width=1536 height=1024 loading=lazy}
 
 ## Oqimlarni işga tuşiriş
 

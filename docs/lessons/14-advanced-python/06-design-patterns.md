@@ -5,6 +5,8 @@ description: "Use classic design patterns the Python way: strategies as function
 
 # Pythonic Design Patterns
 
+![Illustration: Pythonic Design Patterns](/images/topics-webp/design-patterns.webp){.lesson-cover width=1536 height=1024}
+
 ::: tip What you'll learn
 - Why **design patterns** are shared vocabulary, not code to copy
 - How to write **strategy**, **factory**, and **registry** with functions, classmethods, dicts, and decorators
