@@ -32,7 +32,7 @@
       "question": "if __name__ == \"__main__\": nima qiliş imkonini beradi?",
       "options": [
         "Fayldagi funksiyalarni tezroq işlatiş",
-        "Kodni faqat fayl tögridan-tögri işga tuşirilganda bajariş",
+        "Kodni faqat fayl töğridan-töğri işga tuşirilganda bajariş",
         "Boşqa moduldagi barça nomlarni import qiliş",
         "Python birinçi öqişi kerak bölgan funksiyani belgilaş"
       ],
@@ -50,7 +50,7 @@
         "-4 -3"
       ],
       "answer": 3,
-      "explanation": "floor manfiy sonlar uçun ham doim pastga, ceil esa doim yuqoriga yuvarlaydi.",
+      "explanation": "floor manfiy sonlar uçun ham doim pastga, ceil esa doim yuqoriga yumaloqlaydi.",
       "lesson": "math-random-statistics"
     },
     {
@@ -128,7 +128,7 @@
         "ValueError"
       ],
       "answer": 1,
-      "explanation": "%M - daqiqalar; oy esa %m (kiçik harf). Notögri kod xato bermaydi, şunçaki notögri maydonni formatlaydi.",
+      "explanation": "%M - daqiqalar; oy esa %m (kiçik harf). Notöğri kod xato bermaydi, şunçaki notöğri maydonni formatlaydi.",
       "lesson": "dates-and-times"
     }
   ]

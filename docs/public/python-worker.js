@@ -44,6 +44,65 @@ _python_uz_reset()
 del _python_uz_reset
 `;
 
+// input(): the page cannot block while the learner types, so a run that reaches a question with
+// no answer left stops there (_PythonUzNeedInput) and reports the question. The editor then runs
+// the program again from the start with every answer given so far. To make that second run follow
+// the same path, each run of one session gets the same random seed and starts from the same files:
+// the working directory is saved on the first run and put back before every replay.
+const INPUT_SETUP = `
+import builtins, os, random, shutil, sys
+class _PythonUzNeedInput(BaseException):
+    pass
+_python_uz_input = {"prompt": None}
+_python_uz_saved = {"dirs": [], "files": {}}
+def _python_uz_save(home):
+    dirs, files = [], {}
+    for folder, _, names in os.walk(home):
+        dirs.append(folder)
+        for name in names:
+            path = os.path.join(folder, name)
+            try:
+                with open(path, "rb") as file:
+                    files[path] = file.read()
+            except OSError:
+                pass
+    _python_uz_saved.update(dirs=dirs, files=files)
+def _python_uz_restore(home):
+    for name in os.listdir(home):
+        path = os.path.join(home, name)
+        if os.path.isdir(path) and not os.path.islink(path):
+            shutil.rmtree(path, ignore_errors=True)
+        else:
+            os.remove(path)
+    for folder in _python_uz_saved["dirs"]:
+        os.makedirs(folder, exist_ok=True)
+    for path, data in _python_uz_saved["files"].items():
+        with open(path, "wb") as file:
+            file.write(data)
+def _python_uz_begin(answers, seed, replay):
+    answers = [str(answer) for answer in answers]
+    position = 0
+    _python_uz_input["prompt"] = None
+    def input(prompt=""):
+        nonlocal position
+        prompt = str(prompt)
+        if position < len(answers):
+            answer = answers[position]
+            position += 1
+            sys.stdout.write(f"{prompt}{answer}\\n")
+            return answer
+        sys.stdout.flush()
+        _python_uz_input["prompt"] = prompt
+        raise _PythonUzNeedInput(prompt)
+    builtins.input = input
+    random.seed(seed)
+    home = os.getcwd()
+    if replay:
+        _python_uz_restore(home)
+    else:
+        _python_uz_save(home)
+`;
+
 // Keep only the learner's part of a Python traceback (drop Pyodide-internal frames).
 function cleanTraceback(message) {
  const lines = String(message).replace(/^PythonError:\s*/, '').split('\n');
@@ -66,13 +125,16 @@ self.onmessage = async ({ data }) => {
    await runtime.loadPackagesFromImports(data.code);
   }
   self.postMessage({ type: 'ready', heavy: usesPackages });
-  let length = 0, index = 0;
+  let length = 0;
   const emit = line => { length += line.length; if (length > 20000) throw new Error('Output too large (20,000 characters).'); chunks.push(line) };
   runtime.setStdout({ batched: emit }); runtime.setStderr({ batched: emit });
-  runtime.setStdin({ stdin: () => data.inputs[index++] ?? undefined });
+  runtime.setStdin({ stdin: () => undefined });
   // Each run gets fresh globals, but the interpreter (and sys.modules) lives on. Undo the
   // process-wide state a previous run may have left behind so examples behave like a fresh script.
   await runtime.runPythonAsync(RESET_STATE);
+  if (!runtime.globals.has('_python_uz_begin')) await runtime.runPythonAsync(INPUT_SETUP);
+  const begin = runtime.globals.get('_python_uz_begin');
+  try { begin(data.inputs || [], data.seed ?? 0, Boolean(data.replay)) } finally { begin.destroy() }
   namespace = runtime.toPy({ __name__: '__main__' });
   const usesMatplotlib = /^\s*(import|from)\s+matplotlib\b/m.test(data.code);
   if (usesMatplotlib) await runtime.runPythonAsync(MATPLOTLIB_SETUP, { globals: namespace });
@@ -86,6 +148,10 @@ self.onmessage = async ({ data }) => {
   self.postMessage({ type: 'done', id: data.id, text: chunks.join('\n'), images });
  } catch (error) {
   const before = chunks.join('\n');
+  // Stopped at input(): hand the question to the page instead of reporting an error.
+  let prompt;
+  try { prompt = runtime?.runPython('_python_uz_input["prompt"]') } catch { /* the runtime did not start */ }
+  if (typeof prompt === 'string') { self.postMessage({ type: 'input', id: data.id, text: before, prompt }); return }
   self.postMessage({ type: 'error', id: data.id, text: (before ? before + '\n' : '') + cleanTraceback(error) });
  }
  finally { namespace?.destroy(); }

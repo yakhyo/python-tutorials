@@ -111,12 +111,12 @@
       "code": "color = \"green\"\nmatch color:\n    case \"red\":\n        print(\"Töxta\")\n    case other:\n        print(\"Nomaʼlum:\", other)",
       "options": [
         "Nomaʼlum: green",
-        "Hiç narsa",
+        "Heç narsa",
         "NameError",
         "SyntaxError"
       ],
       "answer": 0,
-      "explanation": "case dagi yalanğoç nom - tutib oluvçi (capture) andoza: u istalgan qiymatga mos keladi va uni boğlaydi, şuning uçun oldingi case lar mos kelmasa oxirgisi doim işlaydi. Şuning uçun u eng oxirida turişi kerak.",
+      "explanation": "case dagi oddiy nom qiymatni uşlab oladi: u istalgan narsaga mos keladi va qiymatni şu nomga saqlaydi, şuning uçun oldingi case lar mos kelmasa, bu case doim işlaydi. Şuning uçun u eng oxirida turişi kerak.",
       "lesson": "match-statement"
     },
     {

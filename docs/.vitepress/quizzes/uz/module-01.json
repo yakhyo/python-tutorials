@@ -56,11 +56,11 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "print(\"Tashkent\", end=\"!\")\nprint(\"Samarkand\")",
+      "code": "print(\"Toşkent\", end=\"!\")\nprint(\"Samarqand\")",
       "options": [
-        "Tashkent! Samarkand",
-        "TashkentSamarkand!",
-        "Tashkent!Samarkand",
+        "Toşkent! Samarqand",
+        "ToşkentSamarqand!",
+        "Toşkent!Samarqand",
         "SyntaxError"
       ],
       "answer": 2,
@@ -118,16 +118,16 @@
       "lesson": "running-python"
     },
     {
-      "question": "REPL da quyidagi qatorni yozib Enter bosdingiz. Hiç narsa çiqmadi. Nega?",
+      "question": "REPL da quyidagi qatorni yozib Enter bosdingiz. Heç narsa çiqmadi. Nega?",
       "code": "total = 120 + 80",
       "options": [
         "Qiymat berişning körsatadigan qiymati yöq; REPL faqat ifodalarni aks ettiradi",
         "Python hali ikkinçi kiritiş qatorini kutmoqda",
         "total nomi band, şuning uçun u eʼtiborsiz qoldirildi",
-        "REPL print() çaqirilmagunça hiç narsa körsatmaydi"
+        "REPL print() çaqirilmagunça heç narsa körsatmaydi"
       ],
       "answer": 0,
-      "explanation": "REPL total yoki 2 + 3 kabi ifodaning qiymatini körsatadi, qiymat beriş esa qiymat bermaydi, şuning uçun hiç narsa çiqmaydi.",
+      "explanation": "REPL total yoki 2 + 3 kabi ifodaning qiymatini körsatadi, qiymat beriş esa qiymat bermaydi, şuning uçun heç narsa çiqmaydi.",
       "lesson": "running-python"
     }
   ]

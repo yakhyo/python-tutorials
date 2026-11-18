@@ -86,8 +86,8 @@ def main(output_dir):
         )]
 
         for lesson in lessons:
-            en = exercises(lesson_file(DOCS / "lessons", lesson["slug"]))
-            uz = exercises(lesson_file(DOCS / "uz" / "darslar", lesson["slug"]))
+            en = exercises(lesson_file(DOCS / "en" / "lessons", lesson["slug"]))
+            uz = exercises(lesson_file(DOCS / "uz" / "lessons", lesson["slug"]))
             if not en:
                 continue
             title_uz = titles_uz.get(lesson["slug"])

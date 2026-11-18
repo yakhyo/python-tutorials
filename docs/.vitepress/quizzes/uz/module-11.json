@@ -38,7 +38,7 @@
         "assert str(average) == \"0.2\""
       ],
       "answer": 0,
-      "explanation": "Önlik sonlarda kiçik yuvarlaş xatolari bor, şuning uçun ularni math.isclose() (yoki pytest da pytest.approx) bilan taqqoslang.",
+      "explanation": "Önlik sonlarda kiçik yumaloqlaş xatolari bor, şuning uçun ularni math.isclose() (yoki pytest da pytest.approx) bilan taqqoslang.",
       "lesson": "testing-with-assert"
     },
     {
@@ -82,7 +82,7 @@
       "options": [
         "Bu loyihada pytest örnatilmagan",
         "Test fayllari va funksiyalari test_* deb nomlanişi kerak",
-        "Funksiya içidagi assert notögri",
+        "Funksiya içidagi assert notöğri",
         "Testlar TestCase klassi içida bölişi kerak"
       ],
       "answer": 1,

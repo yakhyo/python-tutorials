@@ -105,4 +105,24 @@ html{scrollbar-gutter:stable;background-color:var(--vp-c-bg)}
 }
 
 @media (max-width: 767px){.VPNavBarTitle .logo{height:32px}}
-
+/* Editor toolbar icons, and input() answered in the output like a terminal */
+.editor-buttons button.icon-button{display:inline-flex;align-items:center;justify-content:center;width:30px;padding:0}
+.editor-buttons .icon-button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.editor-buttons button.icon-button.is-done{color:var(--vp-c-green-1)}
+.editor-buttons button.stop{color:var(--vp-c-red-1);border-color:var(--vp-c-red-soft)}
+.editor-output{min-height:72px}
+.editor-idle{margin:0!important;padding:4px 16px 12px;font-size:13px;line-height:1.7!important;color:var(--vp-c-text-3)}
+.terminal-ask{cursor:text}
+.terminal-input{min-width:1px;max-width:100%;margin:0;padding:0;border:0;outline:0;background:transparent;font:inherit;color:var(--vp-c-brand-1);caret-color:transparent}
+.terminal-caret{color:var(--vp-c-text-3)}
+.terminal-ask:focus-within .terminal-caret{color:var(--vp-c-text-1);animation:terminal-blink 1.1s steps(1) infinite}
+@keyframes terminal-blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.terminal-ask:focus-within .terminal-caret{animation:none}}
+/* Sidebar: section names (Python, Working with Data, Advanced Python) are small labels; the
+   modules inside the course read as headings, not as grey links. */
+.VPSidebar .VPSidebarItem.level-0>.item .text{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--vp-c-text-1)}
+.VPSidebarItem.level-1.collapsible>.item .text{font-weight:600;color:var(--vp-c-text-1)}
+/* Header: the ">>>_" mark and the site name */
+.VPNavBarTitle .logo{height:20px;width:auto;margin-right:10px}
+.VPNavBarTitle .title{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.site-tld{color:var(--vp-c-brand-1)}

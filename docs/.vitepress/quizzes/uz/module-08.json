@@ -26,7 +26,7 @@
         "Heç narsa, dastur xato bilan töxtaydi"
       ],
       "answer": 1,
-      "explanation": "ZeroDivisionError Exception ning vorisi, şuning uçun birinçi mos kelgan except ğolib böladi. Aniqroq istisnolarni birinçi qöying.",
+      "explanation": "ZeroDivisionError Exception ning bolasi, şuning uçun birinçi mos kelgan except ğolib böladi. Aniqroq istisnolarni birinçi qöying.",
       "lesson": "exceptions"
     },
     {
@@ -57,15 +57,15 @@
     },
     {
       "question": "Foydalanuvçi \" Yes\" (boşida böşliq bilan) deb yozdi. Bu kod nimani çop etadi?",
-      "code": "answer = \" Yes\"\nif answer == \"yes\":\n    print(\"Confirmed\")\nelse:\n    print(\"Not confirmed\")",
+      "code": "answer = \" Yes\"\nif answer == \"yes\":\n    print(\"Tasdiqlandi\")\nelse:\n    print(\"Tasdiqlanmadi\")",
       "options": [
         "Tasdiqlandi",
         "Tasdiqlanmadi",
         "ValueError",
-        "Hiç narsa"
+        "Heç narsa"
       ],
       "answer": 1,
-      "explanation": "\" Yes\" \"yes\" ga teng emas: böşliq ham, bosh harf ham ahamiyatli. Avval answer.strip().lower() bilan normallaştiring, keyin taqqoslang.",
+      "explanation": "\" Yes\" \"yes\" ga teng emas: böşliq ham, boş harf ham ahamiyatli. Avval answer.strip().lower() bilan normallaştiring, keyin taqqoslang.",
       "lesson": "input-validation"
     },
     {
@@ -73,7 +73,7 @@
       "options": [
         "Manfiy sonlar uçun ValueError çaqiradi",
         "Har qanday böş bölmagan satr uçun True qaytaradi",
-        "False qaytaradi, şuning uçun tögri manfiy sonlar rad etiladi",
+        "False qaytaradi, şuning uçun töğri manfiy sonlar rad etiladi",
         "Faqat 3.5 kabi float satrlar uçun işlaydi"
       ],
       "answer": 2,

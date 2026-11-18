@@ -31,37 +31,37 @@
     },
     {
       "question": "Bu kod işga tuşganda nima böladi?",
-      "code": "cities = [\"Tashkent\", \"Bukhara\"]\nprint(next(cities))",
+      "code": "cities = [\"Toşkent\", \"Buxoro\"]\nprint(next(cities))",
       "options": [
-        "Tashkent ni çop etadi",
+        "Toşkent ni çop etadi",
         "StopIteration",
-        "['Tashkent', 'Bukhara'] ni çop etadi",
+        "['Toşkent', 'Buxoro'] ni çop etadi",
         "TypeError"
       ],
       "answer": 3,
-      "explanation": "Röyxat iteratsiya qilinadigan (iterable), lekin iterator emas. next(iter(cities)) dan foydalaning.",
+      "explanation": "Röyxat takrorlanuvçi obyekt (iterable), lekin iterator emas. next(iter(cities)) dan foydalaning.",
       "lesson": "iterators-and-generators"
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "def chunks():\n    yield from [1, 2]\n    yield 3\n\nprint(list(chunks()), sum(chunks()))",
+      "code": "class Countdown:\n    def __init__(self, start):\n        self.start = start\n\n    def __iter__(self):\n        current = self.start\n        while current > 0:\n            yield current\n            current -= 1\n\ncountdown = Countdown(2)\nprint(list(countdown), list(countdown))",
       "options": [
-        "[1, 2, 3] 6",
-        "[[1, 2], 3] 6",
-        "[1, 2, 3] 0",
+        "[2, 1] [2, 1]",
+        "[2, 1] []",
+        "[2, 1, 0] [2, 1, 0]",
         "TypeError"
       ],
       "answer": 0,
-      "explanation": "yield from röyxatning har bir elementini birma-bir beradi. chunks() ning har bir çaqiriluvi yangi generator yaratadi, şuning uçun sum() barça qiymatlarni köradi.",
+      "explanation": "__iter__ generator metod, şuning uçun har bir list() çaqiruvi yangi generator oladi. Şu tufayli klassni qayta işlatiş mumkin; joriy örinni obyektning özida saqlaydigan iterator esa ikkinçi marta böş bölardi.",
       "lesson": "iterators-and-generators"
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "import re\ntext = \"Total: 45000 som\"\nprint(re.match(r\"\\d+\", text))",
+      "code": "import re\ntext = \"Jami: 45000 söm\"\nprint(re.match(r\"\\d+\", text))",
       "options": [
         "45000",
         "None",
-        "<re.Match object; span=(7, 12), match='45000'>",
+        "<re.Match object; span=(6, 11), match='45000'>",
         "[]"
       ],
       "answer": 1,
@@ -123,7 +123,7 @@
     {
       "question": "Matn tahlilçisida count_sentences(text) kabi funksiyalar maʼlumotni qayerdan olişi va çop etiş qayerda bölişi kerak?",
       "options": [
-        "Matnni argument sifatida oliş va qiymat qaytariş",
+        "Matnni argument sifatida oliş, qiymat qaytariş va çop etişni çaqiruvçi kodga qoldiriş",
         "Har bir funksiya içida faylni öqib çop etiş",
         "Matn va natijalarni global özgaruvçilarda saqlaş",
         "Hammasini bitta main() funksiyasiga joylaş"

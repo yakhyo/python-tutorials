@@ -57,7 +57,7 @@
     },
     {
       "question": "Bu kodni işga tuşirganda nima böladi?",
-      "code": "name, age = (\"Aziza\", 20, \"Tashkent\")\nprint(name, age)",
+      "code": "name, age = (\"Aziza\", 20, \"Toşkent\")\nprint(name, age)",
       "options": [
         "Aziza 20 ni çop etadi",
         "TypeError",
@@ -70,15 +70,15 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "capitals = {\"Uzbekistan\": \"Tashkent\", \"Japan\": \"Tokyo\"}\nprint(\"Tokyo\" in capitals)",
+      "code": "capitals = {\"Özbekiston\": \"Toşkent\", \"Yaponiya\": \"Tokio\"}\nprint(\"Tokio\" in capitals)",
       "options": [
         "False",
         "True",
-        "Tokyo",
+        "Tokio",
         "KeyError"
       ],
       "answer": 0,
-      "explanation": "in luğatning qiymatlarini emas, kalitlarini tekşiradi. Qiymatlar orasidan qidiriş uçun \"Tokyo\" in capitals.values() dan foydalaning.",
+      "explanation": "in luğatning qiymatlarini emas, kalitlarini tekşiradi. Qiymatlar orasidan qidiriş uçun \"Tokio\" in capitals.values() dan foydalaning.",
       "lesson": "dictionaries"
     },
     {

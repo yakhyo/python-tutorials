@@ -4,9 +4,9 @@ Template: What you'll learn (3-5 objectives), Why it matters, concept sections w
 runnable examples, Common mistakes (2-4, each with code or error output), Practice
 (5 exercises with a Difficulty tag and a solution), Recap (<= 6 bullets), Further
 reading. Concept lessons run 1,200-2,000 words. Reference lesson:
-docs/lessons/05-collections/04-dictionaries.md.
+docs/en/lessons/05-collections/04-dictionaries.md.
 
-Usage: python3 scripts/lint.py [paths...]   (default: docs/lessons and docs/uz/darslar)
+Usage: python3 scripts/lint.py [paths...]   (default: docs/en/lessons and docs/uz/lessons)
 
 Reports, per lesson: missing sections, objective/mistake/recap counts outside the
 template ranges, common mistakes without a code or output block, exercises without a
@@ -17,7 +17,7 @@ from pathlib import Path
 import re, sys
 
 root = Path(__file__).resolve().parents[1]
-targets = [Path(a).resolve() for a in sys.argv[1:]] or [root / 'docs/lessons', root / 'docs/uz/darslar']
+targets = [Path(a).resolve() for a in sys.argv[1:]] or [root / 'docs/en/lessons', root / 'docs/uz/lessons']
 files = sorted({f for t in targets for f in ([t] if t.is_file() else t.rglob('*.md'))})
 PROJECT = re.compile(r'-(game|tracker|project)$')
 

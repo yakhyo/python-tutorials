@@ -26,7 +26,7 @@ const score = computed(() => quiz.value.questions.reduce((sum, q, i) => sum + (a
 const total = computed(() => quiz.value?.questions.length || 0)
 const allAnswered = computed(() => answers.value.filter(a => a !== undefined).length === total.value)
 const lessonTitle = slug => (isUz.value ? courseUz : courseEn).find(lesson => lesson.slug === slug)?.title ?? slug
-const lessonLink = slug => withBase(`${isUz.value ? '/uz/darslar/' : '/lessons/'}${slug}`)
+const lessonLink = slug => withBase(`/${isUz.value ? 'uz' : 'en'}/lessons/${slug}`)
 // After checking, the lessons behind the missed questions, in course order and without repeats.
 const missedLessons = computed(() => [...new Set(quiz.value.questions
  .filter((q, i) => answers.value[i] !== q.answer && q.lesson)

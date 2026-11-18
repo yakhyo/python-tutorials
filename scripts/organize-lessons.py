@@ -1,10 +1,10 @@
 """Put lesson files into numbered module folders that follow course.json.
 
-    docs/lessons/06-functions/01-defining-functions.md
-    docs/uz/darslar/06-functions/01-defining-functions.md
+    docs/en/lessons/06-functions/01-defining-functions.md
+    docs/uz/lessons/06-functions/01-defining-functions.md
 
 URLs do not change: docs/.vitepress/config.mjs rewrites these paths to
-/lessons/<slug> and /uz/darslar/<slug>. After adding, removing or reordering
+/en/lessons/<slug> and /uz/lessons/<slug>. After adding, removing or reordering
 lessons in course.json, run:  python3 scripts/organize-lessons.py
 Uses `git mv` so file history is kept. Safe to re-run.
 """
@@ -39,7 +39,7 @@ def find(base, slug):
 
 if __name__ == '__main__':
     moved = 0
-    for base in (DOCS / 'lessons', DOCS / 'uz/darslar'):
+    for base in (DOCS / 'en/lessons', DOCS / 'uz/lessons'):
         for slug, rel in lesson_paths().items():
             src, dst = find(base, slug), base / rel
             if src is None:

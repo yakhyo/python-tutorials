@@ -45,12 +45,12 @@
       "question": "Ota klassning __init_subclass__ metodi qaçon işlaydi?",
       "options": [
         "Voris klassning har bir obyekti yaratilganda",
-        "Faqat voris klass super().__init__() ni çaqirganda",
+        "Faqat bola klass super().__init__() ni çaqirganda",
         "Voris klassning biror metodi birinçi marta çaqirilganda",
         "Voris klassning özi aniqlanganda"
       ],
       "answer": 3,
-      "explanation": "__init_subclass__ class operatori voris klass yaratişi bilanoq, yangi klassni cls sifatida olib işlaydi. Şuning uçun u plaginlar registri uçun qulay.",
+      "explanation": "__init_subclass__ class operatori bola klass yaratişi bilanoq, yangi klassni cls sifatida olib işlaydi. Şuning uçun u plaginlar registri uçun qulay.",
       "lesson": "python-data-model"
     },
     {

@@ -25,7 +25,7 @@
         "scores: Optional(list[int])"
       ],
       "answer": 0,
-      "explanation": "Zamonaviy Python da list[int] - ornatilgan umumiy tur, X | None esa 'X yoki None' degani. typing dagi Optional[X] ayni narsaning eskiroq yozilişi.",
+      "explanation": "Zamonaviy Python da list[int] - örnatilgan umumiy tur, X | None esa 'X yoki None' degani. typing dagi Optional[X] ayni narsaning eskiroq yozilişi.",
       "lesson": "type-hints"
     },
     {
@@ -54,7 +54,7 @@
       "lesson": "composition"
     },
     {
-      "question": "Oxirgi qatorda nima bölady?",
+      "question": "Oxirgi qatorda nima böladi?",
       "code": "from dataclasses import dataclass, field\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    tags: list = field(default_factory=list)\n\np = Point(1)\np.x = 5",
       "options": [
         "p.x ga 5 ni yozadi",
@@ -76,7 +76,7 @@
         "Book('Days Gone By')"
       ],
       "answer": 2,
-      "explanation": "Annotatsiyasiz pages faqat klass atributi, maydon emas, şuning uçun u __init__ va repr da yöq.",
+      "explanation": "Type hintsiz pages faqat klass atributi, maydon emas, şuning uçun u __init__ va repr da yöq.",
       "lesson": "dataclasses"
     },
     {

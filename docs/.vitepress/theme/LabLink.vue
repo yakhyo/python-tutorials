@@ -11,7 +11,7 @@ const route = useRoute()
 const t = useT()
 
 const notebook = computed(() => {
- const match = route.path.match(/\/(?:lessons|uz\/darslar)\/([a-z0-9-]+)(?:\.html)?$/)
+ const match = route.path.match(/\/(?:en|uz)\/lessons\/([a-z0-9-]+)(?:\.html)?$/)
  const lesson = match && course.find(item => item.slug === match[1])
  if (!lesson) return null
  const [number, name] = lesson.group.split(' · ')

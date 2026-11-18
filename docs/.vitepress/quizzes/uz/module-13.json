@@ -1,24 +1,24 @@
 {
   "module": "13 · Maʼlumotlar bilan işlaş (ixtiyoriy)",
-  "title": "Nazorat: Maʼlumotlar bilan işlaş (ixtiyoriy)",
+  "title": "Nazorat: Maʼlumotlar bilan işlaş",
   "intro": "pandas bilan jadvallarni yuklay va filtrlay olişingiz, ularni umumlaştira olişingiz va matplotlib bilan tuşunarli grafiklar çiza olişingizni tekşiring.",
   "questions": [
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Samarkand\"],\n                   \"temp\": [31.5, 28.1, 33.0]})\nprint(df.iloc[1][\"city\"], df.loc[2, \"temp\"])",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Toşkent\", \"Buxoro\", \"Samarqand\"],\n                   \"temp\": [31.5, 28.1, 33.0]})\nprint(df.iloc[1][\"city\"], df.loc[2, \"temp\"])",
       "options": [
-        "Tashkent 33.0",
-        "Bukhara 28.1",
-        "Bukhara 33.0",
+        "Toşkent 33.0",
+        "Buxoro 28.1",
+        "Buxoro 33.0",
         "KeyError"
       ],
       "answer": 2,
-      "explanation": ".iloc örin böyiça tanlaydi (1-qator - Bukhara), .loc esa yorliq böyiça tanlaydi (2-indeks - Samarkand qatori).",
+      "explanation": ".iloc örin böyiça tanlaydi (1-qator - Buxoro), .loc esa yorliq böyiça tanlaydi (2-indeks - Samarqand qatori).",
       "lesson": "reading-data"
     },
     {
       "question": "Bu kod işga tuşganda nima böladi?",
-      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"temp\": [31.5, 28.1]})\nprint(df[\"city\", \"temp\"])",
+      "code": "import pandas as pd\ndf = pd.DataFrame({\"city\": [\"Toşkent\", \"Buxoro\"], \"temp\": [31.5, 28.1]})\nprint(df[\"city\", \"temp\"])",
       "options": [
         "KeyError",
         "Ikkala ustunni çop etadi",
@@ -46,7 +46,7 @@
       "question": "Bu kod işga tuşganda nima böladi?",
       "code": "import pandas as pd\ndf = pd.DataFrame({\"temp\": [31.5, 28.1], \"humidity\": [22, 30]})\nprint(df[df[\"temp\"] > 30 and df[\"humidity\"] < 25])",
       "options": [
-        "Tashkent qatorini çop etadi",
+        "Birinçi qatorni çop etadi",
         "ValueError",
         "Böş DataFrame ni çop etadi",
         "KeyError"
@@ -57,7 +57,7 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\", \"Tashkent\"],\n                      \"quantity\": [4, 12, 6]})\nprint(sales.groupby(\"city\")[\"quantity\"].sum()[\"Tashkent\"])",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Toşkent\", \"Buxoro\", \"Toşkent\"],\n                      \"quantity\": [4, 12, 6]})\nprint(sales.groupby(\"city\")[\"quantity\"].sum()[\"Toşkent\"])",
       "options": [
         "2",
         "4",
@@ -65,7 +65,7 @@
         "22"
       ],
       "answer": 2,
-      "explanation": "groupby har bir şahar qatorlarini yiğadi, sum() esa Tashkent miqdorlarini qöşadi: 4 + 6.",
+      "explanation": "groupby har bir şahar qatorlarini yiğadi, sum() esa Toşkent miqdorlarini qöşadi: 4 + 6.",
       "lesson": "pandas-basics"
     },
     {
@@ -96,7 +96,7 @@
     },
     {
       "question": "print nimani körsatadi?",
-      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Tashkent\", \"Bukhara\"], \"price\": [15000, 8000]})\nsales[sales[\"city\"] == \"Bukhara\"][\"price\"] = 9000\nprint(sales.loc[1, \"price\"])",
+      "code": "import pandas as pd\nsales = pd.DataFrame({\"city\": [\"Toşkent\", \"Buxoro\"], \"price\": [15000, 8000]})\nsales[sales[\"city\"] == \"Buxoro\"][\"price\"] = 9000\nprint(sales.loc[1, \"price\"])",
       "options": [
         "9000",
         "8000",
@@ -104,7 +104,7 @@
         "None"
       ],
       "answer": 1,
-      "explanation": "Zanjirli indekslaş vaqtinçalik nusxaga qiymat yozadi, şuning uçun asl jadval özgarmaydi. sales.loc[sales[\"city\"] == \"Bukhara\", \"price\"] = 9000 dan foydalaning.",
+      "explanation": "Zanjirli indekslaş vaqtinçalik nusxaga qiymat yozadi, şuning uçun asl jadval özgarmaydi. sales.loc[sales[\"city\"] == \"Buxoro\", \"price\"] = 9000 dan foydalaning.",
       "lesson": "pandas-basics"
     },
     {

@@ -46,7 +46,7 @@
       "question": "What happens when this code runs?",
       "code": "import pandas as pd\ndf = pd.DataFrame({\"temp\": [31.5, 28.1], \"humidity\": [22, 30]})\nprint(df[df[\"temp\"] > 30 and df[\"humidity\"] < 25])",
       "options": [
-        "It prints the Tashkent row",
+        "It prints the first row",
         "ValueError",
         "It prints an empty DataFrame",
         "KeyError"

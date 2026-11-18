@@ -116,7 +116,7 @@
         "SyntaxError"
       ],
       "answer": 0,
-      "explanation": "A bare name in a case pattern is a capture pattern: it matches any value and binds it, so the last case always runs when nothing before it matched. That is why it must come last.",
+      "explanation": "A plain name in a case pattern captures the value: it matches anything and stores the value in that name, so this case runs whenever nothing before it matched. That is why it must come last.",
       "lesson": "match-statement"
     },
     {

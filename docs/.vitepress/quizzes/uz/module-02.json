@@ -44,12 +44,12 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "word = \"Tashkent\"\nprint(word[-1], word[0:4])",
+      "code": "word = \"Toşkent\"\nprint(word[-1], word[0:4])",
       "options": [
-        "n Tashk",
-        "t Tashk",
-        "T Tash",
-        "t Tash"
+        "n Toşke",
+        "t Toşke",
+        "T Toşk",
+        "t Toşk"
       ],
       "answer": 3,
       "explanation": "-1 indeksi oxirgi belgi, kesim esa stop indeksidan oldin töxtaydi, şuning uçun [0:4] birinçi 4 ta belgini beradi.",
@@ -57,11 +57,11 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "city = \"tashkent\"\ncity.capitalize()\nprint(city)",
+      "code": "city = \"toşkent\"\ncity.capitalize()\nprint(city)",
       "options": [
-        "Tashkent",
-        "TASHKENT",
-        "tashkent",
+        "Toşkent",
+        "TOŞKENT",
+        "toşkent",
         "None"
       ],
       "answer": 2,
@@ -70,12 +70,12 @@
     },
     {
       "question": "Bu kod nimani çop etadi?",
-      "code": "price = 12500.5\nprint(f\"{price:,.2f} som\")",
+      "code": "price = 12500.5\nprint(f\"{price:,.2f} söm\")",
       "options": [
-        "12,500.50 som",
-        "12,500.5 som",
-        "12500.50 som",
-        "12,501 som"
+        "12,500.50 söm",
+        "12,500.5 söm",
+        "12500.50 söm",
+        "12,501 söm"
       ],
       "answer": 0,
       "explanation": ", minglik ajratuvçisini qöşadi, .2f esa aynan ikki önlik xonani körsatadi.",
