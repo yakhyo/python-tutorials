@@ -14,7 +14,7 @@ const course = computed(() => (locale.value === 'uz' ? courseUz : courseEn))
 const url = path => withBase(`/${locale.value}${path}`)
 const firstLesson = computed(() => url(`/lessons/${course.value[0].slug}`))
 
-// Each level lists module numbers ("01"…"14"); a track level (modules 13 and 14) drops the
+// Each level lists module numbers ("01"…"13"); a track level (module 13) drops the
 // module number and the "(Optional)" suffix that course.json keeps for the notebook script.
 const levels = computed(() => (home.value.path?.levels || []).map(level => ({
  ...level,

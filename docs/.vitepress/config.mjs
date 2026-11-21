@@ -68,11 +68,11 @@ const lessonFiles = list => {
  }))
 }
 
-// The sidebar has three sections of equal weight: the 12-module course, and the two follow-on
-// tracks (modules 13 and 14). Each track has a landing page (en/data.md, en/advanced.md) and is
+// The sidebar has two sections of equal weight: the 12-module course and the follow-on track
+// (module 13). The track has a landing page (en/data.md) and is
 // named without the module number or the "(Optional)" suffix that course.json keeps for
 // scripts/make-notebooks.py. Section and module headings are styled in theme/style.css.
-const tracks = { '13': 'data', '14': 'advanced' }
+const tracks = { '13': 'data' }
 const sidebarFor = ({ course, lang, start, quizLabel, hasQuiz, overview, core }) => {
  const modules = groupsOf(course).map(text => {
   const number = text.slice(0, 2)
@@ -159,6 +159,12 @@ const rewrites = Object.fromEntries(Object.entries(files).flatMap(([slug, file])
  [`en/lessons/${file}`, `en/lessons/${slug}.md`],
  [`uz/lessons/${file}`, `uz/lessons/${slug}.md`]
 ]))
+// The Advanced Python lessons moved to their own site (python-advanced). A short page stays at
+// each old address and sends the visitor on; those pages live in en/moved and uz/moved.
+for (const slug of load('./moved.json')) {
+ rewrites[`en/moved/${slug}.md`] = `en/lessons/${slug}.md`
+ rewrites[`uz/moved/${slug}.md`] = `uz/lessons/${slug}.md`
+}
 
 // VitePress 1.x is written for Vite 5; this project runs it on Vite 6, which prints a warning
 // about one line in VitePress's own search box ("Failed to resolve /@localSearchIndex") every time

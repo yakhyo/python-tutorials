@@ -24,7 +24,7 @@ home:
     projectCount: 5
   path:
     title: Nimalarni örganasiz
-    lead: Darslik ikki qismdan iborat va sizni birinçi kod qatoridan testlangan, obyektga yönaltirilgan dasturlargaça olib boradi. Undan keyin ikkita qisqaroq yönaliş bor.
+    lead: Darslik ikki qismdan iborat va sizni birinçi kod qatoridan testlangan, obyektga yönaltirilgan dasturlargaça olib boradi. Undan keyin maʼlumotlar bilan işlaş böyiça qisqaroq yönaliş bor, davomi esa Advanced Python darsligida.
     progress: "{total} darsdan {done} tasi oçilgan"
     opened: oçilgan
     levels:
@@ -39,12 +39,6 @@ home:
         text: Darslikdan keyingi alohida yönaliş. Jadvallarni pandasʼga yuklaysiz, tozalaysiz, umumlaştirasiz va matplotlib bilan grafik çizasiz.
         modules: ["13"]
         link: /data
-        linkText: Yönaliş haqida
-      - name: Advanced Python
-        track: true
-        text: Python yoza oladiganlar uçun alohida yönaliş. Dekoratorlar, maʼlumot modeli, async, oqimlar va jarayonlar, samaradorlik va testlaşni çuqurroq örganiş.
-        modules: ["14"]
-        link: /advanced
         linkText: Yönaliş haqida
   projects:
     title: Nimalar qurasiz

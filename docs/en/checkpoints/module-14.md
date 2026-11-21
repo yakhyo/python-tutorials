@@ -1,9 +1,23 @@
 ---
 title: "Checkpoint: Advanced Python"
-description: "Check your understanding of Advanced Python with a short quiz."
+description: "This page moved to the Advanced Python course."
+search: false
+editLink: false
+lastUpdated: false
+prev: false
+next: false
 outline: false
+head:
+  - - meta
+    - http-equiv: refresh
+      content: "0; url=https://codeuz-edu.github.io/python-advanced/en/checkpoints/module-01"
+  - - link
+    - rel: canonical
+      href: "https://codeuz-edu.github.io/python-advanced/en/checkpoints/module-01"
 ---
 
 # Checkpoint: Advanced Python
 
-<ClientOnly><Quiz id="module-14" /></ClientOnly>
+This checkpoint quiz moved to the **Advanced Python** course.
+
+**[Open it there →](https://codeuz-edu.github.io/python-advanced/en/checkpoints/module-01)**

@@ -24,7 +24,7 @@ home:
     projectCount: 5
   path:
     title: What you will learn
-    lead: The course has two parts and takes you from your first line of code to tested, object-oriented programs. Two shorter tracks continue from there.
+    lead: The course has two parts and takes you from your first line of code to tested, object-oriented programs. A shorter track on working with data continues from there, and the Advanced Python course comes after.
     progress: "{done} of {total} lessons opened"
     opened: opened
     levels:
@@ -39,12 +39,6 @@ home:
         text: A separate track for after the course. Load tables into pandas, clean and summarize them, and draw charts with matplotlib.
         modules: ["13"]
         link: /data
-        linkText: Track overview
-      - name: Advanced Python
-        track: true
-        text: A separate track for people who already write Python. Decorators, the data model, async, threads and processes, performance, and deeper testing.
-        modules: ["14"]
-        link: /advanced
         linkText: Track overview
   projects:
     title: What you will build
