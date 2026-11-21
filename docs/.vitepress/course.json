@@ -1,0 +1,412 @@
+[
+  {
+    "slug": "what-is-python",
+    "title": "What Is Python?",
+    "group": "01 · Getting Started"
+  },
+  {
+    "slug": "install-and-setup",
+    "title": "Installing Python",
+    "group": "01 · Getting Started"
+  },
+  {
+    "slug": "running-python",
+    "title": "Running Python Code",
+    "group": "01 · Getting Started"
+  },
+  {
+    "slug": "hello-world",
+    "title": "Hello, World!",
+    "group": "01 · Getting Started"
+  },
+  {
+    "slug": "comments-and-style",
+    "title": "Comments and Code Style",
+    "group": "01 · Getting Started"
+  },
+  {
+    "slug": "variables",
+    "title": "Variables",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "numbers-and-math",
+    "title": "Numbers and Math",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "strings-basics",
+    "title": "Strings",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "string-methods-and-slicing",
+    "title": "String Methods and Slicing",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "f-strings",
+    "title": "F-Strings",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "type-conversion-and-input",
+    "title": "Input and Type Conversion",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "reading-errors-and-debugging",
+    "title": "Reading Errors and Debugging",
+    "group": "02 · Values and Variables"
+  },
+  {
+    "slug": "booleans-and-comparisons",
+    "title": "Booleans and Comparisons",
+    "group": "03 · Making Decisions"
+  },
+  {
+    "slug": "if-elif-else",
+    "title": "if, elif, and else",
+    "group": "03 · Making Decisions"
+  },
+  {
+    "slug": "logical-operators",
+    "title": "Logical Operators",
+    "group": "03 · Making Decisions"
+  },
+  {
+    "slug": "match-statement",
+    "title": "The match Statement",
+    "group": "03 · Making Decisions"
+  },
+  {
+    "slug": "while-loops",
+    "title": "while Loops",
+    "group": "04 · Loops"
+  },
+  {
+    "slug": "for-loops-and-range",
+    "title": "for Loops and range()",
+    "group": "04 · Loops"
+  },
+  {
+    "slug": "break-continue-else",
+    "title": "break, continue, and else",
+    "group": "04 · Loops"
+  },
+  {
+    "slug": "loop-patterns",
+    "title": "Common Loop Patterns",
+    "group": "04 · Loops"
+  },
+  {
+    "slug": "number-guessing-game",
+    "title": "Project: Number Guessing Game",
+    "group": "04 · Loops"
+  },
+  {
+    "slug": "lists",
+    "title": "Lists",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "list-operations-and-sorting",
+    "title": "Working with Lists and Sorting",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "tuples-and-unpacking",
+    "title": "Tuples and Unpacking",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "dictionaries",
+    "title": "Dictionaries",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "sets",
+    "title": "Sets",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "nested-data",
+    "title": "Nested Data",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "comprehensions",
+    "title": "Comprehensions",
+    "group": "05 · Collections"
+  },
+  {
+    "slug": "defining-functions",
+    "title": "Defining Functions",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "parameters-and-arguments",
+    "title": "Parameters and Arguments",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "return-values",
+    "title": "Return Values",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "scope",
+    "title": "Variable Scope",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "recursion",
+    "title": "Recursion",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "designing-functions",
+    "title": "Designing Good Functions",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "lambda-and-higher-order-functions",
+    "title": "Lambdas and Higher-Order Functions",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "quiz-game",
+    "title": "Project: Quiz Game",
+    "group": "06 · Functions"
+  },
+  {
+    "slug": "modules-and-imports",
+    "title": "Modules and Imports",
+    "group": "07 · Modules and the Standard Library"
+  },
+  {
+    "slug": "math-random-statistics",
+    "title": "math, random, and statistics",
+    "group": "07 · Modules and the Standard Library"
+  },
+  {
+    "slug": "dates-and-times",
+    "title": "Dates and Times",
+    "group": "07 · Modules and the Standard Library"
+  },
+  {
+    "slug": "collections-and-itertools",
+    "title": "collections and itertools",
+    "group": "07 · Modules and the Standard Library"
+  },
+  {
+    "slug": "exceptions",
+    "title": "Handling Exceptions",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "raising-and-custom-exceptions",
+    "title": "Raising and Custom Exceptions",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "input-validation",
+    "title": "Input Validation",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "files-and-pathlib",
+    "title": "Files and pathlib",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "csv",
+    "title": "Working with CSV",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "json",
+    "title": "Working with JSON",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "context-managers-basics",
+    "title": "The with Statement",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "expense-tracker",
+    "title": "Project: Expense Tracker",
+    "group": "08 · Errors and Files"
+  },
+  {
+    "slug": "why-oop",
+    "title": "Why Object-Oriented Programming?",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "classes-and-objects",
+    "title": "Classes and Objects",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "methods-and-attributes",
+    "title": "Methods and Object State",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "class-attributes-and-methods",
+    "title": "Class Attributes, Class Methods, and Static Methods",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "properties-and-encapsulation",
+    "title": "Properties and Encapsulation",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "special-methods",
+    "title": "Representing and Comparing Objects",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "operators-and-containers",
+    "title": "Operators and Containers",
+    "group": "09 · Classes and Objects"
+  },
+  {
+    "slug": "inheritance",
+    "title": "Inheritance and super()",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "polymorphism-and-abcs",
+    "title": "Polymorphism, Duck Typing, and Abstract Classes",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "composition",
+    "title": "Composition vs. Inheritance",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "dataclasses",
+    "title": "Dataclasses",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "enums",
+    "title": "Enums",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "type-hints",
+    "title": "Type Hints",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "oop-project",
+    "title": "Project: Library Management System",
+    "group": "10 · Object-Oriented Design"
+  },
+  {
+    "slug": "testing-with-assert",
+    "title": "Testing with assert",
+    "group": "11 · Testing and Debugging"
+  },
+  {
+    "slug": "choosing-test-cases",
+    "title": "Choosing Test Cases",
+    "group": "11 · Testing and Debugging"
+  },
+  {
+    "slug": "pytest-basics",
+    "title": "Testing with pytest",
+    "group": "11 · Testing and Debugging"
+  },
+  {
+    "slug": "debugging-and-logging",
+    "title": "Debugging and Logging",
+    "group": "11 · Testing and Debugging"
+  },
+  {
+    "slug": "iterators-and-generators",
+    "title": "Iterators and Generators",
+    "group": "12 · Going Further"
+  },
+  {
+    "slug": "regular-expressions",
+    "title": "Regular Expressions",
+    "group": "12 · Going Further"
+  },
+  {
+    "slug": "text-processing-project",
+    "title": "Project: Text Analyzer",
+    "group": "12 · Going Further"
+  },
+  {
+    "slug": "reading-data",
+    "title": "Reading Data Files",
+    "group": "13 · Working with Data (Optional)"
+  },
+  {
+    "slug": "pandas-basics",
+    "title": "pandas Basics",
+    "group": "13 · Working with Data (Optional)"
+  },
+  {
+    "slug": "charts-with-matplotlib",
+    "title": "Charts with matplotlib",
+    "group": "13 · Working with Data (Optional)"
+  },
+  {
+    "slug": "data-report-project",
+    "title": "Project: Sales Data Report",
+    "group": "13 · Working with Data (Optional)"
+  },
+  {
+    "slug": "closures-and-decorators",
+    "title": "Closures and Decorators",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "python-data-model",
+    "title": "The Python Data Model",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "context-managers-in-depth",
+    "title": "Context Managers in Depth",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "async-await",
+    "title": "Async and await",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "memory-and-performance",
+    "title": "Memory and Performance",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "design-patterns",
+    "title": "Pythonic Design Patterns",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "threads-and-processes",
+    "title": "Threads and Processes",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "testing-in-depth",
+    "title": "Testing in Depth",
+    "group": "14 · Advanced Python (Optional)"
+  },
+  {
+    "slug": "advanced-project",
+    "title": "Project: Log Pipeline",
+    "group": "14 · Advanced Python (Optional)"
+  }
+]

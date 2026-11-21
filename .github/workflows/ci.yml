@@ -1,0 +1,46 @@
+name: CI
+
+# Work is committed straight to main: every push to it is checked, and so is any pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+
+      - name: Install packages used by module 11-13 examples
+        run: python -m pip install --quiet numpy pandas matplotlib pytest
+
+      - name: Run lesson code examples
+        env:
+          PYTHON: python
+          MPLBACKEND: Agg
+        run: python scripts/examples.py --twice
+
+      - name: Check lessons against the template
+        run: python scripts/lint.py
+
+      - run: npm ci
+
+      - name: Build site (without the Python Lab)
+        env:
+          SKIP_LAB: "1"
+        run: npm run build

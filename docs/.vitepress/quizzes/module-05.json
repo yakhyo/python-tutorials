@@ -1,0 +1,137 @@
+{
+  "module": "05 · Collections",
+  "title": "Checkpoint: Collections",
+  "intro": "Test your knowledge of lists, tuples, dictionaries, sets, nested data, and comprehensions.",
+  "questions": [
+    {
+      "question": "What does this code print?",
+      "code": "words = [\"kiwi\", \"fig\", \"apple\"]\nprint(sorted(words, key=len))",
+      "options": [
+        "['fig', 'kiwi', 'apple']",
+        "['apple', 'fig', 'kiwi']",
+        "['kiwi', 'fig', 'apple']",
+        "[3, 4, 5]"
+      ],
+      "answer": 0,
+      "explanation": "key=len sorts by the length of each word (3, 4, 5). The key only decides the order; the original words are returned.",
+      "lesson": "list-operations-and-sorting"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "a = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)",
+      "options": [
+        "[1, 2, 3]",
+        "[4]",
+        "[1, 2, 3, 4]",
+        "None"
+      ],
+      "answer": 2,
+      "explanation": "b = a does not make a copy; both names point to the same list. Use a.copy() to get a separate list.",
+      "lesson": "lists"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "scores = [3, 1, 2]\nranked = sorted(scores)\nprint(scores, ranked)",
+      "options": [
+        "[1, 2, 3] [1, 2, 3]",
+        "[3, 1, 2] [1, 2, 3]",
+        "[3, 1, 2] None",
+        "None [1, 2, 3]"
+      ],
+      "answer": 1,
+      "explanation": "sorted() returns a new sorted list and leaves the original unchanged, unlike .sort().",
+      "lesson": "list-operations-and-sorting"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "colors = (\"red\")\nprint(len(colors))",
+      "options": [
+        "1",
+        "0",
+        "TypeError",
+        "3"
+      ],
+      "answer": 3,
+      "explanation": "Without a comma, (\"red\") is just the string \"red\" in parentheses, which has 3 characters. A one-item tuple needs a comma: (\"red\",).",
+      "lesson": "tuples-and-unpacking"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "name, age = (\"Aziza\", 20, \"Tashkent\")\nprint(name, age)",
+      "options": [
+        "It prints Aziza 20",
+        "TypeError",
+        "ValueError",
+        "IndexError"
+      ],
+      "answer": 2,
+      "explanation": "There are 3 values but only 2 variables. Match the count, or collect the extra with *rest.",
+      "lesson": "tuples-and-unpacking"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "capitals = {\"Uzbekistan\": \"Tashkent\", \"Japan\": \"Tokyo\"}\nprint(\"Tokyo\" in capitals)",
+      "options": [
+        "False",
+        "True",
+        "Tokyo",
+        "KeyError"
+      ],
+      "answer": 0,
+      "explanation": "in checks the keys of a dictionary, not the values. Use \"Tokyo\" in capitals.values() to search values.",
+      "lesson": "dictionaries"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "user = {\"name\": \"Aziza\"}\nprint(user.get(\"email\", \"unknown\"))",
+      "options": [
+        "email",
+        "None",
+        "KeyError",
+        "unknown"
+      ],
+      "answer": 3,
+      "explanation": ".get() returns the default you give it when the key is missing, instead of raising KeyError.",
+      "lesson": "dictionaries"
+    },
+    {
+      "question": "What happens when you run this code?",
+      "code": "items = {}\nitems.add(\"x\")\nprint(items)",
+      "options": [
+        "It prints {'x'}",
+        "AttributeError",
+        "KeyError",
+        "It prints {}"
+      ],
+      "answer": 1,
+      "explanation": "{} creates an empty dictionary, not a set, and dictionaries have no add method. Use set() for an empty set.",
+      "lesson": "sets"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "grid = [[0] * 3] * 3\ngrid[0][0] = 1\nprint(grid[1])",
+      "options": [
+        "[0, 0, 0]",
+        "[1, 1, 1]",
+        "[1, 0, 0]",
+        "IndexError"
+      ],
+      "answer": 2,
+      "explanation": "[[0] * 3] * 3 repeats the same inner list three times, so changing one row changes them all. Build rows with a comprehension instead.",
+      "lesson": "nested-data"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "print([n * 2 for n in range(5) if n % 2 == 0])",
+      "options": [
+        "[0, 2, 4, 6, 8]",
+        "[0, 4, 8]",
+        "[2, 6]",
+        "[0, 1, 2, 3, 4]"
+      ],
+      "answer": 1,
+      "explanation": "The if keeps only the even numbers 0, 2, 4, and each one is doubled.",
+      "lesson": "comprehensions"
+    }
+  ]
+}

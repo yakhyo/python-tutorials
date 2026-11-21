@@ -1,0 +1,19 @@
+# Node and VitePress
+node_modules/
+dist/
+docs/.vitepress/cache/
+
+# Generated into the site (see scripts/copy-runtime.mjs and scripts/build-lab.sh)
+docs/public/pyodide/
+docs/public/lab/
+build/
+.jupyterlite.doit.db
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store

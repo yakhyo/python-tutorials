@@ -1,0 +1,132 @@
+{
+  "module": "11 · Testing and Debugging",
+  "title": "Checkpoint: Testing and Debugging",
+  "intro": "Check that you can write useful tests, pick good test cases, use pytest, and debug with print, tracebacks, and logging.",
+  "questions": [
+    {
+      "question": "What happens when this code runs?",
+      "code": "price = 15000\nassert(price == 20000, \"wrong price\")\nprint(\"passed?\")",
+      "options": [
+        "AssertionError: wrong price",
+        "It prints passed? (with a SyntaxWarning)",
+        "SyntaxError",
+        "Nothing is printed"
+      ],
+      "answer": 1,
+      "explanation": "The parentheses make a non-empty tuple, which is always true, so the assert never fails. Write assert price == 20000, \"wrong price\".",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "Which assertion passes for 0.1 + 0.2?",
+      "options": [
+        "assert 0.1 + 0.2 == pytest.approx(0.3)",
+        "assert 0.1 + 0.2 == 0.3",
+        "assert round(0.1 + 0.2) == 0.3",
+        "assert 0.1 + 0.2 is 0.3"
+      ],
+      "answer": 0,
+      "explanation": "0.1 + 0.2 is 0.30000000000000004, so == 0.3 fails. pytest.approx (or math.isclose) compares with a tolerance.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "This prints False. What is the best way to test the average?",
+      "code": "average = (0.1 + 0.2 + 0.3) / 3\nprint(average == 0.2)",
+      "options": [
+        "assert math.isclose(average, 0.2)",
+        "assert average == 0.20000000000000004",
+        "assert int(average) == 0",
+        "assert str(average) == \"0.2\""
+      ],
+      "answer": 0,
+      "explanation": "Floats have tiny rounding errors, so compare them with math.isclose() (or pytest.approx in pytest).",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "A registration form must reject negative ages. Which is correct?",
+      "options": [
+        "assert age >= 0 in the form handler",
+        "print(\"bad\") when age is below 0",
+        "raise ValueError when age is below 0",
+        "wrap assert age >= 0 in try/except: pass"
+      ],
+      "answer": 2,
+      "explanation": "assert statements are removed when Python runs with -O, so real validation needs if and raise.",
+      "lesson": "testing-with-assert"
+    },
+    {
+      "question": "A function gives a discount for orders of 100000 som or more. Which set of test values is best?",
+      "options": [
+        "50000, 60000, 70000",
+        "99999, 100000, 100001",
+        "100000 only",
+        "200000, 300000"
+      ],
+      "answer": 1,
+      "explanation": "Bugs hide at boundaries. Testing just below, at, and just above the limit catches mistakes like > instead of >=.",
+      "lesson": "choosing-test-cases"
+    },
+    {
+      "question": "Which test is better for tax(price) = price * 12 // 100?",
+      "options": [
+        "assert tax(15000) == 15000 * 12 // 100",
+        "assert tax(15000) > 0",
+        "assert tax(15000) is not None",
+        "assert tax(15000) == 1800"
+      ],
+      "answer": 3,
+      "explanation": "An expected value copied from the code repeats its bugs. Use a plain number you worked out by hand.",
+      "lesson": "choosing-test-cases"
+    },
+    {
+      "question": "You run pytest in a folder with totals.py containing def check_total(). pytest says \"collected 0 items\". Why?",
+      "options": [
+        "pytest is not installed in this project",
+        "Test files and functions must be named test_*",
+        "The assert inside the function is wrong",
+        "Tests must be inside a TestCase class"
+      ],
+      "answer": 1,
+      "explanation": "pytest only collects files and functions whose names start with test. \"no tests ran\" is not success.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "pytest runs this test. What is the result?",
+      "code": "import pytest\ndef withdraw(balance, amount):\n    if amount > balance:\n        raise ValueError(\"not enough\")\n    return balance - amount\ndef test_too_much():\n    balance = 100\n    with pytest.raises(ValueError):\n        balance = withdraw(balance, 500)\n        assert balance == 999\n",
+      "options": [
+        "It passes, but the assert is never checked",
+        "It fails because balance is not 999",
+        "It fails with ValueError",
+        "pytest reports an error in the test"
+      ],
+      "answer": 0,
+      "explanation": "withdraw() raises inside the with block, so the next line never runs. Put checks after the with block.",
+      "lesson": "pytest-basics"
+    },
+    {
+      "question": "What appears on the screen when this script runs?",
+      "code": "import logging\nlogging.info(\"order created\")\nlogging.warning(\"stock low\")",
+      "options": [
+        "INFO:root:order created",
+        "Both messages",
+        "Nothing",
+        "WARNING:root:stock low"
+      ],
+      "answer": 3,
+      "explanation": "Without basicConfig the level is WARNING, so info() messages are dropped.",
+      "lesson": "debugging-and-logging"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "x = 7\nitems = [\"tea\", \"bread\"]\nprint(f\"{x=} {len(items)=}\")",
+      "options": [
+        "7 2",
+        "x=7 len(items)=2",
+        "{x=} {len(items)=}",
+        "x = 7, len(items) = 2"
+      ],
+      "answer": 1,
+      "explanation": "The = inside an f-string field prints the expression text followed by its value, which is handy for print debugging.",
+      "lesson": "debugging-and-logging"
+    }
+  ]
+}

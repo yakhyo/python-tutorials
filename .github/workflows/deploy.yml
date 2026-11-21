@@ -1,0 +1,71 @@
+name: Deploy to GitHub Pages
+
+# Every push to main publishes the site. Any branch can also be published by hand:
+# Actions -> Deploy to GitHub Pages -> Run workflow, then pick the branch.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.14"
+
+      - name: Set site base path
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          if [[ "$REPO_NAME" == *.github.io ]]; then
+            echo "SITE_BASE=/" >> "$GITHUB_ENV"
+          else
+            echo "SITE_BASE=/${REPO_NAME}/" >> "$GITHUB_ENV"
+          fi
+
+      - name: Install packages used by module 11-13 examples
+        run: python -m pip install --quiet numpy pandas matplotlib pytest
+
+      - name: Run lesson code examples
+        env:
+          PYTHON: python
+          MPLBACKEND: Agg
+        run: python scripts/examples.py
+
+      - run: npm ci
+
+      - name: Build the Python Lab (JupyterLite)
+        run: bash scripts/build-lab.sh
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

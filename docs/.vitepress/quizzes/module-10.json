@@ -1,0 +1,135 @@
+{
+  "module": "10 · Object-Oriented Design",
+  "title": "Checkpoint: Object-Oriented Design",
+  "intro": "Check that you can choose between inheritance and composition, use ABCs, dataclasses, and enums, and read type hints correctly.",
+  "questions": [
+    {
+      "question": "What happens on the last line?",
+      "code": "class Employee:\n    def __init__(self, name):\n        self.name = name\n\nclass Manager(Employee):\n    def __init__(self, name, team_size):\n        self.team_size = team_size\n\nboss = Manager(\"Dilnoza\", 5)\nprint(boss.name)",
+      "options": [
+        "It prints Dilnoza",
+        "It prints None",
+        "AttributeError",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "Defining __init__ in the child replaces the parent's, so self.name is never set. Call super().__init__(name) first.",
+      "lesson": "inheritance"
+    },
+    {
+      "question": "Which hint says that scores is a list of integers or None?",
+      "options": [
+        "scores: list[int] | None",
+        "scores: List[int, None]",
+        "scores: list | None[int]",
+        "scores: Optional(list[int])"
+      ],
+      "answer": 0,
+      "explanation": "On modern Python, list[int] is the built-in generic and X | None means 'X or None'. Optional[X] from typing is the older spelling of the same thing.",
+      "lesson": "type-hints"
+    },
+    {
+      "question": "What happens when this code runs?",
+      "code": "from abc import ABC, abstractmethod\nclass Shape(ABC):\n    @abstractmethod\n    def area(self): ...\nclass Square(Shape):\n    def __init__(self, side):\n        self.side = side\n    def Area(self):\n        return self.side ** 2\nprint(Square(3).Area())",
+      "options": [
+        "It prints 9",
+        "It prints None",
+        "TypeError",
+        "AttributeError"
+      ],
+      "answer": 2,
+      "explanation": "Area with a capital A is a different name, so area is still abstract and the ABC refuses to create a Square.",
+      "lesson": "polymorphism-and-abcs"
+    },
+    {
+      "question": "An Order class needs to write log messages using a Logger class. Which design is best?",
+      "options": [
+        "class Order(Logger): inherit from it",
+        "Give Order a logger attribute",
+        "Copy the log method into Order",
+        "class Logger(Order): make Logger a child"
+      ],
+      "answer": 1,
+      "explanation": "An order is not a logger, so it fails the is-a test. An order has a logger, which is composition.",
+      "lesson": "composition"
+    },
+    {
+      "question": "What happens on the last line?",
+      "code": "from dataclasses import dataclass, field\n\n@dataclass(frozen=True)\nclass Point:\n    x: int\n    tags: list = field(default_factory=list)\n\np = Point(1)\np.x = 5",
+      "options": [
+        "It sets p.x to 5",
+        "FrozenInstanceError",
+        "TypeError",
+        "It creates a new Point"
+      ],
+      "answer": 1,
+      "explanation": "frozen=True makes the dataclass immutable: assigning to a field raises dataclasses.FrozenInstanceError. field(default_factory=list) gives each instance its own list.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from dataclasses import dataclass\n\n@dataclass\nclass Book:\n    title: str\n    pages = 100\n\nprint(Book(\"Days Gone By\"))",
+      "options": [
+        "Book(title='Days Gone By', pages=100)",
+        "TypeError",
+        "Book(title='Days Gone By')",
+        "Book('Days Gone By')"
+      ],
+      "answer": 2,
+      "explanation": "Without an annotation, pages is only a class attribute, not a field, so it is missing from __init__ and the repr.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from dataclasses import dataclass, field\n\n@dataclass(order=True)\nclass Score:\n    points: int\n    name: str = field(compare=False)\n\nscores = [Score(90, \"Aziza\"), Score(75, \"Bekzod\"), Score(90, \"Anvar\")]\nprint(max(scores).name, Score(90, \"X\") == Score(90, \"Y\"))",
+      "options": [
+        "Aziza True",
+        "Anvar True",
+        "Aziza False",
+        "TypeError"
+      ],
+      "answer": 0,
+      "explanation": "With compare=False, only points is compared. Two scores tie at 90, and max() returns the first one it finds.",
+      "lesson": "dataclasses"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from enum import Enum\n\nclass Status(Enum):\n    PAID = \"paid\"\n\nstatus = Status(\"paid\")\nprint(status == \"paid\", status is Status.PAID)",
+      "options": [
+        "True True",
+        "True False",
+        "False False",
+        "False True"
+      ],
+      "answer": 3,
+      "explanation": "A plain Enum member is never equal to its raw value. Status(\"paid\") looks up the member, so the is check is True.",
+      "lesson": "enums"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from enum import Enum\n\nclass Size(Enum):\n    SMALL = \"S\"\n    LARGE = \"L\"\n\nprint(Size[\"SMALL\"].value, Size(\"L\").name)",
+      "options": [
+        "SMALL L",
+        "S LARGE",
+        "S L",
+        "ValueError"
+      ],
+      "answer": 1,
+      "explanation": "Square brackets look up by name and parentheses by value. .value gives \"S\" and .name gives \"LARGE\".",
+      "lesson": "enums"
+    },
+    {
+      "question": "The hint says list[int], but a tuple is passed. What happens?",
+      "code": "def average(scores: list[int]) -> float:\n    return sum(scores) / len(scores)\n\nprint(average((80, 90)))",
+      "options": [
+        "TypeError",
+        "It prints 85",
+        "A type checker error stops the program",
+        "It prints 85.0"
+      ],
+      "answer": 3,
+      "explanation": "Type hints are not checked at runtime, so the tuple works fine. Only a separate type checker would complain.",
+      "lesson": "type-hints"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 236 40" width="236" height="40">
+  <title>codeuz</title>
+  <path d="M8 8l12 12l-12 12M30 8l12 12l-12 12M52 8l12 12l-12 12" fill="none" stroke="#2563eb" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="72" y="27" width="18" height="6" rx="2" fill="#1f2328"/>
+  <text x="106" y="31" font-family="Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="-0.6" fill="#1f2328">code<tspan fill="#2563eb">uz</tspan></text>
+</svg>

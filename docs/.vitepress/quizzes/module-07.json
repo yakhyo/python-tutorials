@@ -1,0 +1,135 @@
+{
+  "module": "07 · Modules and the Standard Library",
+  "title": "Checkpoint: Modules and the Standard Library",
+  "intro": "Check that you can import modules and use math, random, statistics, datetime, and collections.",
+  "questions": [
+    {
+      "question": "What happens when you run this code?",
+      "code": "from math import sqrt\n\nprint(math.sqrt(25))",
+      "options": [
+        "NameError",
+        "It prints 5.0",
+        "ImportError",
+        "AttributeError"
+      ],
+      "answer": 0,
+      "explanation": "from math import sqrt defines only the name sqrt, not math. Write sqrt(25), or use import math.",
+      "lesson": "modules-and-imports"
+    },
+    {
+      "question": "Bekzod saves his dice game as random.py, and random.randint suddenly stops working. Why?",
+      "options": [
+        "random is not part of the standard library",
+        "Files cannot contain the word import",
+        "Python finds his own random.py first, instead of the real module",
+        "He must write import random.py"
+      ],
+      "answer": 2,
+      "explanation": "Python looks in the script's own folder first. Rename the file to something like dice_game.py.",
+      "lesson": "modules-and-imports"
+    },
+    {
+      "question": "What does if __name__ == \"__main__\": let you do?",
+      "options": [
+        "Make the functions in the file run faster",
+        "Run code only when the file is run directly",
+        "Import every name from another module",
+        "Mark the first function Python should read"
+      ],
+      "answer": 1,
+      "explanation": "When another file imports your module, __name__ is the module name, so the code under this check is skipped.",
+      "lesson": "modules-and-imports"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import math\n\nprint(math.floor(-3.7), math.ceil(-3.7))",
+      "options": [
+        "-3 -4",
+        "-4 -4",
+        "-3 -3",
+        "-4 -3"
+      ],
+      "answer": 3,
+      "explanation": "floor always goes down and ceil always goes up, even for negative numbers.",
+      "lesson": "math-random-statistics"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import random\n\nnames = [\"Aziza\", \"Bekzod\", \"Dilnoza\"]\nshuffled = random.shuffle(names)\nprint(shuffled)",
+      "options": [
+        "['Aziza', 'Bekzod', 'Dilnoza']",
+        "A shuffled list",
+        "None",
+        "TypeError"
+      ],
+      "answer": 2,
+      "explanation": "shuffle changes the list in place and returns None. Use names after shuffling, or random.sample() for a new list.",
+      "lesson": "math-random-statistics"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "import statistics\n\nprint(statistics.median([3, 1, 4, 10]))",
+      "options": [
+        "3.5",
+        "4.5",
+        "4",
+        "3"
+      ],
+      "answer": 0,
+      "explanation": "median sorts the data first (1, 3, 4, 10) and averages the two middle values. 4.5 would be the mean.",
+      "lesson": "math-random-statistics"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from datetime import date, timedelta\n\nd = date(2026, 9, 15) + timedelta(days=20)\nprint(d)",
+      "options": [
+        "2026-09-35",
+        "TypeError",
+        "2026-10-15",
+        "2026-10-05"
+      ],
+      "answer": 3,
+      "explanation": "timedelta handles month lengths for you: 20 days after 15 September is 5 October.",
+      "lesson": "dates-and-times"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from collections import Counter\n\nletters = Counter(\"banana\")\nprint(letters.most_common(1))",
+      "options": [
+        "[('b', 1)]",
+        "[('a', 3)]",
+        "[('n', 2)]",
+        "{'a': 3}"
+      ],
+      "answer": 1,
+      "explanation": "Counter counts each letter, and most_common(1) returns a list with the single most frequent (item, count) pair.",
+      "lesson": "collections-and-itertools"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from collections import defaultdict\n\ntotals = defaultdict(int)\nprint(totals[\"Nukus\"], len(totals))",
+      "options": [
+        "0 1",
+        "KeyError",
+        "0 0",
+        "None 1"
+      ],
+      "answer": 0,
+      "explanation": "Reading a missing key from a defaultdict inserts it with the default value, so the lookup returns 0 and the dictionary now has one entry. Use 'Nukus' in totals or totals.get('Nukus', 0) to look without inserting.",
+      "lesson": "collections-and-itertools"
+    },
+    {
+      "question": "What does this code print?",
+      "code": "from datetime import datetime\n\nd = datetime(2026, 9, 15, 14, 30)\nprint(d.strftime(\"%d.%M.%Y\"))",
+      "options": [
+        "15.09.2026",
+        "15.30.2026",
+        "15.9.2026",
+        "ValueError"
+      ],
+      "answer": 1,
+      "explanation": "%M is minutes; the month is %m (lowercase). A wrong code does not raise an error, it just formats the wrong field.",
+      "lesson": "dates-and-times"
+    }
+  ]
+}
