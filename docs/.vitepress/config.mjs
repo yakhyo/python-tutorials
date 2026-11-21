@@ -194,7 +194,7 @@ export default defineConfig({
    label: 'Özbekça', lang: 'uz', link: '/uz/',
    description: 'Pythonni noldan örganing: tuşunarli izohlar, brauzerda işlaydigan misollar va maşqlar.',
    themeConfig: {
-    nav: [{ text: 'Darslar', link: `/uz/lessons/${courseUz[0].slug}` }, { text: 'Sinov maydonçasi', link: '/uz/playground' }, { text: 'Laboratoriya', link: '/uz/lab' }, { text: 'Darsliklar', items: [{ text: 'Python darslari', link: '/uz/' }, { text: 'Data Structures & Algorithms', link: 'https://codeuz-edu.github.io/data-structures-and-algorithms/' }, { text: 'Algorithms Roadmap', link: 'https://codeuz-edu.github.io/algorithms-roadmap/' }, { text: 'Pythonda SOLID tamoyillari', link: 'https://codeuz-edu.github.io/solid-python/' }] }],
+    nav: [{ text: 'Darslar', link: `/uz/lessons/${courseUz[0].slug}` }, { text: 'Sinov maydonçasi', link: '/uz/playground' }, { text: 'Laboratoriya', link: '/uz/lab' }, { text: 'Darsliklar', items: [{ text: 'Python darslari', link: '/uz/' }, { text: 'Advanced Python', link: 'https://codeuz-edu.github.io/python-advanced/uz/' }, { text: 'Data Structures & Algorithms', link: 'https://codeuz-edu.github.io/data-structures-and-algorithms/' }, { text: 'Algorithms Roadmap', link: 'https://codeuz-edu.github.io/algorithms-roadmap/' }] }],
     siteTitle: '<span class="site-brand">code<span class="site-tld">uz</span></span><span class="site-course">Python darslari</span>',
     sidebar: sidebarUz,
     outline: { label: 'Bu sahifada', level: [2, 3] },
@@ -208,7 +208,7 @@ export default defineConfig({
    label: 'English', lang: 'en', link: '/en/',
    description: 'Learn Python from scratch with clear explanations, runnable examples, and exercises.',
    themeConfig: {
-    nav: [{ text: 'Lessons', link: `/en/lessons/${courseEn[0].slug}` }, { text: 'Playground', link: '/en/playground' }, { text: 'Lab', link: '/en/lab' }, { text: 'Courses', items: [{ text: 'Python Tutorials', link: '/en/' }, { text: 'Data Structures & Algorithms', link: 'https://codeuz-edu.github.io/data-structures-and-algorithms/' }, { text: 'Algorithms Roadmap', link: 'https://codeuz-edu.github.io/algorithms-roadmap/' }, { text: 'SOLID Principles in Python', link: 'https://codeuz-edu.github.io/solid-python/' }] }],
+    nav: [{ text: 'Lessons', link: `/en/lessons/${courseEn[0].slug}` }, { text: 'Playground', link: '/en/playground' }, { text: 'Lab', link: '/en/lab' }, { text: 'Courses', items: [{ text: 'Python Tutorials', link: '/en/' }, { text: 'Advanced Python', link: 'https://codeuz-edu.github.io/python-advanced/en/' }, { text: 'Data Structures & Algorithms', link: 'https://codeuz-edu.github.io/data-structures-and-algorithms/' }, { text: 'Algorithms Roadmap', link: 'https://codeuz-edu.github.io/algorithms-roadmap/' }] }],
     siteTitle: '<span class="site-brand">code<span class="site-tld">uz</span></span><span class="site-course">Python Tutorials</span>',
     sidebar: sidebarEn,
     outline: { label: 'On this page', level: [2, 3] },
